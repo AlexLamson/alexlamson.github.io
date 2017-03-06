@@ -1,0 +1,11 @@
+{
+  "name": "alexlamson",
+  "version": "0.0.1",
+  "scripts": {
+    "serve": "./node_modules/.bin/http-server -c-1"
+  },
+  "author": "Alex Lamson <alex.lamson@gmail.com>",
+  "devDependencies": {
+    "http-server": "^0.9.0"
+  }
+}
