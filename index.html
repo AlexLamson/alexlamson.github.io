@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- The above 3 meta tags *must* come first in the head;
-         any other head content must come *after* these tags -->
+		 any other head content must come *after* these tags -->
 
-    <title>Alex Lamson</title>
+	<title>Alex Lamson</title>
 
-    <!-- Bootstrap's CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+	<!-- Bootstrap's CSS -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Ensure favicon loads for any device -->
+	<!-- Custom CSS -->
+	<link href="css/alexlamson.css" rel="stylesheet">
+
+	<!-- Ensure favicon loads for any device -->
 	<link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
 	<link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
 	<link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
@@ -34,11 +37,40 @@
 
 </head>
 <body>
-	<h1>Hello World</h1>
-	<p>I'm hosted with GitHub Pages.</p>
+	<!-- <h1>Hello World</h1> -->
+	<!-- <p>I'm hosted with GitHub Pages.</p> -->
 
+	<!-- div containing all the content -->
+	<div class="container">
+		<!-- Information about me -->
+		<div class="row col-md-10 al-about-me">
+			<!-- Picture of me -->
+			<div class="col-md-2 al-profile-picture-container">
+				<div class="al-profile-picture img-circle"></div>
+			</div>
 
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.min.js"></script>
+			<!-- My name and quick summary -->
+			<div class="col-md-9 al-bio-area">
+				<div class="row">
+					<div class="al-profile-name">
+						Alex Lamson
+					</div>
+				</div>
+				<div class="row al-bio">
+					<p>Cupcake ipsum dolor sit. Amet marshmallow chocolate cake lollipop. Donut oat cake cookie sweet roll croissant. Toffee tart jelly.</p>
+					<p>Powder marzipan I love toffee. Lollipop chupa chups candy canes icing biscuit. Cake cake marzipan. Jujubes jelly I love donut sugar plum chocolate bar cheesecake tiramisu.</p>
+					<p>Ice cream tiramisu dessert croissant toffee. Jelly-o liquorice pudding. Brownie muffin chupa chups biscuit pastry. Caramels marzipan liquorice carrot cake muffin caramels biscuit caramels.</p>
+				</div>
+			</div>
+			
+		</div>
+
+		<!-- Other information -->
+		<div class="row">
+		</div>
+	</div>
+
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.min.js"></script>
 </body>
 </html>
