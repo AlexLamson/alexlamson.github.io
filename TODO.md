@@ -1,11 +1,16 @@
 # To Do
- - home/about
- - projects
+
+## General
+ - Link to how to make a site this one
+
+## Add nav-tabs
+ - Home/About
+ - Projects
   - LED matrix genetic algorithm project
   - temperature sensor project
- - gallery
+ - Gallery
   - animated images I generated
- - contact
+ - Contact
   - Add linkedin
   - Add github
   - Add email
