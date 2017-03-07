@@ -1,4 +1,12 @@
 # To Do
-move all favicon-related stuff into a directory
-
-
+ - home/about
+ - projects
+  - LED matrix genetic algorithm project
+  - temperature sensor project
+ - gallery
+  - animated images I generated
+ - contact
+  - Add linkedin
+  - Add github
+  - Add email
+  - Add phone
