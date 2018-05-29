@@ -1,11 +1,14 @@
 body {
+	/*background-image: url('./img/AlexLamson.jpg');*/
 	padding-top: 60px;
 
 	/*light grayish blue*/
 	background-color: #e9eaed;
 }
 
-.al-about-me {
+.al-info-panel {
+	margin-bottom: 20px;
+
 	padding-top: 20px;
 	padding-bottom: 20px;
 	padding-left: 20px;
@@ -30,7 +33,7 @@ body {
 }
 
 .al-profile-picture {
-	background-image: url('/img/AlexLamson.jpg');
+	background-image: url('../img/AlexLamson.jpg');
 	text-align: center;
 
 	display: inline-block;
