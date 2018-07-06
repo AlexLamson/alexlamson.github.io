@@ -13,12 +13,12 @@ function setup() {
   // console.log(canvasDiv.width);
   // var windowSize = windowWidth-((15+20+20)*2);//290;//canvasDiv.offsetWidth;
 
-  // var windowSize = min(windowWidth, windowHeight);
-  // var scaling = 1;
-  // var myCanvas = createCanvas(windowSize*scaling, windowSize*scaling);
+  var windowSize = min(windowWidth, windowHeight);
+  var scaling = 0.5;
+  var myCanvas = createCanvas(windowSize*scaling, windowSize*scaling);
 
-  var scaling = 0.7;
-  var myCanvas = createCanvas(windowWidth*scaling, windowHeight*scaling);
+  // var scaling = 0.7;
+  // var myCanvas = createCanvas(windowWidth*scaling, windowHeight*scaling);
 
   myCanvas.parent("wandering-dot-div");
   // createCanvas(windowWidth, windowHeight);
