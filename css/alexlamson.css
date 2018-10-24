@@ -12,16 +12,7 @@ body {
 }
 
 .al-profile-picture {
-	background-image: url('../img/AlexLamson.jpg');
-	text-align: center;
-
-	display: inline-block;
-	vertical-align: middle;
-	width: 200px;
-	height: 200px;
-	background-position: center center;
-	background-size: cover;
-	padding: 0px;
+	width:100%;
 }
 
 .al-bio-area {
