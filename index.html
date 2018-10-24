@@ -41,6 +41,7 @@
 	<link rel="shortcut icon" href="./favicon/favicon.ico" type="image/x-icon">
 	<!-- <meta name="theme-color" content="#ffffff"> -->
 </head>
+
 <body>
 	<!-- div containing all the content -->
 	<div class="container-fluid">
@@ -49,18 +50,16 @@
 		<!-- Information about me -->
 		<div class="row col-md-10 al-info-panel">
 			<!-- Picture of me -->
-			<div class="col-md-1 al-profile-picture-container">
-				<div class="al-profile-picture img-circle"></div>
-			</div>
+ 			<div class="col-md-1 al-profile-picture img-circle"></div>
 
 			<!-- My name and quick summary -->
 			<div class="col-md-9 al-bio-area">
 				<div class="row">
-					<div class="al-profile-name">
+					<h1>
 						Alex Lamson
-					</div>
+					</h1>
 				</div>
-				<div class="row al-bio">
+				<div class="row">
 					Hi, I'm a first year Computer Science grad student at University of Massachusetts Amherst.
 					<!-- <p>Cupcake ipsum dolor sit. Amet marshmallow chocolate cake lollipop. Donut oat cake cookie sweet roll croissant. Toffee tart jelly.</p>
 					<p>Powder marzipan I love toffee. Lollipop chupa chups candy canes icing biscuit. Cake cake marzipan. Jujubes jelly I love donut sugar plum chocolate bar cheesecake tiramisu.</p>
@@ -70,20 +69,23 @@
 		</div>
 
 
-		<!-- p5.js sketch -->
-		<div class="row col-md-10 al-info-panel" id="wandering-dot-div">
+		<!-- Projects -->
+		<div class="row col-md-10 al-info-panel">
 			<p>
-				<b>Wandering Dot sketch</b> (written in <a href="https://p5js.org/">p5.js</a>) (see more of my sketches <a href="https://www.openprocessing.org/user/121562#sketches">here</a>)
+				<b>Projects</b>
 			</p>
-			<script src="js/sketches/wandering_dot.js"></script>
+			<p>
+				<ul>
+				<li><a href="https://sites.google.com/umass.edu/ledcube/home">LED Cube</a></li>
+				</ul>
+			</p>
 		</div>
 
 
 		<!-- List of my profiles on different websites -->
 		<div class="row col-md-10 al-info-panel">
 			<p>
-				<b>Links</b><br>
-				https://sites.google.com/umass.edu/ledcube/home
+				<b>Links</b>
 			</p>
 
 			<ul>
@@ -122,9 +124,24 @@
 		</div>
 
 
-		<!-- Other information -->
-		<!-- <div class="row">
-		</div> -->
+		<!-- p5.js sketch -->
+		<div class="row col-md-10 al-info-panel" id="wandering-dot-div">
+			<p>
+				<b>Wandering Dot sketch</b> (written in <a href="https://p5js.org/">p5.js</a>) (see more of my sketches <a href="https://www.openprocessing.org/user/121562#sketches">here</a>)
+			</p>
+			<script src="js/sketches/wandering_dot.js"></script>
+		</div>
+
+
 	</div> <!-- end of container -->
 </body>
+
+<footer>
+	<div class="container-fluid">
+		<div class="footer-line">
+			<p>Last Updated October 2018</p>
+		</div>
+	</div>
+</footer>
+
 </html>
