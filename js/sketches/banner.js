@@ -5,7 +5,7 @@ var bannerSketch = function( p ) { // p could be any variable name
   p.setup = function() {
     var windowSize = p.min(p.windowWidth, p.windowHeight);
     var scaling = 0.2;
-    p.createCanvas(p.windowWidth-15, windowSize*scaling);
+    p.createCanvas(p.windowWidth-1*(15), windowSize*scaling);
   };
 
   p.draw = function() {

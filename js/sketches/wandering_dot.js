@@ -8,7 +8,9 @@ var wanderingDotSketch = function( p ) {
   p.setup = function() {
     var windowSize = p.min(p.windowWidth, p.windowHeight);
     var scaling = 0.5;
-    p.createCanvas(windowSize*scaling, windowSize*scaling);
+    // p.createCanvas(windowSize*scaling, windowSize*scaling);
+    // console.log(p.windowWidth);
+    p.createCanvas(p.windowWidth-2*(20+20+15)-15, windowSize*scaling);
     p.colorMode(p.HSL, 255);
   };
 
