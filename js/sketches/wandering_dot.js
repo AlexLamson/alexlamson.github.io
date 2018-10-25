@@ -15,7 +15,8 @@ var wanderingDotSketch = function( p ) {
   };
 
   p.draw = function() {
-    p.background(0);
+    // p.background(0);
+    p.background(0, 0, 0, 50);
     
 
     x = p.map(p.noise(xoff1),0,1,0,p.width);
