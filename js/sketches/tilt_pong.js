@@ -48,7 +48,7 @@ var my_sketch = function( p ) {
     p.text("High score: "+best_streak, 10, 3*font_size);
 
     // move the paddle
-    if(p.rotationY === null) {
+    if(p.rotationY === null || p.rotationY == 0) {
       paddle_x = p.constrain(p.mouseX, paddle_size/2, p.width-paddle_size/2);
       p.noCursor();
 
