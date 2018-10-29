@@ -14,6 +14,12 @@ var wanderingDotSketch = function( p ) {
     p.colorMode(p.HSL, 255);
   };
 
+  p.windowResized = function(){
+    var windowSize = p.min(p.windowWidth, p.windowHeight);
+    var scaling = 0.5;
+    p.resizeCanvas(p.windowWidth-2*(20+20+15)-15, windowSize*scaling);
+  }
+
   p.draw = function() {
     // p.background(0);
     p.background(0, 0, 0, 50);
@@ -46,12 +52,6 @@ var wanderingDotSketch = function( p ) {
     p.fill(h, 255, 180);
     p.ellipse(x,y,10,10);
 
-  };
-
-  window.onresize = function() {
-    var windowSize = p.min(p.windowWidth, p.windowHeight);
-    var scaling = 0.5;
-    p.resizeCanvas(p.windowWidth-2*(20+20+15)-15, windowSize*scaling);
   };
 };
 var myp5 = new p5(wanderingDotSketch, 'wandering-dot-div');

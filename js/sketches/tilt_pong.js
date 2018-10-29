@@ -29,11 +29,11 @@ var tiltPongSketch = function( p ) {
     p.reset();
   };
 
-  window.onresize = function() {
+  p.windowResized = function(){
     var windowSize = p.min(p.windowWidth, p.windowHeight);
     var scaling = 0.5;
     p.resizeCanvas(p.windowWidth-2*(20+20+15)-15, windowSize*scaling);
-  };
+  }
 
   p.draw = function() {
     p.background(0);
