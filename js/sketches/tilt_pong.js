@@ -51,6 +51,15 @@ var my_sketch = function( p ) {
     if(p.rotationY === null) {
       paddle_x = p.constrain(p.mouseX, paddle_size/2, p.width-paddle_size/2);
       p.noCursor();
+
+      if (p.keyIsDown(p.LEFT_ARROW)) {
+        console.log("left!");
+        paddle_x -= 10;
+      }
+      else if (p.keyIsDown(p.RIGHT_ARROW)) {
+        console.log("right!");
+        paddle_x += 10;
+      }
     }
     else {
       paddle_x = p.map(p.constrain(p.rotationY, -45, 45), -45, 45, 0, p.width);
