@@ -1,23 +1,24 @@
-var wanderingDotSketch = function( p ) { 
+var sketch_div = 'wandering-dot-div';
+var my_sketch = function( p ) { 
+  var canvas;
+
   var xoff1 = 0.0;
   var xoff2 = 1000.0;
   var xoff3 = 2000.0;
   var h = 0;
-  var canvas;
 
   p.setup = function() {
     var windowSize = p.min(p.windowWidth, p.windowHeight);
-    var scaling = 0.5;
-    // p.createCanvas(windowSize*scaling, windowSize*scaling);
-    // console.log(p.windowWidth);
-    canvas = p.createCanvas(p.windowWidth-2*(20+20+15)-15, windowSize*scaling);
+    var canvasDiv = document.getElementById(sketch_div);
+    var sketchCanvas = p.createCanvas(canvasDiv.clientWidth-40, windowSize*0.5);
+
     p.colorMode(p.HSL, 255);
   };
 
   p.windowResized = function(){
     var windowSize = p.min(p.windowWidth, p.windowHeight);
-    var scaling = 0.5;
-    p.resizeCanvas(p.windowWidth-2*(20+20+15)-15, windowSize*scaling);
+    var canvasDiv = document.getElementById(sketch_div);
+    p.resizeCanvas(canvasDiv.clientWidth-40, windowSize*0.5);
   }
 
   p.draw = function() {
@@ -54,4 +55,4 @@ var wanderingDotSketch = function( p ) {
 
   };
 };
-var myp5 = new p5(wanderingDotSketch, 'wandering-dot-div');
+var myp5 = new p5(my_sketch, sketch_div);

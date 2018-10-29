@@ -1,5 +1,7 @@
-var tiltPongSketch = function( p ) { 
+var sketch_div = 'tilt-pong-div';
+var my_sketch = function( p ) { 
   var canvas;
+
   var paddle_x; //center of paddle
   var ball_x, ball_y; //position of top-left side of ball
   var ball_vx, ball_vy;
@@ -23,16 +25,17 @@ var tiltPongSketch = function( p ) {
 
   p.setup = function() {
     var windowSize = p.min(p.windowWidth, p.windowHeight);
-    var scaling = 0.5;
-    canvas = p.createCanvas(p.windowWidth-2*(20+20+15)-15, windowSize*scaling);
+    var canvasDiv = document.getElementById(sketch_div);
+    var sketchCanvas = p.createCanvas(canvasDiv.clientWidth-40, windowSize*0.5);
+
     paddle_x = p.width/2;
     p.reset();
   };
 
   p.windowResized = function(){
     var windowSize = p.min(p.windowWidth, p.windowHeight);
-    var scaling = 0.5;
-    p.resizeCanvas(p.windowWidth-2*(20+20+15)-15, windowSize*scaling);
+    var canvasDiv = document.getElementById(sketch_div);
+    p.resizeCanvas(canvasDiv.clientWidth-40, windowSize*0.5);
   }
 
   p.draw = function() {
@@ -109,4 +112,4 @@ var tiltPongSketch = function( p ) {
     p.ellipse(ball_x-ball_size/2, ball_y-ball_size/2, ball_size, ball_size);
   };
 };
-var myp5 = new p5(tiltPongSketch, 'tilt-pong-div');
+var myp5 = new p5(my_sketch, sketch_div);
