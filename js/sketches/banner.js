@@ -1,4 +1,4 @@
-var bannerSketch = function( p ) { // p could be any variable name
+var bannerSketch = function( p ) {
   var x = 0.0, y = 0.0;
   var vx = 1.0, vy = 2.0;
   var r = 10;

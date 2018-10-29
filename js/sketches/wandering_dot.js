@@ -1,4 +1,3 @@
-// Sketch Two
 var wanderingDotSketch = function( p ) { 
   var xoff1 = 0.0;
   var xoff2 = 1000.0;
