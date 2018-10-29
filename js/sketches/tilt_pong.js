@@ -52,13 +52,16 @@ var my_sketch = function( p ) {
       paddle_x = p.constrain(p.mouseX, paddle_size/2, p.width-paddle_size/2);
       p.noCursor();
 
-      if (p.keyIsDown(p.LEFT_ARROW)) {
-        console.log("left!");
-        paddle_x -= 10;
+      var speed = 1;
+      if (p.keyIsDown(p.SHIFT)) {
+        speed = 2;
       }
-      else if (p.keyIsDown(p.RIGHT_ARROW)) {
-        console.log("right!");
-        paddle_x += 10;
+
+      if (p.keyIsDown(p.LEFT_ARROW) || p.key == 'a') {
+        paddle_x -= 10*speed;
+      }
+      if (p.keyIsDown(p.RIGHT_ARROW) || p.key == 'd') {
+        paddle_x += 10*speed;
       }
     }
     else {
