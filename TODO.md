@@ -1,17 +1,12 @@
 # To Do
 
-## General
- - Link to how to make a site this one
-
-## Add nav-tabs
- - Home/About
+## To Add
+ - Explain how to make a site like this one
  - Projects
-  - LED matrix genetic algorithm project
-  - temperature sensor project
+  - scala-image
+  - rpi-greeter with some relevant image
  - Gallery
-  - animated images I generated
- - Contact
-  - Add linkedin
-  - Add github
-  - Add email
-  - Add phone
+  - all my generative art
+
+## To Change
+ - Rewrite stretches.html to use p5 so the code can be a little nicer
