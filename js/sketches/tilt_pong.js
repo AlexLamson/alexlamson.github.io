@@ -26,7 +26,7 @@ var my_sketch = function( p ) {
   p.setup = function() {
     var windowSize = p.min(p.windowWidth, p.windowHeight);
     var canvasDiv = document.getElementById(sketch_div);
-    var sketchCanvas = p.createCanvas(canvasDiv.clientWidth-5, windowSize*0.5);
+    var sketchCanvas = p.createCanvas(canvasDiv.clientWidth, windowSize*0.5);
 
     paddle_x = p.width/2;
     p.reset();
@@ -35,7 +35,7 @@ var my_sketch = function( p ) {
   p.windowResized = function(){
     var windowSize = p.min(p.windowWidth, p.windowHeight);
     var canvasDiv = document.getElementById(sketch_div);
-    p.resizeCanvas(canvasDiv.clientWidth-5, windowSize*0.5);
+    p.resizeCanvas(canvasDiv.clientWidth, windowSize*0.5);
   }
 
   p.draw = function() {
