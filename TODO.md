@@ -10,3 +10,4 @@
 
 ## To Change
  - Rewrite stretches.html to use p5 so the code can be a little nicer
+ - Make tilt-pong not go to .html
