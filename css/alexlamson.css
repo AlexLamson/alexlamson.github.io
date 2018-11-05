@@ -1,14 +1,6 @@
 body {
-	/*padding-top: 20px;*/
+	padding-top: 20px;
 	background-color: #e9eaed;
-}
-
-.al-info-panel {
-	border-radius: 10px;
-	padding: 20px;
-	margin: 20px;
-	margin-top: 0px;
-	background-color: #ffffff;
 }
 
 .al-profile-picture {
@@ -20,10 +12,26 @@ body {
 	font-size: 20px;
 }
 
-.bar {
-	margin-left: 10px;
-	margin-right: 10px;
+.social-bar {
+	margin-left: 5px;
+	margin-right: 5px;
 	font-size: 25px;
+}
+
+.social-button {
+	margin-right: 5px;
+}
+
+.al-info-panel {
+	border-radius: 10px;
+	padding: 20px;
+	margin: 20px;
+	margin-top: 0px;
+	background-color: #ffffff;
+}
+
+.al-project {
+	padding-bottom: 30px;
 }
 
 h2 {
