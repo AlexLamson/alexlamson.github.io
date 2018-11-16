@@ -1,16 +1,18 @@
-refreshInterval = 10*1000;
+refreshInterval = 60*1000;
 walkToBusStopInMinutes = 15;
 
 //https://github.com/umts/BusInfoBoard
 // https://bustracker.pvta.com/InfoPoint/swagger/ui/index#!/StopDepartures/StopDepartures_Get_GET
 function updateTimes() {
-	$('#times-display').html(function(i, oldText) {
-		return "";
-	});
-
 	$.ajax({
 		url: "https://bustracker.pvta.com/InfoPoint/rest/StopDepartures/Get/32",
 		success: function(data) {
+			// $('#times-display').html(function(i, oldText) {
+			// 	return "<table><tr><th>Punctuality</th><th>Departure time</th></tr>";
+			// });
+			html_content = "<table><tr><th>Punctuality</th><th>Departure time</th></tr>";
+
+
 			RouteDirections = data[0]['RouteDirections'];
 			for(var i = 0; i < RouteDirections.length; i++) {
 				Departures = RouteDirections[i]['Departures'];
@@ -62,15 +64,30 @@ function updateTimes() {
 						ANSWER = hours + ' hr ' + minutes + ' min';
 					}
 
+					// console.log(ANSWER);
+					// $('#times-display').html(function(i, oldText) {
+					// 	return oldText+ANSWER+"<br/>\n";
+					// });
+
 					/* It takes 8 minutes from the time I get on the bus to the time I get into work.
 					 * Use this information to make a "EARLY" "LATE" "ON TIME" based on my schedule
 					*/
-					// console.log(ANSWER);
-					$('#times-display').html(function(i, oldText) {
-						return oldText+ANSWER+"<br/>\n";
-					});
+					punctuality = "TO DO";
+
+					// $('#times-display').html(function(i, oldText) {
+					// 	return oldText+"<tr><td>"+punctuality+"</td><td>"+ANSWER+"</td></tr>\n";
+					// });
+					html_content += "<tr><td>"+punctuality+"</td><td align=\"right\">"+ANSWER+"</td></tr>\n"
 				}
+
 			}
+
+			// $('#times-display').html(function(i, oldText) {
+			// 	return oldText+"</table>";
+			// });
+			html_content += "</table>";
+
+			$('#times-display').html(html_content);
 		},
 		timeout: 1000,
 		error: function(){
@@ -78,6 +95,7 @@ function updateTimes() {
 			console.log("bus track call timed out");
 		}
 	});
+
 }
 
 function startRefreshing() {
