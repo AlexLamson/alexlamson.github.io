@@ -10,18 +10,26 @@
 			gtag('config', 'UA-61548012-2');
 		</script>
 
+		<script src="http://umts.github.io/BusInfoBoard/js/jquery-1.11.0.min.js"></script>
+		<script src="http://umts.github.io/BusInfoBoard/js/moment.min.js"></script>
+		<script src="js/bus.js"></script>
 	</head>
 	<body>
+		<h1>
+		Bus Tracker
+		</h1>
 
+		<!-- https://darksky.net/widgets/small -->
 		<script type='text/javascript' src='https://darksky.net/widget/default-small/42.3804,-72.5231/us12/en.js?width=150&height=80'></script>
 
-		<h3 style='margin:0px;'>
-			15 min walk to the bus-stop
-		</h3>
-
 		<br/>
+		<a href="https://www.umass.edu/closing/">Closing information</a>
 
-		<iframe src="http://umts.github.io/BusInfoBoard/?stops=32&interval=10&disable_alternation=true&default_time_display=interval" width=100% height=70% frameBorder=0></iframe>
+		<p>
+			<h3>Departure Times</h3>
+			<div id="times-display"></div>
+		</p>
 
+		
 	</body>
 </html>
