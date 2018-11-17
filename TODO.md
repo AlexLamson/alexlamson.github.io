@@ -7,6 +7,7 @@
   - rpi-greeter with some relevant image
  - Gallery
   - all my generative art
+ - Commit all my code to the scala-image repo
 
 ## To Change
  - Rewrite stretches.html to use p5 so the code can be a little nicer
