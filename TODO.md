@@ -4,7 +4,6 @@
  - Explain how to make a site like mine
  - Projects
   - rpi-greeter
-  - subreddit predictor
   - ESP8266 GA display
  - Maybe add a date to each project, see if it looks nice
  - Gallery
