@@ -4,9 +4,7 @@
  - Explain how to make a site like mine
  - Projects
   - rpi-greeter
-  - room localization from audio
   - subreddit predictor
-  - Data wrangler
   - ESP8266 GA display
  - Maybe add a date to each project, see if it looks nice
  - Gallery
@@ -16,5 +14,4 @@
 ## To Change
  - Rewrite stretches.html to use p5 so the code can be a little nicer
  - Have each panel be written in react so I don't have to do tedious work to change stuff
- - Stretch each project card to be the same height
  - Links at bottom of index.html should open in a new tab
