@@ -1,14 +1,21 @@
 # To Do
 
 ## To Add
- - Explain how to make a site like mine
  - Projects
   - ESP8266 GA display
- - Maybe add a date to each project, see if it looks nice
+  - Temperature sensor video
+   - Edit a video
+   - Upload it to youtube
+   - Find a good thumbnail
+   - Add link to it on website as a project
  - Gallery
+  - VW ladybug
+  - David + St. George
   - all my generative art
+ - Maybe add a date to each project, see if it looks nice
+ - Explain how to make a site like mine
  - Commit all my code to the scala-image repo
 
 ## To Change
- - Rewrite stretches.html to use p5 so the code can be a little nicer
- - Have each panel be written in react so I don't have to do tedious work to change stuff
+ - Simplify stretches.html by using p5
+ - Rewrite project cards in react to simplify code
