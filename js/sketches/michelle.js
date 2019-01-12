@@ -31,8 +31,8 @@ var my_sketch = function( p ) {
 
   function get_letter() {
     // var chars = "BREKKIE".split('');
-    var chars = ["FRISBEE","PHYSICS","MATH","ART","BREKKIE","TEA","SPACE","LOVE",":D"];
-    // var chars = ['L', 'O', 'V', 'E'];
+    // var chars = ["FRISBEE","PHYSICS","MATH","ART","BREKKIE","TEA","SPACE","LOVE",":D"];
+    var chars = ['L', 'O', 'V', 'E'];
     var rand = chars[Math.floor(Math.random() * chars.length)];
     return rand;
   }
