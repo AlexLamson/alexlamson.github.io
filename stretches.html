@@ -20,30 +20,51 @@
 <script>
 // returns number of days since I started doing stretches
 function days() {
-  var startTime = new Date('August 20 2018 07:00 EST').getTime()/1000;
+  var startTime = new Date('January 17 2019 07:00 EST').getTime()/1000;
   var currTime = new Date().getTime()/1000;
   var daysSinceStart = (currTime - startTime)/60/60/24;
   return daysSinceStart
 }
 
 // one more pushup per day, starting with 15
-var num_pushups = Math.floor(15+days());
+var num_pushups = Math.floor(Math.min(10+days()/2, 30));
 
 var actions = [
-["Stand up", 1000*5],
-["Reach down and touch toes", 1000*15],
-["Get In Next Pose", 1000*11],
-["Upward Facing Dog", 1000*25],
-["Get In Next Pose", 1000*7],
-["Half Tortoise", 1000*7],
-["Get In Next Pose", 1000*10],
-["Pushups ("+num_pushups+")", num_pushups*1.5*1000], //1.5 sec/pushup
-["Get In Next Pose", 1000*15],
-["Planking", 1000*30],
-["Get In Next Pose", 1000*15],
-["Superman", 1000*30],
-["Routine Complete", 1000*0]
+["Stand up", 5],
+["Reach down and touch toes", 15],
+["Get In Next Pose", 11],
+["Upward Facing Dog", 25],
+["Get In Next Pose", 7],
+["Half Tortoise", 7],
+["Get In Next Pose", 10],
+["Pushups ("+num_pushups+")", num_pushups*1.5], //1.5 sec/pushup
+["Get In Next Pose", 15],
+["Planking", 30],
+["Get In Next Pose", 15],
+["Superman", 30],
+["Routine Complete", 0]
 ];
+for(var i = 0; i < actions.length; i++) {
+  actions[i][1] *= 1000;
+}
+
+
+var total_time = 0;
+for(var i = 0; i < actions.length; i++) {
+  total_time += actions[i][1];
+}
+var total_min = Math.floor(total_time/1000/60);
+var total_sec = Math.floor(total_time/1000-total_min*60);
+var time_string = "Duration: "+total_min+"m"+total_sec+"s";
+// console.log(total_min);
+// console.log(total_sec);
+// time_string = "BAD HORSE";
+$( document ).ready(function() {
+  $( "#total-time" ).html( time_string );
+  console.log(time_string);
+});
+
+
 
 // var actions = [
 // ["Get Ready", 1000*1],
@@ -183,6 +204,7 @@ clicking word jumps to that / arrow keys move things
 </head>
 <body>
 <center>
+  <div id="total-time" style="font-size: 24px;"></div>
   <br/>
   <input id="start-restart" type="button" value="Start" onclick="startRestart();" style="font-size:48px;" autofocus />
   <p id="curr-exercise" style="font-size: 96px;"></p>
