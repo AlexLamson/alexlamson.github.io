@@ -14,6 +14,19 @@
 		<script src="http://umts.github.io/BusInfoBoard/js/jquery-1.11.0.min.js"></script>
 		<script src="http://umts.github.io/BusInfoBoard/js/moment.min.js"></script>
 		<script src="js/bus.js"></script>
+    <script src="./js/national_days.js"></script>
+		<script>
+		    $(document).ready(function() {
+            var d = new Date();
+            var month = d.getMonth(); //(0-11)
+            var day = d.getDate(); //(1-31)
+            var weekday = d.getDay(); //(0-6)
+
+            var national_day = national_days[(month+1)+'-'+day];
+            $('#specialDay').prepend('<p>'+national_day+'</p>');
+        });
+
+    </script>
 
 		<!-- CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
@@ -25,14 +38,13 @@
 		Bus Tracker
 		</h1>
 
-		<a href="stretches.html" target="_blank">Stretches</a>
+		<p id="specialDay" target="_blank"></p>
 
-		<br/>
-		<!-- https://darksky.net/widgets/small -->
+		<p><a href="stretches.html" target="_blank">Stretches</a></p>
+
 		<script type='text/javascript' src='https://darksky.net/widget/default-small/42.3804,-72.5231/us12/en.js?width=150&height=80'></script>
 
-		<br/>
-		<a href="https://www.umass.edu/closing/">Closing information</a>
+		<p><a href="https://www.umass.edu/closing/">Closing information</a></p>
 
 		<h3>Home Departure Times</h3>
 		<!-- <table>
