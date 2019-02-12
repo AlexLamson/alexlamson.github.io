@@ -1,41 +1,46 @@
 <html>
-	<head>
-		<meta charset="utf-8">
-		<!-- Global Site Tag (gtag.js) - Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-61548012-2"></script>
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
-			gtag('js', new Date());
-			gtag('config', 'UA-61548012-2');
-		</script>
+<head>
+	<meta charset="utf-8">
+	<!-- Global Site Tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-61548012-2"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'UA-61548012-2');
+	</script>
 
-		<!-- Scripts -->
-		<script src="http://umts.github.io/BusInfoBoard/js/jquery-1.11.0.min.js"></script>
-		<script src="http://umts.github.io/BusInfoBoard/js/moment.min.js"></script>
-		<script src="js/bus.js"></script>
-    <script src="./js/national_days.js"></script>
-		<script>
-		    $(document).ready(function() {
-            var d = new Date();
-            var month = d.getMonth(); //(0-11)
-            var day = d.getDate(); //(1-31)
-            var weekday = d.getDay(); //(0-6)
+	<!-- Scripts -->
+	<script src="./js/popper.min.js"></script>
+	<script src="./js/jquery.min.js"></script>
+	<script src="./js/bootstrap.min.js"></script>
 
-            var national_day = national_days[(month+1)+'-'+day];
-            $('#specialDay').prepend('<p>'+national_day+'</p>');
-        });
+	<script src="http://umts.github.io/BusInfoBoard/js/jquery-1.11.0.min.js"></script>
+	<script src="http://umts.github.io/BusInfoBoard/js/moment.min.js"></script>
+	<script src="js/bus.js"></script>
+	<script src="./js/national_days.js"></script>
+	<script>
+		$(document).ready(function() {
+			var d = new Date();
+			var month = d.getMonth(); //(0-11)
+			var day = d.getDate(); //(1-31)
+			var weekday = d.getDay(); //(0-6)
 
-    </script>
+			var national_day = national_days[(month+1)+'-'+day];
+			$('#specialDay').prepend('<p>'+national_day+'</p>');
+		});
 
-		<!-- CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-		<link rel="stylesheet" href="css/alexlamson.css">
+	</script>
 
-	</head>
-	<body>
+	<!-- CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/alexlamson.css">
+
+</head>
+<body class="container-fluid">
+	<div class="col-md-12">
 		<h1>
-		Bus Tracker
+			Bus Tracker
 		</h1>
 
 		<p id="specialDay" target="_blank"></p>
@@ -56,6 +61,6 @@
 		</table> -->
 		<div id="times-display"></div>
 
-
-	</body>
+	</div>
+</body>
 </html>
