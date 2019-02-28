@@ -26,8 +26,10 @@
 			var day = d.getDate(); //(1-31)
 			var weekday = d.getDay(); //(0-6)
 
-			var national_day = national_days[(month+1)+'-'+day];
-			$('#specialDay').prepend('<p>'+national_day+'</p>');
+			if(((month+1)+'-'+day) in national_days) {
+				var national_day = national_days[(month+1)+'-'+day];
+				$('#specialDay').prepend('<p>'+national_day+'</p>');
+			}
 		});
 
 	</script>
