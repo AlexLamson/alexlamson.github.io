@@ -5,7 +5,9 @@
   <title>Morning Exercises</title>
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   <style>
-    font-size: 48px;
+    * {
+      font-size: 48px;
+    }
   </style>
 
   <!-- Global Site Tag (gtag.js) - Google Analytics -->
@@ -26,7 +28,7 @@ function days() {
   return daysSinceStart
 }
 
-// one more pushup per day, starting with 15
+// one more pushup per day, starting with 15 with a max of 30
 var num_pushups = Math.floor(Math.min(10+days()/2, 30));
 
 var actions = [
