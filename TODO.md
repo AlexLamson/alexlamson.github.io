@@ -23,3 +23,7 @@
 ## Administration
  - Create a sitemap
  - Create a robots.txt file (that hides the resume pdf from google)
+ - SEO
+  - Make so the H1 tag doesn't equal the title tag
+  - Make canonical link work
+  - Make browser cache content longer
