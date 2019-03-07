@@ -19,3 +19,7 @@
 ## To Change
  - Simplify stretches.html by using p5
  - Rewrite project cards in react to simplify code
+
+## Administration
+ - Create a sitemap
+ - Create a robots.txt file (that hides the resume pdf from google)
