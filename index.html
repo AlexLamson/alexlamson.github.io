@@ -1,22 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="I'm a first year Computer Science grad student at the University of Massachusetts Amherst. Here are some of my projects and other links." />
 	<link rel="canonical" href="https://www.alexlamson.com" />
-	<!-- <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0> -->
-	<!-- The above 3 meta tags *must* come first in the head;
-		 any other head content must come *after* these tags -->
 
 	<!-- Site title and description -->
 	<title>Alex Lamson</title>
+	<meta name="description" content="I'm a first year Computer Science grad student at the University of Massachusetts Amherst. Here are some of my projects and other links." />
+
+	<!-- Favicons -->
+	<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+	<link rel="manifest" href="/favicon/manifest.json">
+	<link rel="shortcut icon" href="/favicon/favicon.ico" type="image/x-icon">
+	<!-- <meta name="theme-color" content="#ffffff"> -->
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/alexlamson.css">
 
 	<!-- Scripts -->
-	<script defer src="./js/popper.min.js"></script>
+	<script defer src="/js/popper.min.js"></script>
 	<script defer src="/js/jquery.min.js"></script>
-	<script defer src="./js/bootstrap.min.js"></script>
+	<script defer src="/js/bootstrap.min.js"></script>
+	<!-- <script src="js/p5.min.js"></script> -->
 	<script type="text/javascript">
 		//wait for jquery to be loaded
 		var initInterval = setInterval(function(){
@@ -27,9 +37,8 @@
 			}
 		}, 20);
 	</script>
-	<!-- <script src="js/p5.min.js"></script> -->
 
-	<!-- Global Site Tag (gtag.js) - Google Analytics -->
+	<!-- Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-61548012-2"></script>
 	<script>
 		window.dataLayer = window.dataLayer || [];
@@ -37,19 +46,6 @@
 		gtag('js', new Date());
 		gtag('config', 'UA-61548012-2');
 	</script>
-
-	<!-- CSS -->
-	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> -->
-	<link rel="stylesheet" href="./css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/alexlamson.css">
-
-	<!-- Favicons -->
-	<link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-icon-180x180.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
-	<link rel="manifest" href="./favicon/manifest.json">
-	<link rel="shortcut icon" href="./favicon/favicon.ico" type="image/x-icon">
-	<!-- <meta name="theme-color" content="#ffffff"> -->
 </head>
 
 <body class="container-fluid">
@@ -58,7 +54,7 @@
 	<div class="row al-info-panel">
 		<!-- Picture of me -->
  		<div class="col-sm-2 text-center">
-			<img src="./img/profile_pic.jpg" class="img-fluid rounded-circle al-profile-picture" style="max-width:50vw;">
+			<img src="/img/profile_pic.jpg" class="img-fluid rounded-circle al-profile-picture" style="max-width:50vw;">
  		</div>
 
 		<!-- My name and quick summary -->
@@ -76,28 +72,28 @@
 
 				<!-- Icons taken from https://github.com/simple-icons/simple-icons -->
 				<a class="social-button" href="https://github.com/AlexLamson">
-					<img height="32" width="32" src="./img/icons/github.svg" data-toggle="tooltip" data-placement="bottom" title="GitHub" />
+					<img height="32" width="32" src="/img/icons/github.svg" data-toggle="tooltip" data-placement="bottom" title="GitHub" />
 				</a>
 
 				<a class="social-button" href="https://www.linkedin.com/in/alexlamson/">
-					<img height="32" width="32" src="./img/icons/linkedin.svg" data-toggle="tooltip" data-placement="bottom" title="LinkedIn" />
+					<img height="32" width="32" src="/img/icons/linkedin.svg" data-toggle="tooltip" data-placement="bottom" title="LinkedIn" />
 				</a>
 
-				<img class="social-button" height="32" width="32" src="./img/icons/gmail.svg" data-toggle="tooltip" data-placement="bottom" title="alex . lamson @ gmail . com" />
+				<img class="social-button" height="32" width="32" src="/img/icons/gmail.svg" data-toggle="tooltip" data-placement="bottom" title="alex . lamson @ gmail . com" />
 
 				<!-- https://visualpharm.com/free-icons/resume-595b40b75ba036ed117d8427 -->
 				<a class="social-button" href="assets/Alex-Lamson-Resume.pdf">
-					<img height="32" width="32" src="./img/icons/resume.svg" data-toggle="tooltip" data-placement="bottom" title="Resume" />
+					<img height="32" width="32" src="/img/icons/resume.svg" data-toggle="tooltip" data-placement="bottom" title="Resume" />
 				</a>
 
 				<span class="social-bar">|</span>
 
 				<a class="social-button" href="https://www.openprocessing.org/user/121562#sketches">
-					<img height="32" width="32" src="./img/icons/producthunt.svg" data-toggle="tooltip" data-placement="bottom" title="Processing Sketches" />
+					<img height="32" width="32" src="/img/icons/producthunt.svg" data-toggle="tooltip" data-placement="bottom" title="Processing Sketches" />
 				</a>
 
 				<a class="social-button" href="https://www.youtube.com/channel/UCX9f75HLHUPB4Bxwc3srTvg">
-					<img height="32" width="32" src="./img/icons/youtube.svg" data-toggle="tooltip" data-placement="bottom" title="YouTube" />
+					<img height="32" width="32" src="/img/icons/youtube.svg" data-toggle="tooltip" data-placement="bottom" title="YouTube" />
 				</a>
 			</div>
 		</div>
@@ -115,7 +111,7 @@
 			<div class="col-md-3 d-flex align-items-stretch al-project">
 				<div class="card">
 					<a href="https://sites.google.com/umass.edu/ledcube/home" target="_blank">
-						<img class="card-img-top" src="./img/projects/cube.jpg" />
+						<img class="card-img-top" src="/img/projects/cube.jpg" />
 					</a>
 					<div class="card-body">
 						<a href="https://sites.google.com/umass.edu/ledcube/home" target="_blank">
@@ -132,10 +128,10 @@
 			<div class="col-md-3 d-flex align-items-stretch al-project">
 				<div class="card">
 					<a href="https://github.com/AlexLamson/smart-skates" target="_blank">
-						<!-- <img class="card-img-top" src="./img/projects/smart-skates-old.gif" /> -->
-						<video class="card-img-top" autoplay loop muted playsinline poster="./img/projects/smart-skates.jpg">
-							<source src="./img/projects/smart-skates.webm" type="video/webm">
-							<source src="./img/projects/smart-skates.mp4" type="video/mp4">
+						<!-- <img class="card-img-top" src="/img/projects/smart-skates-old.gif" /> -->
+						<video class="card-img-top" autoplay loop muted playsinline poster="/img/projects/smart-skates.jpg">
+							<source src="/img/projects/smart-skates.webm" type="video/webm">
+							<source src="/img/projects/smart-skates.mp4" type="video/mp4">
 							Your browser does not support the video tag.
 						</video>
 					</a>
@@ -154,7 +150,7 @@
 			<div class="col-md-3 d-flex align-items-stretch al-project">
 				<div class="card">
 					<a href="https://www.kaggle.com/alamson/safebooru" target="_blank">
-						<img class="card-img-top" src="./img/projects/anime.jpg" />
+						<img class="card-img-top" src="/img/projects/anime.jpg" />
 					</a>
 					<div class="card-body">
 						<a href="https://www.kaggle.com/alamson/safebooru" target="_blank">
@@ -170,7 +166,7 @@
 			<div class="col-md-3 d-flex align-items-stretch al-project">
 				<div class="card">
 					<a href="https://www.openprocessing.org/sketch/522345" target="_blank">
-						<img class="card-img-top" src="./img/projects/whistle.png" />
+						<img class="card-img-top" src="/img/projects/whistle.png" />
 					</a>
 					<div class="card-body">
 						<a href="https://www.openprocessing.org/sketch/522345" target="_blank">
@@ -187,8 +183,8 @@
 				<div class="card">
 					<a href="https://devpost.com/software/scala-image" target="_blank">
 						<video class="card-img-top" autoplay loop muted playsinline>
-							<source src="./img/projects/scala-image.webm" type="video/webm">
-							<source src="./img/projects/scala-image.mp4" type="video/mp4">
+							<source src="/img/projects/scala-image.webm" type="video/webm">
+							<source src="/img/projects/scala-image.mp4" type="video/mp4">
 							Your browser does not support the video tag.
 						</video>
 					</a>
@@ -206,7 +202,7 @@
 			<div class="col-md-3 d-flex align-items-stretch al-project">
 				<div class="card">
 					<a href="tilt-pong">
-						<img class="card-img-top" src="./img/projects/tilt-pong.png" />
+						<img class="card-img-top" src="/img/projects/tilt-pong.png" />
 					</a>
 					<div class="card-body">
 						<a href="tilt-pong">
@@ -222,7 +218,7 @@
 			<div class="col-md-3 d-flex align-items-stretch al-project">
 				<div class="card">
 					<a href="https://github.com/AlexLamson/DataWrangler" target="_blank">
-						<img class="card-img-top" src="./img/projects/cropped-datawrangler.gif" />
+						<img class="card-img-top" src="/img/projects/cropped-datawrangler.gif" />
 					</a>
 					<div class="card-body">
 						<a href="https://github.com/AlexLamson/DataWrangler" target="_blank">
@@ -238,7 +234,7 @@
 			<div class="col-md-3 d-flex align-items-stretch al-project">
 				<div class="card">
 					<a href="https://github.com/chrisraff/context-free-network/blob/master/682_Final_Report.pdf" target="_blank">
-						<img class="card-img-top" src="./img/projects/classic_brocc.jpg" />
+						<img class="card-img-top" src="/img/projects/classic_brocc.jpg" />
 					</a>
 					<div class="card-body">
 						<a href="https://github.com/chrisraff/context-free-network/blob/master/682_Final_Report.pdf" target="_blank">
@@ -255,7 +251,7 @@
 			<div class="col-md-3 d-flex align-items-stretch al-project">
 				<div class="card">
 					<a href="https://github.com/AlexLamson/cs328-audio-localization" target="_blank">
-						<img class="card-img-top" src="./img/projects/audio-localization.jpg" />
+						<img class="card-img-top" src="/img/projects/audio-localization.jpg" />
 					</a>
 					<div class="card-body">
 						<a href="https://github.com/AlexLamson/cs328-audio-localization" target="_blank">
@@ -272,7 +268,7 @@
 			<div class="col-md-3 d-flex align-items-stretch al-project">
 				<div class="card">
 					<a href="https://github.com/hari170894/subreddit-predictor" target="_blank">
-						<img class="card-img-top" src="./img/projects/reddit.png" />
+						<img class="card-img-top" src="/img/projects/reddit.png" />
 					</a>
 					<div class="card-body">
 						<a href="https://github.com/hari170894/subreddit-predictor" target="_blank">
@@ -289,7 +285,7 @@
 			<div class="col-md-3 d-flex align-items-stretch al-project">
 				<div class="card">
 					<a href="https://github.com/AlexLamson/rpi-greeter" target="_blank">
-						<img class="card-img-top" src="./img/projects/rasp-pi.jpg" />
+						<img class="card-img-top" src="/img/projects/rasp-pi.jpg" />
 					</a>
 					<div class="card-body">
 						<a href="https://github.com/AlexLamson/rpi-greeter" target="_blank">
