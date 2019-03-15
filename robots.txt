@@ -1,3 +1,4 @@
+Sitemap: https://alexlamson.com/sitemap.xml
 User-agent: *
 Disallow: /assets/
 Disallow: /michelle.html
