@@ -42,3 +42,8 @@ h2 {
 tr:nth-child(even) {
     background-color: #dddddd;
 }
+
+main li a {
+    margin-bottom: 10px;
+    display: inline-block;
+}
