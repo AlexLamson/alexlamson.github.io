@@ -51,10 +51,10 @@
 <body class="container-fluid">
 
 	<!-- Information about me -->
-	<div class="row al-info-panel">
+	<header class="row al-info-panel">
 		<!-- Picture of me -->
  		<div class="col-sm-4 col-md-2 text-center">
-			<img src="./img/profile_pic.jpg" class="img-fluid rounded-circle al-profile-picture">
+			<img src="./img/profile_pic.jpg" class="img-fluid rounded-circle al-profile-picture" alt="Headshot of Alex smiling outside while wearing a dress shirt and tie." />
  		</div>
 
 		<!-- My name and quick summary -->
@@ -97,243 +97,224 @@
 				</a>
 			</div>
 		</div>
-	</div>
+	</header>
 
+	<main>
 
-	<!-- Projects -->
-	<div class="row al-info-panel">
-		<div class="row col-lg-12">
-			<h2>Projects</h2>
-		</div>
-
-		<div class="row">
-
-			<div class="col-xs-12 col-sm-6 col-md-3 d-flex align-items-stretch al-project">
-				<div class="card">
-					<a href="https://sites.google.com/umass.edu/ledcube/home" target="_blank">
-						<img class="card-img-top" src="./img/projects/cube.jpg" />
-					</a>
-					<div class="card-body">
-						<a href="https://sites.google.com/umass.edu/ledcube/home" target="_blank">
-							<h5 class="card-title">LED Cube</h5>
-						</a>
-						<div class="card-text">
-							8x8x8 RGB neopixel lattice. Made for CS290.
-							<p class="card-text"><small class="text-muted">Made in collaboration with <a href="http://chrisraff.com/">Chris Raff</a></small></p>
-						</div>
-					</div>
-				</div>
+		<!-- Projects -->
+		<div class="row al-info-panel">
+			<div class="row col-lg-12">
+				<h2>Projects</h2>
 			</div>
 
-			<div class="col-xs-12 col-sm-6 col-md-3 d-flex align-items-stretch al-project">
-				<div class="card">
-					<a href="https://github.com/AlexLamson/smart-skates" target="_blank">
-						<!-- <img class="card-img-top" src="./img/projects/smart-skates-old.gif" /> -->
+			<div class="row">
+
+				<article class="col-xs-12 col-sm-6 col-md-3 d-flex align-items-stretch al-project">
+					<div class="card">
+						<img class="card-img-top" src="./img/projects/cube.jpg" alt="Several hundred light emitting diodes form a one foot tall cube on a table. It brightly glows a rainbow of colors." />
+						<div class="card-body">
+							<a href="https://sites.google.com/umass.edu/ledcube/home" target="_blank">
+								<h5 class="card-title">LED Cube</h5>
+							</a>
+							<div class="card-text">
+								8x8x8 RGB neopixel lattice. Made for CS290.
+								<p class="card-text"><small class="text-muted">Made in collaboration with <a href="http://chrisraff.com/">Chris Raff</a></small></p>
+							</div>
+						</div>
+					</div>
+				</article>
+
+				<article class="col-xs-12 col-sm-6 col-md-3 d-flex align-items-stretch al-project">
+					<div class="card">
 						<video class="card-img-top" autoplay loop muted playsinline poster="/img/projects/smart-skates.jpg">
 							<source src="./img/projects/smart-skates.webm" type="video/webm">
 							<source src="./img/projects/smart-skates.mp4" type="video/mp4">
+							<img class="card-img-top" src="./img/projects/smart-skates-old.gif" />
 							Your browser does not support the video tag.
 						</video>
-					</a>
-					<div class="card-body">
-						<a href="https://github.com/AlexLamson/smart-skates" target="_blank">
-							<h5 class="card-title">Smart Skates</h5>
-						</a>
-						<div class="card-text">
-							Track your skating activity and look cool at the same time. Made for CS390.
-							<p class="card-text"><small class="text-muted">Made in collaboration with <a href="http://chrisraff.com/">Chris Raff</a></small></p>
+						<div class="card-body">
+							<a href="https://github.com/AlexLamson/smart-skates" target="_blank">
+								<h5 class="card-title">Smart Skates</h5>
+							</a>
+							<div class="card-text">
+								Track your skating activity and look cool at the same time. Made for CS390.
+								<p class="card-text"><small class="text-muted">Made in collaboration with <a href="http://chrisraff.com/">Chris Raff</a></small></p>
+							</div>
 						</div>
 					</div>
-				</div>
-			</div>
+				</article>
 
-			<div class="col-xs-12 col-sm-6 col-md-3 d-flex align-items-stretch al-project">
-				<div class="card">
-					<a href="https://www.kaggle.com/alamson/safebooru" target="_blank">
-						<img class="card-img-top" src="./img/projects/anime.jpg" />
-					</a>
-					<div class="card-body">
-						<a href="https://www.kaggle.com/alamson/safebooru" target="_blank">
-							<h5 class="card-title">Anime Image Metadata Dataset</h5>
-						</a>
-						<div class="card-text">
-							Dataset containing descriptive tags for millions of anime images.
+				<article class="col-xs-12 col-sm-6 col-md-3 d-flex align-items-stretch al-project">
+					<div class="card">
+						<img class="card-img-top" src="./img/projects/anime.jpg" alt="A drawing in the anime style shows a schoolgirl playing an electric keyboard in front of a smiling girl with an umbrella." />
+						<div class="card-body">
+							<a href="https://www.kaggle.com/alamson/safebooru" target="_blank">
+								<h5 class="card-title">Anime Image Metadata Dataset</h5>
+							</a>
+							<div class="card-text">
+								Dataset containing descriptive tags for millions of anime images.
+							</div>
 						</div>
 					</div>
-				</div>
-			</div>
+				</article>
 
-			<div class="col-xs-12 col-sm-6 col-md-3 d-flex align-items-stretch al-project">
-				<div class="card">
-					<a href="https://www.openprocessing.org/sketch/522345" target="_blank">
-						<img class="card-img-top" src="./img/projects/whistle.png" />
-					</a>
-					<div class="card-body">
-						<a href="https://www.openprocessing.org/sketch/522345" target="_blank">
-							<h5 class="card-title">Whistling visualization</h5>
-						</a>
-						<div class="card-text">
-							Use the microphone to record and playback whistling.
+				<article class="col-xs-12 col-sm-6 col-md-3 d-flex align-items-stretch al-project">
+					<div class="card">
+						<img class="card-img-top" src="./img/projects/whistle.png" alt="Many tiny brightly-colored squares on a black background visualize the sound." />
+						<div class="card-body">
+							<a href="https://www.openprocessing.org/sketch/522345" target="_blank">
+								<h5 class="card-title">Whistling visualization</h5>
+							</a>
+							<div class="card-text">
+								Use the microphone to record and playback whistling.
+							</div>
 						</div>
 					</div>
-				</div>
-			</div>
+				</article>
 
-			<div class="col-xs-12 col-sm-6 col-md-3 d-flex align-items-stretch al-project">
-				<div class="card">
-					<a href="https://devpost.com/software/scala-image" target="_blank">
+				<article class="col-xs-12 col-sm-6 col-md-3 d-flex align-items-stretch al-project">
+					<div class="card">
 						<video class="card-img-top" autoplay loop muted playsinline poster="/img/projects/scala-image.jpg">
 							<source src="./img/projects/scala-image.webm" type="video/webm">
 							<source src="./img/projects/scala-image.mp4" type="video/mp4">
 							Your browser does not support the video tag.
 						</video>
-					</a>
-					<div class="card-body">
-						<a href="https://devpost.com/software/scala-image" target="_blank">
-							<h5 class="card-title">Scala-image</h5>
-						</a>
-						<div class="card-text">
-							Library written in Scala as a wrapper around Image.java.
+						<div class="card-body">
+							<a href="https://devpost.com/software/scala-image" target="_blank">
+								<h5 class="card-title">Scala-image</h5>
+							</a>
+							<div class="card-text">
+								Library written in Scala as a wrapper around Image.java.
+							</div>
 						</div>
 					</div>
-				</div>
-			</div>
+				</article>
 
-			<div class="col-xs-12 col-sm-6 col-md-3 d-flex align-items-stretch al-project">
-				<div class="card">
-					<a href="tilt-pong">
-						<img class="card-img-top" src="./img/projects/tilt-pong.png" />
-					</a>
-					<div class="card-body">
-						<a href="tilt-pong">
-							<h5 class="card-title">Tilt Pong</h5>
-						</a>
-						<div class="card-text">
-							One player pong. If you're on a phone, you can play it by tilting the device.
+				<article class="col-xs-12 col-sm-6 col-md-3 d-flex align-items-stretch al-project">
+					<div class="card">
+						<img class="card-img-top" src="./img/projects/tilt-pong.png" alt="Screenshot of a pong game shows a yellow paddle and a white ball, with the score and high score at the top." />
+						<div class="card-body">
+							<a href="tilt-pong">
+								<h5 class="card-title">Tilt Pong</h5>
+							</a>
+							<div class="card-text">
+								One player pong. If you're on a phone, you can play it by tilting the device.
+							</div>
 						</div>
 					</div>
-				</div>
-			</div>
+				</article>
 
-			<div class="col-xs-12 col-sm-6 col-md-3 d-flex align-items-stretch al-project">
-				<div class="card">
-					<a href="https://github.com/AlexLamson/DataWrangler" target="_blank">
+				<article class="col-xs-12 col-sm-6 col-md-3 d-flex align-items-stretch al-project">
+					<div class="card">
 						<img class="card-img-top" src="./img/projects/cropped-datawrangler.gif" />
-					</a>
-					<div class="card-body">
-						<a href="https://github.com/AlexLamson/DataWrangler" target="_blank">
-							<h5 class="card-title">Data Wrangler</h5>
-						</a>
-						<div class="card-text">
-							Package for <a href="https://www.sublimetext.com/">Sublime Text</a> for quick and dirty analysis of data and text.
+						<div class="card-body">
+							<a href="https://github.com/AlexLamson/DataWrangler" target="_blank">
+								<h5 class="card-title">Data Wrangler</h5>
+							</a>
+							<div class="card-text">
+								Package for <a href="https://www.sublimetext.com/">Sublime Text</a> for quick and dirty analysis of data and text.
+							</div>
+						</div>
+					</div>
+				</article>
+
+				<article class="col-xs-12 col-sm-6 col-md-3 d-flex align-items-stretch al-project">
+					<div class="card">
+						<img class="card-img-top" src="./img/projects/classic_brocc.jpg" alt="An out-of-place floret of broccoli sits on a car dashboard." />
+						<div class="card-body">
+							<a href="https://github.com/chrisraff/context-free-network/blob/master/682_Final_Report.pdf" target="_blank">
+								<h5 class="card-title">Context Free Network</h5>
+							</a>
+							<div class="card-text">
+								Exploration in the effects of context on image classification with neural networks. Made for CS682.
+								<p class="card-text"><small class="text-muted">Made in collaboration with <a href="http://chrisraff.com/">Chris Raff</a></small></p>
+							</div>
+						</div>
+					</div>
+				</article>
+
+				<article class="col-xs-12 col-sm-6 col-md-3 d-flex align-items-stretch al-project">
+					<div class="card">
+						<img class="card-img-top" src="./img/projects/audio-localization.jpg" alt="A handheld phone displays the word 'Microphone' with the words 'engineering lab 304' underneath." />
+						<div class="card-body">
+							<a href="https://github.com/AlexLamson/cs328-audio-localization" target="_blank">
+								<h5 class="card-title">Location from sound</h5>
+							</a>
+							<div class="card-text">
+								App that determines your location from the ambient audio of the room. Made for CS328.
+								<p class="card-text"><small class="text-muted">Made in collaboration with <a href="http://chrisraff.com/">Chris Raff</a> and Eben Sherwood</small></p>
+							</div>
+						</div>
+					</div>
+				</article>
+
+				<article class="col-xs-12 col-sm-6 col-md-3 d-flex align-items-stretch al-project">
+					<div class="card">
+						<img class="card-img-top" src="./img/projects/reddit.png" alt="The mascot of Reddit, a smiling white alien with red eyes." />
+						<div class="card-body">
+							<a href="https://github.com/hari170894/subreddit-predictor" target="_blank">
+								<h5 class="card-title">Subreddit Predictor</h5>
+							</a>
+							<div class="card-text">
+								Machine learning model predicts what subreddit a text post came from. The model had 66% accuracy over 10 classes. Made for CS585.
+								<p class="card-text"><small class="text-muted">Made in collaboration with Hari Hara Subramanian Krishnamoorthy</small></p>
+							</div>
+						</div>
+					</div>
+				</article>
+
+				<article class="col-xs-12 col-sm-6 col-md-3 d-flex align-items-stretch al-project">
+					<div class="card">
+						<img class="card-img-top" src="./img/projects/rasp-pi.jpg" alt="A credit-card sized computer is plugged into a small round speaker." />
+						<div class="card-body">
+							<a href="https://github.com/AlexLamson/rpi-greeter" target="_blank">
+								<h5 class="card-title">Rasberry Pi Greeter</h5>
+							</a>
+							<div class="card-text">
+								Program that greets you when you arrive to your room. Uses bluetooth to detect a registered phone, then uses text-to-speech to greet you aloud.
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
 
-			<div class="col-xs-12 col-sm-6 col-md-3 d-flex align-items-stretch al-project">
-				<div class="card">
-					<a href="https://github.com/chrisraff/context-free-network/blob/master/682_Final_Report.pdf" target="_blank">
-						<img class="card-img-top" src="./img/projects/classic_brocc.jpg" />
-					</a>
-					<div class="card-body">
-						<a href="https://github.com/chrisraff/context-free-network/blob/master/682_Final_Report.pdf" target="_blank">
-							<h5 class="card-title">Context Free Network</h5>
-						</a>
-						<div class="card-text">
-							Exploration in the effects of context on image classification with neural networks. Made for CS682.
-							<p class="card-text"><small class="text-muted">Made in collaboration with <a href="http://chrisraff.com/">Chris Raff</a></small></p>
-						</div>
-					</div>
-				</div>
-			</div>
+			</div> <!-- End of the projects list -->
 
-			<div class="col-xs-12 col-sm-6 col-md-3 d-flex align-items-stretch al-project">
-				<div class="card">
-					<a href="https://github.com/AlexLamson/cs328-audio-localization" target="_blank">
-						<img class="card-img-top" src="./img/projects/audio-localization.jpg" />
-					</a>
-					<div class="card-body">
-						<a href="https://github.com/AlexLamson/cs328-audio-localization" target="_blank">
-							<h5 class="card-title">Location from sound</h5>
-						</a>
-						<div class="card-text">
-							App that determines your location from the ambient audio of the room. Made for CS328.
-							<p class="card-text"><small class="text-muted">Made in collaboration with <a href="http://chrisraff.com/">Chris Raff</a> and Eben Sherwood</small></p>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-xs-12 col-sm-6 col-md-3 d-flex align-items-stretch al-project">
-				<div class="card">
-					<a href="https://github.com/hari170894/subreddit-predictor" target="_blank">
-						<img class="card-img-top" src="./img/projects/reddit.png" />
-					</a>
-					<div class="card-body">
-						<a href="https://github.com/hari170894/subreddit-predictor" target="_blank">
-							<h5 class="card-title">Subreddit Predictor</h5>
-						</a>
-						<div class="card-text">
-							Machine learning model predicts what subreddit a text post came from. The model had 66% accuracy over 10 classes. Made for CS585.
-							<p class="card-text"><small class="text-muted">Made in collaboration with Hari Hara Subramanian Krishnamoorthy</small></p>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-xs-12 col-sm-6 col-md-3 d-flex align-items-stretch al-project">
-				<div class="card">
-					<a href="https://github.com/AlexLamson/rpi-greeter" target="_blank">
-						<img class="card-img-top" src="./img/projects/rasp-pi.jpg" />
-					</a>
-					<div class="card-body">
-						<a href="https://github.com/AlexLamson/rpi-greeter" target="_blank">
-							<h5 class="card-title">Rasberry Pi Greeter</h5>
-						</a>
-						<div class="card-text">
-							Program that greets you when you arrive to your room. Uses bluetooth to detect a registered phone, then uses text-to-speech to greet you aloud.
-						</div>
-					</div>
-				</div>
-			</div>
-
-		</div> <!-- End of the projects list -->
-
-	</div>
-
-
-	<!-- List of my profiles on different websites -->
-	<div class="row al-info-panel">
-		<div class="row col-lg-12">
-			<h2>Links</h2>
 		</div>
 
-		<ul>
-		<li><a href="https://en.wikipedia.org/wiki/Linked_list" target="_blank" style="text-decoration:none;color:black;">Lists</a>
-			<ul>
-				<li><a href="https://myanimelist.net/profile/BlueAoi" target="_blank">Manga I've read</a></li>
-				<li><a href="https://www.goodreads.com/alexlamson" target="_blank">Books I've read</a></li>
-				<li><a href="http://www.imdb.com/user/ur64174910/" target="_blank">Movies I've watched</a></li>
-				<li><a href="https://smile.amazon.com/registry/wishlist/LWRCYJU852PO/ref=cm_sw_em_r_mt_mt__wl" target="_blank">Amazon Wishlist</a></li>
-			</ul>
-		</li>
 
-		<li>General fun
-			<ul>
-			<li><a href="https://www.reddit.com/user/alexlamson/" target="_blank">Reddit</a></li>
-			<li><a href="https://www.nationstates.net/nation=millennialland" target="_blank">Nationstates</a></li>
-			</ul>
-		</li>
+		<!-- List of my profiles on different websites -->
+		<div class="row al-info-panel">
+			<div class="row col-lg-12">
+				<h2>Links</h2>
+			</div>
 
-		<li>People
 			<ul>
-			<li><a href="http://chrisraff.com/" target="_blank">Chris Raff</a></li>
-			<li><a href="https://commons.mtholyoke.edu/michellewellman/" target="_blank">Michelle Wellman</a></li>
+			<li><a href="https://en.wikipedia.org/wiki/Linked_list" target="_blank" style="text-decoration:none;color:black;">Lists</a>
+				<ul>
+					<li><a href="https://myanimelist.net/profile/BlueAoi" target="_blank">Manga I've read</a></li>
+					<li><a href="https://www.goodreads.com/alexlamson" target="_blank">Books I've read</a></li>
+					<li><a href="http://www.imdb.com/user/ur64174910/" target="_blank">Movies I've watched</a></li>
+					<li><a href="https://smile.amazon.com/registry/wishlist/LWRCYJU852PO/ref=cm_sw_em_r_mt_mt__wl" target="_blank">Amazon Wishlist</a></li>
+				</ul>
+			</li>
+
+			<li>General fun
+				<ul>
+				<li><a href="https://www.reddit.com/user/alexlamson/" target="_blank">Reddit</a></li>
+				<li><a href="https://www.nationstates.net/nation=millennialland" target="_blank">Nationstates</a></li>
+				</ul>
+			</li>
+
+			<li>People
+				<ul>
+				<li><a href="http://chrisraff.com/" target="_blank">Chris Raff</a></li>
+				<li><a href="https://commons.mtholyoke.edu/michellewellman/" target="_blank">Michelle Wellman</a></li>
+				</ul>
+			</li>
 			</ul>
-		</li>
-		</ul>
-	</div>
+		</div>
+
+	</main>
 
 	<footer>
 		<div class="footer-line">

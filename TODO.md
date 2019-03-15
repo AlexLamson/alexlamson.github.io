@@ -20,6 +20,9 @@
  - Simplify stretches.html by using p5
  - Rewrite project cards in react to simplify code
 
+## Accessibility
+ - Add alt text to looped videos somehow
+
 ## Administration
  - SEO
   - Make so the H1 tag doesn't equal the title tag
