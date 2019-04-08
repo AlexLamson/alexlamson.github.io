@@ -71,29 +71,29 @@
 			<div class="row" style="margin-top:10px;">
 
 				<!-- Icons taken from https://github.com/simple-icons/simple-icons -->
+				<!-- https://visualpharm.com/free-icons/resume-595b40b75ba036ed117d8427 -->
+				<a class="social-button" href="assets/Alex-Lamson-Resume.pdf">
+					<img height="32" width="32" src="./img/icons/resume.svg" data-toggle="tooltip" data-placement="bottom" title="Resume" />
+				</a>
+
+				<img class="social-button" height="32" width="32" src="./img/icons/gmail.svg" data-toggle="tooltip" data-placement="bottom" title="alex . lamson @ gmail . com" />
+
 				<a class="social-button" href="https://github.com/AlexLamson">
-					<img height="32" width="32" src="./img/icons/github.svg" data-toggle="tooltip" data-placement="bottom" title="GitHub" alt="GitHub" />
+					<img height="32" width="32" src="./img/icons/github.svg" data-toggle="tooltip" data-placement="bottom" title="GitHub" />
 				</a>
 
 				<a class="social-button" href="https://www.linkedin.com/in/alexlamson/">
-					<img height="32" width="32" src="./img/icons/linkedin.svg" data-toggle="tooltip" data-placement="bottom" title="LinkedIn" alt="LinkedIn" />
+					<img height="32" width="32" src="./img/icons/linkedin.svg" data-toggle="tooltip" data-placement="bottom" title="LinkedIn" />
 				</a>
 
-				<img class="social-button" height="32" width="32" src="./img/icons/gmail.svg" data-toggle="tooltip" data-placement="bottom" title="alex . lamson @ gmail . com" alt="alex . lamson @ gmail . com" />
-
-				<!-- https://visualpharm.com/free-icons/resume-595b40b75ba036ed117d8427 -->
-				<a class="social-button" href="assets/Alex-Lamson-Resume.pdf">
-					<img height="32" width="32" src="./img/icons/resume.svg" data-toggle="tooltip" data-placement="bottom" title="Resume" alt="Resume" />
-				</a>
-
-				<span class="social-bar">|</span>
-
-				<a class="social-button" href="https://www.openprocessing.org/user/121562#sketches">
-					<img height="32" width="32" src="./img/icons/producthunt.svg" data-toggle="tooltip" data-placement="bottom" title="Processing Sketches" alt="Processing Sketches" />
-				</a>
+				<span aria-hidden="true" class="social-bar">|</span>
 
 				<a class="social-button" href="https://www.youtube.com/channel/UCX9f75HLHUPB4Bxwc3srTvg">
-					<img height="32" width="32" src="./img/icons/youtube.svg" data-toggle="tooltip" data-placement="bottom" title="YouTube" alt="YouTube" />
+					<img height="32" width="32" src="./img/icons/youtube.svg" data-toggle="tooltip" data-placement="bottom" title="YouTube" />
+				</a>
+
+				<a class="social-button" href="https://www.openprocessing.org/user/121562#sketches">
+					<img height="32" width="32" src="./img/icons/producthunt.svg" data-toggle="tooltip" data-placement="bottom" title="Processing Sketches" />
 				</a>
 			</div>
 		</div>
@@ -105,19 +105,21 @@
 		<div class="row al-info-panel">
 			<div class="row col-lg-12">
 				<h2>Projects</h2>
+				<!-- To prevent screenreader from skipping first project heading -->
+				<h3></h3><h4></h4>
 			</div>
 
 			<div class="row">
 
 				<article class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex align-items-stretch al-project">
 					<div class="card">
-						<img class="card-img-top" src="./img/projects/cube.jpg" alt="Several hundred light emitting diodes form a one foot tall cube on a table. It brightly glows a rainbow of colors." />
+						<img class="card-img-top" src="./img/projects/cube.jpg" alt="Several hundred glowing light emitting diodes form a one foot tall cube on a table." />
 						<div class="card-body">
-							<a href="https://sites.google.com/umass.edu/ledcube/home" target="_blank" title="The google sites page for the project">
+							<a href="https://sites.google.com/umass.edu/ledcube/home" title="The google sites page for the project">
 								<h5 class="card-title">LED Cube</h5>
 							</a>
 							<div class="card-text">
-								8x8x8 RGB neopixel lattice. Made for CS290.
+								8 by 8 by 8 RGB neopixel lattice. Made for CS290.
 								<p class="card-text"><small class="text-muted">Made in collaboration with <a href="http://chrisraff.com/">Chris Raff</a></small></p>
 							</div>
 						</div>
@@ -132,7 +134,7 @@
 							Your browser does not support the video tag.
 						</video>
 						<div class="card-body">
-							<a href="https://github.com/AlexLamson/smart-skates" target="_blank" title="The github repo for the project">
+							<a href="https://github.com/AlexLamson/smart-skates" title="The github repo for the project">
 								<h5 class="card-title">Smart Skates</h5>
 							</a>
 							<div class="card-text">
@@ -145,9 +147,9 @@
 
 				<article class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex align-items-stretch al-project">
 					<div class="card">
-						<img class="card-img-top" src="./img/projects/anime.jpg" alt="A drawing in the anime style shows a schoolgirl playing an electric keyboard in front of a smiling girl with an umbrella." />
+						<img class="card-img-top" src="./img/projects/anime.jpg" alt="A drawing in the anime style shows a schoolgirl playing an electric keyboard." />
 						<div class="card-body">
-							<a href="https://www.kaggle.com/alamson/safebooru" target="_blank" title="The kaggle page for the project">
+							<a href="https://www.kaggle.com/alamson/safebooru" title="The kaggle page for the project">
 								<h5 class="card-title">Anime Image Metadata Dataset</h5>
 							</a>
 							<div class="card-text">
@@ -159,9 +161,9 @@
 
 				<article class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex align-items-stretch al-project">
 					<div class="card">
-						<img class="card-img-top" src="./img/projects/whistle.png" alt="Many tiny brightly-colored squares on a black background visualize the sound." />
+						<img class="card-img-top" src="./img/projects/whistle.png" alt="Many tiny brightly-colored squares on a black background visualize the sound of whistling." />
 						<div class="card-body">
-							<a href="https://www.openprocessing.org/sketch/522345" target="_blank" title="The processing sketch">
+							<a href="https://www.openprocessing.org/sketch/522345" title="The processing sketch">
 								<h5 class="card-title">Whistling visualization</h5>
 							</a>
 							<div class="card-text">
@@ -179,7 +181,7 @@
 							Your browser does not support the video tag.
 						</video>
 						<div class="card-body">
-							<a href="https://devpost.com/software/scala-image" target="_blank" title="The devpost for the project">
+							<a href="https://devpost.com/software/scala-image" title="The devpost for the project">
 								<h5 class="card-title">Scala-image</h5>
 							</a>
 							<div class="card-text">
@@ -191,7 +193,7 @@
 
 				<article class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex align-items-stretch al-project">
 					<div class="card">
-						<img class="card-img-top" src="./img/projects/tilt-pong.png" alt="Screenshot of a pong game shows a yellow paddle and a white ball, with the score and high score at the top." />
+						<img class="card-img-top" src="./img/projects/tilt-pong.png" alt="Pong game shows a paddle and ball, with the score and high score at the top." />
 						<div class="card-body">
 							<a href="tilt-pong" title="The in-browser game">
 								<h5 class="card-title">Tilt Pong</h5>
@@ -205,9 +207,9 @@
 
 				<article class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex align-items-stretch al-project">
 					<div class="card">
-						<img class="card-img-top" src="./img/projects/cropped-datawrangler.gif" alt="Animated demonstration of text editor being used to quickly count the frequency of different t-shirt sizes." />
+						<img class="card-img-top" src="./img/projects/cropped-datawrangler.gif" alt="Demonstration of text editor being used to quickly count the frequency of different t-shirt sizes." />
 						<div class="card-body">
-							<a href="https://github.com/AlexLamson/DataWrangler" target="_blank" title="The github repo for the project">
+							<a href="https://github.com/AlexLamson/DataWrangler" title="The github repo for the project">
 								<h5 class="card-title">Data Wrangler</h5>
 							</a>
 							<div class="card-text">
@@ -221,7 +223,7 @@
 					<div class="card">
 						<img class="card-img-top" src="./img/projects/classic_brocc.jpg" alt="An out-of-place floret of broccoli sits on a car dashboard." />
 						<div class="card-body">
-							<a href="https://github.com/chrisraff/context-free-network/blob/master/682_Final_Report.pdf" target="_blank" title="The final report for the project">
+							<a href="https://github.com/chrisraff/context-free-network/blob/master/682_Final_Report.pdf" title="The final report for the project">
 								<h5 class="card-title">Context Free Network</h5>
 							</a>
 							<div class="card-text">
@@ -236,7 +238,7 @@
 					<div class="card">
 						<img class="card-img-top" src="./img/projects/audio-localization.jpg" alt="A handheld phone displays the word 'Microphone' with the words 'engineering lab 304' underneath." />
 						<div class="card-body">
-							<a href="https://github.com/AlexLamson/cs328-audio-localization" target="_blank" title="The github repo for the project">
+							<a href="https://github.com/AlexLamson/cs328-audio-localization" title="The github repo for the project">
 								<h5 class="card-title">Location from sound</h5>
 							</a>
 							<div class="card-text">
@@ -251,7 +253,7 @@
 					<div class="card">
 						<img class="card-img-top" src="./img/projects/reddit.png" alt="The mascot of Reddit, a smiling white alien with red eyes." />
 						<div class="card-body">
-							<a href="https://github.com/hari170894/subreddit-predictor" target="_blank" title="The github repo for the project">
+							<a href="https://github.com/hari170894/subreddit-predictor" title="The github repo for the project">
 								<h5 class="card-title">Subreddit Predictor</h5>
 							</a>
 							<div class="card-text">
@@ -266,11 +268,11 @@
 					<div class="card">
 						<img class="card-img-top" src="./img/projects/rasp-pi.jpg" alt="A credit-card sized computer is plugged into a small round speaker." />
 						<div class="card-body">
-							<a href="https://github.com/AlexLamson/rpi-greeter" target="_blank" title="The github repo for the project">
+							<a href="https://github.com/AlexLamson/rpi-greeter" title="The github repo for the project">
 								<h5 class="card-title">Rasberry Pi Greeter</h5>
 							</a>
 							<div class="card-text">
-								Program that greets you when you arrive to your room. Uses bluetooth to detect a registered phone, then uses text-to-speech to greet you aloud. Made for fun.
+								Python script that greets you when you arrive to your room. Uses bluetooth to detect a registered phone, then uses text-to-speech to greet you aloud. Made for fun.
 							</div>
 						</div>
 					</div>
@@ -289,28 +291,28 @@
 
 			<div class="row col-lg-12">
 				<div class="col-sm-12 col-sm-6 col-md-4 col-lg-4">
-					<a href="https://en.wikipedia.org/wiki/Linked_list" target="_blank" style="text-decoration:none;color:black;">Lists</a>
+					<a href="https://en.wikipedia.org/wiki/Linked_list" style="text-decoration:none;color:black;">Lists</a>
 					<ul>
-						<li><a href="https://myanimelist.net/profile/BlueAoi" target="_blank">Manga I've read</a></li>
-						<li><a href="https://www.goodreads.com/alexlamson" target="_blank">Books I've read</a></li>
-						<li><a href="http://www.imdb.com/user/ur64174910/" target="_blank">Movies I've watched</a></li>
-						<li><a href="https://smile.amazon.com/registry/wishlist/LWRCYJU852PO/ref=cm_sw_em_r_mt_mt__wl" target="_blank">Amazon Wishlist</a></li>
+						<li><a href="https://myanimelist.net/profile/BlueAoi">Manga I've <span aria-hidden="true">read</span><span class="offscreen">red</span></a></li>
+						<li><a href="https://www.goodreads.com/alexlamson">Books I've <span aria-hidden="true">read</span><span class="offscreen">red</span></a></li>
+						<li><a href="http://www.imdb.com/user/ur64174910/">Movies I've watched</a></li>
+						<li><a href="https://smile.amazon.com/registry/wishlist/LWRCYJU852PO/ref=cm_sw_em_r_mt_mt__wl">Amazon Wishlist</a></li>
 					</ul>
 				</div>
 
 				<div class="col-sm-12 col-sm-6 col-md-4 col-lg-4">
 					General fun
 					<ul>
-					<li><a href="https://www.reddit.com/user/alexlamson/" target="_blank">Reddit</a></li>
-					<li><a href="https://www.nationstates.net/nation=millennialland" target="_blank">Nationstates</a></li>
+					<li><a href="https://www.reddit.com/user/alexlamson/">Reddit</a></li>
+					<li><a href="https://www.nationstates.net/nation=millennialland">Nationstates</a></li>
 					</ul>
 				</div>
 
 				<div class="col-sm-12 col-sm-6 col-md-4 col-lg-4">
 					People
 					<ul>
-					<li><a href="http://chrisraff.com/" target="_blank" title="Chris' website">Chris Raff</a></li>
-					<li><a href="https://commons.mtholyoke.edu/michellewellman/" target="_blank">Michelle Wellman</a></li>
+					<li><a href="http://chrisraff.com/" title="Chris' website">Chris Raff</a></li>
+					<li><a href="https://commons.mtholyoke.edu/michellewellman/">Michelle Wellman</a></li>
 					</ul>
 				</div>
 			</div>
