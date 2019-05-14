@@ -55,4 +55,22 @@ main li a {
 	width:1px;
 	height:1px;
 	overflow:hidden;
-  }
+}
+
+.card {
+    margin-bottom: 10px;
+}
+
+.image {
+    position:relative;
+    overflow:hidden;
+    padding-bottom:100%;
+}
+.image img {
+    position:absolute;
+}
+
+/* .card .image { */
+.card-img-top {
+    background-size: cover;
+}
