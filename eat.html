@@ -68,11 +68,12 @@ function updateaPlaces() {
 
         if(is_meal && is_money) {
 
-            // don't list "Antonio's" twice
+            // don't list any restaurant twice
             var already_added = false;
             for(var j = 0; j < temp_places.length; j++) {
-                if (places[i][3] == places[j][3]) {
+                if (temp_places[j][3] == places[i][3]) {
                     already_added = true;
+                    break;
                 }
             }
             if(!already_added) {
