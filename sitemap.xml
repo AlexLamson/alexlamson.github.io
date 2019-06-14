@@ -17,6 +17,11 @@
   <priority>0.80</priority>
 </url>
 <url>
+  <loc>https://www.alexlamson.com/eat</loc>
+  <lastmod>2019-06-13T21:23:46+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
   <loc>https://www.alexlamson.com/comment</loc>
   <lastmod>2019-03-23T15:57:00+00:00</lastmod>
   <priority>0.70</priority>
