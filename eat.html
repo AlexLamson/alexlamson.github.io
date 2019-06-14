@@ -2,7 +2,17 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<!-- Global Site Tag (gtag.js) - Google Analytics -->
+
+    <!-- CSS -->
+	<link rel="stylesheet" href="./css/bootstrap.min.css">
+	<!-- <link rel="stylesheet" href="./css/alexlamson.css"> -->
+
+	<!-- Scripts -->
+	<script defer src="./js/popper.min.js"></script>
+	<script defer src="./js/jquery.min.js"></script>
+	<script defer src="./js/bootstrap.min.js"></script>
+
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-61548012-2"></script>
 	<script>
 		window.dataLayer = window.dataLayer || [];
@@ -102,21 +112,28 @@ window.onload = function() {
 </script>
 
 </head>
-<body>
+<body class="container" style="margin-top: 10px;">
 
-    <p><h1>Where should we eat?</h1></p>
+    <h2 style="text-align: center;">
+        Where should we eat?
+    </h2>
 
-    <p>
-        <form id="myform">
-            <label for="breakfast">Breakfast</label> <input type="checkbox" id="breakfast" value="breakfast" checked onchange="updateaPlaces()" />
-            <label for="lunch">Lunch</label> <input type="checkbox" id="lunch" value="lunch" checked onchange="updateaPlaces()" />
-            <label for="dinner">Dinner</label> <input type="checkbox" id="dinner" value="dinner" checked onchange="updateaPlaces()" />
-            <br/>
-            <label for="$">$</label> <input type="checkbox" id="$" value="$" checked onchange="updateaPlaces()" />
-            <label for="$$">$$</label> <input type="checkbox" id="$$" value="$$" checked onchange="updateaPlaces()" />
-            <label for="$$$">$$$</label> <input type="checkbox" id="$$$" value="$$$" checked onchange="updateaPlaces()" />
-        </form>
-    </p>
+    <form id="myform" class="card" style="background-color: #e8e8e8; padding: 10px;">
+        <div class="container">
+            <div class="row">
+                <div class="col" style="text-align: justify;">
+                    <div><input type="checkbox" id="breakfast" value="breakfast" checked onchange="updateaPlaces()" /> <label for="breakfast">Breakfast</label></div>
+                    <div><input type="checkbox" id="lunch" value="lunch" checked onchange="updateaPlaces()" /> <label for="lunch">Lunch</label></div>
+                    <div><input type="checkbox" id="dinner" value="dinner" checked onchange="updateaPlaces()" /> <label for="dinner">Dinner</label></div>
+                </div>
+                <div class="col">
+                    <div><input type="checkbox" id="$" value="$" checked onchange="updateaPlaces()" /> <label for="$">$</label></div>
+                    <div><input type="checkbox" id="$$" value="$$" checked onchange="updateaPlaces()" /> <label for="$$">$$</label></div>
+                    <div><input type="checkbox" id="$$$" value="$$$" checked onchange="updateaPlaces()" /> <label for="$$$">$$$</label></div>
+                </div>
+            </div>
+        </div>
+    </form>
 
     <ol id="results"></ol>
 
