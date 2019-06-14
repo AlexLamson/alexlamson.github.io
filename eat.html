@@ -133,17 +133,21 @@ window.onload = function() {
         Where should we eat?
     </h2>
 
-    <form id="myform" class="card" style="padding: 10px;">
-        <div class="row">
-            <div class="col" style="text-align: justify;">
-                <div><input type="checkbox" id="breakfast" value="breakfast" checked onchange="updateaPlaces()" /> <label for="breakfast">Breakfast</label></div>
-                <div><input type="checkbox" id="lunch" value="lunch" checked onchange="updateaPlaces()" /> <label for="lunch">Lunch</label></div>
-                <div><input type="checkbox" id="dinner" value="dinner" checked onchange="updateaPlaces()" /> <label for="dinner">Dinner</label></div>
+    <form id="myform" class="card">
+        <div class="row card-body" style="padding-bottom: 10px;">
+            <div class="col">
+                <label for="breakfast"><input type="checkbox" id="breakfast" value="breakfast" checked onchange="updateaPlaces()" /> Breakfast</label>
+                <br/>
+                <label for="lunch"><input type="checkbox" id="lunch" value="lunch" checked onchange="updateaPlaces()" /> Lunch</label>
+                <br/>
+                <label for="dinner"><input type="checkbox" id="dinner" value="dinner" checked onchange="updateaPlaces()" /> Dinner</label>
             </div>
             <div class="col">
-                <div><input type="checkbox" id="$" value="$" checked onchange="updateaPlaces()" /> <label for="$">$</label></div>
-                <div><input type="checkbox" id="$$" value="$$" checked onchange="updateaPlaces()" /> <label for="$$">$$</label></div>
-                <div><input type="checkbox" id="$$$" value="$$$" checked onchange="updateaPlaces()" /> <label for="$$$">$$$</label></div>
+                <label for="$"><input type="checkbox" id="$" value="$" checked onchange="updateaPlaces()" /> Cheap ($)</label>
+                <br/>
+                <label for="$$"><input type="checkbox" id="$$" value="$$" checked onchange="updateaPlaces()" /> Medium ($$)</label>
+                <br/>
+                <label for="$$$" style="margin:0px;"><input type="checkbox" id="$$$" value="$$$" checked onchange="updateaPlaces()" /> Expensive ($$$)</label>
             </div>
         </div>
     </form>
