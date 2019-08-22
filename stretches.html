@@ -22,22 +22,26 @@
 <script>
 // returns number of days since I started doing stretches
 function days() {
-  var startTime = new Date('June 15 2019 07:00 EST').getTime()/1000;
+  var startTime = new Date('August 21 2019 07:00 EST').getTime()/1000;
   var currTime = new Date().getTime()/1000;
   var daysSinceStart = (currTime - startTime)/60/60/24;
   return daysSinceStart
 }
 
-// one more pushup per day, starting with 15 with a max of 30
-var num_pushups = Math.floor(Math.min(10+days()/2, 30));
+// one more pushup per day, starting with 15 with a max of 15
+var num_pushups = Math.floor(Math.min(10+days()/7, 15));
 
 var actions = [
 ["Stand up", 5],
 ["Reach down and touch toes", 15],
 ["Get In Next Pose", 11],
+["Downward facing dog", 15],
+["Get In Next Pose", 7],
+["Cat and cow", 20],
+["Get In Next Pose", 8],
 ["Upward Facing Dog", 25],
 ["Get In Next Pose", 7],
-["Half Tortoise", 7],
+["Half Tortoise", 20],
 ["Get In Next Pose", 10],
 ["Pushups ("+num_pushups+")", num_pushups*1.5], //1.5 sec/pushup
 ["Get In Next Pose", 15],
