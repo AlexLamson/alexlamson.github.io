@@ -38,39 +38,103 @@
 
 
 </head>
-<body>
-	<p>
-		<a href="https://compsci682-fa18.github.io/notes/optimization-2/">Backpropagation intuition</a>
-	</p>
+<body class="container-fluid">
 
-	<p>
-		<a href="https://ezyang.github.io/convolution-visualizer/index.html">Convolution visualizer</a>
-	</p>
+	<h1>Machine Learning: Notes and Advice</h1>
 
-	<p>
-		Training loss much greater than validation loss. That is underfitting.
-	</p>
+	<div class="row al-info-panel">
+		<div class="row col-lg-12">
+			<h2>Useful notes</h2>
+		</div>
 
-	<p>
-		Training loss much less than validation loss. That is overfitting.
-	</p>
+		<ul>
+			<li>
+				<a href="https://compsci682-fa18.github.io/notes/optimization-2/">Backpropagation intuition</a>
+			</li>
 
-	<p>
-		<a href="https://quantdare.com/what-is-the-difference-between-bagging-and-boosting/">Bagging vs boosting</a>
-	</p>
+			<li>
+				<a href="https://ezyang.github.io/convolution-visualizer/index.html">Convolution visualizer</a>
+			</li>
 
-	<p>
-		<a href="https://medium.com/@montjoile/l0-norm-l1-norm-l2-norm-l-infinity-norm-7a7d18a4f40c">L0, L1, L2, L<sub>∞</sub></a>
-		(TODO: Put the content from the link here, then delete the link)
-	</p>
+			<li>
+				<a href="https://stats.stackexchange.com/a/99191/181880">Why is Euclidean distance not a good metric in high dimensions?</a>
+			</li>
+			
+			<li>
+				<a href="https://medium.com/@montjoile/l0-norm-l1-norm-l2-norm-l-infinity-norm-7a7d18a4f40c">L0, L1, L2, L<sub>∞</sub></a>
+				(TODO: Put the content from the link here, then delete the link)
+			</li>
+		</ul>
+	</div>
 
-	<p>
-		<a href="https://stats.stackexchange.com/a/99191/181880">Why is Euclidean distance not a good metric in high dimensions?</a>
-	</p>
 
-	<p>
-		<img src="img/precisionrecall.png">
-	</p>
+	<div class="row al-info-panel">
+		<div class="row col-lg-12">
+			<h2>Am I overfitting/underfitting?</h2>
+		</div>
+
+		<ul>
+			<li>
+				Training loss much greater than validation loss. That is underfitting.
+			</li>
+			<li>
+				Training loss much less than validation loss. That is overfitting.
+			</li>
+
+		</ul>
+	</div>
+
+
+	<div class="row al-info-panel">
+		<div class="row col-lg-12">
+			<h2><a href="https://quantdare.com/what-is-the-difference-between-bagging-and-boosting/">Bagging vs boosting</a></h2>
+		</div>
+
+		<ul>
+			<li>
+				bagging = parallel models (ex. random forest)
+			</li>
+			<li>
+				boosting = sequential models (ex. haar cascade)
+			</li>
+		</ul>
+	</div>
+
+
+	<div class="row al-info-panel">
+		<div class="row col-lg-12">
+			<h2>Good ideas to improve a model</h2>
+		</div>
+
+		<ul>
+			<li>
+				Cluster the unlabeled training data, then add cluster features to get additional free features
+			</li>
+			<li>
+				Let's say you have multiple labels per data point in your training data. If labelers disagree a lot on a single data point, then that sample is pretty crappy. If you sort your data in order of crappiness, then drop the most crappy ones first, then you'll get a small boost in model performance.
+
+				Even smart is to penalize the model less if it misclassifies a crappier data point.
+			</li>
+		</ul>
+	</div>
+
+
+	<div class="row al-info-panel">
+		<div class="row col-lg-12">
+			<h2>Precision vs Recall (w/ statistics translation)</h2>
+		</div>
+
+		<div class="row col-lg-12">
+			<img src="img/precision_recall.svg">
+			<img src="img/sensitivity_specificity.svg">
+		</div>
+
+
+		<div class="row col-lg-12">
+			<img src="img/type_i_type_ii.jpg">
+		</div>
+
+	</div>
 
 </body>
 </html>
