@@ -38,146 +38,142 @@
 
 
 </head>
-<body class="container-fluid">
+<body class="container">
 
 	<h1>Machine Learning: Notes and Advice</h1>
 
 
-	<div class="row">
+	<article class="al-project">
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">
+					Useful notes
+				</h5>
+				<div class="card-text">
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item">
+							<a href="https://compsci682-fa18.github.io/notes/optimization-2/">Backpropagation intuition</a>
+						</li>
 
-		<article class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 d-flex align-items-stretch al-project">
-			<div class="card">
-				<div class="card-body">
+						<li class="list-group-item">
+							<a href="https://ezyang.github.io/convolution-visualizer/index.html">Convolution visualizer</a>
+						</li>
+
+						<li class="list-group-item">
+							<a href="https://stats.stackexchange.com/a/99191/181880">Why is Euclidean distance not a good metric in high dimensions?</a>
+						</li>
+						
+						<li class="list-group-item">
+							<a href="https://medium.com/@montjoile/l0-norm-l1-norm-l2-norm-l-infinity-norm-7a7d18a4f40c">L0, L1, L2, L<sub>∞</sub></a>
+							(TODO: Put the content from the link here, then delete the link)
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</article>
+
+	<article class="al-project">
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">
+					Am I overfitting/underfitting?
+				</h5>
+				<div class="card-text">
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item">
+							Training loss much greater than validation loss. That is underfitting.
+						</li>
+
+						<li class="list-group-item">
+							Training loss much less than validation loss. That is overfitting.
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</article>
+
+	<article class="al-project">
+		<div class="card">
+			<div class="card-body">
+				<a href="https://quantdare.com/what-is-the-difference-between-bagging-and-boosting/">
 					<h5 class="card-title">
-						Useful notes
+						Bagging vs boosting
 					</h5>
-					<div class="card-text">
-						<ul class="list-group list-group-flush">
-							<li class="list-group-item">
-								<a href="https://compsci682-fa18.github.io/notes/optimization-2/">Backpropagation intuition</a>
-							</li>
+				</a>
+				<div class="card-text">
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item">
+							bagging = parallel models (ex. random forest)
+						</li>
 
-							<li class="list-group-item">
-								<a href="https://ezyang.github.io/convolution-visualizer/index.html">Convolution visualizer</a>
-							</li>
+						<li class="list-group-item">
+							boosting = sequential models (ex. haar cascade)
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</article>
 
-							<li class="list-group-item">
-								<a href="https://stats.stackexchange.com/a/99191/181880">Why is Euclidean distance not a good metric in high dimensions?</a>
-							</li>
-							
-							<li class="list-group-item">
-								<a href="https://medium.com/@montjoile/l0-norm-l1-norm-l2-norm-l-infinity-norm-7a7d18a4f40c">L0, L1, L2, L<sub>∞</sub></a>
-								(TODO: Put the content from the link here, then delete the link)
-							</li>
-						</ul>
+
+
+	<article class="al-project">
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">
+					Good ideas to improve a model
+				</h5>
+				<div class="card-text">
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item">
+							Cluster the unlabeled training data, then add cluster features to get additional free features
+						</li>
+						<li class="list-group-item">
+							Let's say you have multiple labels per data point in your training data. If labelers disagree a lot on a single data point, then that sample is pretty crappy. If you sort your data in order of crappiness, then drop the most crappy ones first, then you'll get a small boost in model performance.
+
+							Even smart is to penalize the model less if it misclassifies a crappier data point.
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</article>
+
+
+	<article class="al-project">
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">
+					Precision vs Recall (w/ statistics translation)
+				</h5>
+				<div class="card-text">
+					<div class="row col-12">
+						<img class="col-lg-6" src="img/precision_recall.svg">
+						<img class="col-lg-6" src="img/sensitivity_specificity.svg">
 					</div>
 				</div>
 			</div>
-		</article>
+		</div>
+	</article>
 
-		<article class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 d-flex align-items-stretch al-project">
-			<div class="card">
-				<div class="card-body">
-					<h5 class="card-title">
-						Am I overfitting/underfitting?
-					</h5>
-					<div class="card-text">
-						<ul class="list-group list-group-flush">
-							<li class="list-group-item">
-								Training loss much greater than validation loss. That is underfitting.
-							</li>
 
-							<li class="list-group-item">
-								Training loss much less than validation loss. That is overfitting.
-							</li>
-						</ul>
+	<article class="al-project">
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">
+					Type I vs Type II errors
+				</h5>
+				<div class="card-text">
+					<div class="row col-12">
+						<img class="card-img-bottom" src="img/type_i_type_ii.jpg">
 					</div>
 				</div>
 			</div>
-		</article>
+		</div>
+	</article>
 
-		<article class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 d-flex align-items-stretch al-project">
-			<div class="card">
-				<div class="card-body">
-					<a href="https://quantdare.com/what-is-the-difference-between-bagging-and-boosting/">
-						<h5 class="card-title">
-							Bagging vs boosting
-						</h5>
-					</a>
-					<div class="card-text">
-						<ul class="list-group list-group-flush">
-							<li class="list-group-item">
-								bagging = parallel models (ex. random forest)
-							</li>
-
-							<li class="list-group-item">
-								boosting = sequential models (ex. haar cascade)
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</article>
-
-
-
-		<article class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 d-flex align-items-stretch al-project">
-			<div class="card">
-				<div class="card-body">
-					<h5 class="card-title">
-						Good ideas to improve a model
-					</h5>
-					<div class="card-text">
-						<ul class="list-group list-group-flush">
-							<li class="list-group-item">
-								Cluster the unlabeled training data, then add cluster features to get additional free features
-							</li>
-							<li class="list-group-item">
-								Let's say you have multiple labels per data point in your training data. If labelers disagree a lot on a single data point, then that sample is pretty crappy. If you sort your data in order of crappiness, then drop the most crappy ones first, then you'll get a small boost in model performance.
-
-								Even smart is to penalize the model less if it misclassifies a crappier data point.
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</article>
-
-
-		<article class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 d-flex align-items-stretch al-project">
-			<div class="card">
-				<div class="card-body">
-					<h5 class="card-title">
-						Precision vs Recall (w/ statistics translation)
-					</h5>
-					<div class="card-text">
-						<div class="row col-12">
-							<img class="col-lg-6" src="img/precision_recall.svg">
-							<img class="col-lg-6" src="img/sensitivity_specificity.svg">
-						</div>
-					</div>
-				</div>
-			</div>
-		</article>
-
-
-		<article class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 d-flex align-items-stretch al-project">
-			<div class="card">
-				<div class="card-body">
-					<h5 class="card-title">
-						Type I vs Type II errors
-					</h5>
-					<div class="card-text">
-						<div class="row col-12">
-							<img class="card-img-bottom" src="img/type_i_type_ii.jpg">
-						</div>
-					</div>
-				</div>
-			</div>
-		</article>
-
-
-	</div>
 
 </body>
 </html>
