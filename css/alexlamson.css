@@ -1,5 +1,5 @@
 body {
-	padding-top: 20px;
+	/*padding-top: 20px;*/
 	background-color: #e9eaed;
 }
 
@@ -27,6 +27,7 @@ body {
 	border-radius: 10px;
 	padding: 20px;
 	margin: 0px;
+	margin-top: 20px;
 	margin-bottom: 20px;
 	background-color: #ffffff;
 }
