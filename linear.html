@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="canonical" href="https://alexlamson.com/ml" />
+
+	<!-- Site title and description -->
+	<title>Alex Lamson | ML</title>
+	<meta name="description" content="Various notes related to machine learning and data science." />
+
+	<!-- Favicons -->
+	<link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+	<link rel="manifest" href="./favicon/manifest.json">
+	<link rel="shortcut icon" href="./favicon/favicon.ico" type="image/x-icon">
+	<!-- <meta name="theme-color" content="#ffffff"> -->
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="./css/bootstrap.min.css">
+	<link rel="stylesheet" href="./css/alexlamson.css">
+
+	<!-- Scripts -->
+	<script defer src="./js/popper.min.js"></script>
+	<script defer src="./js/jquery.min.js"></script>
+	<script defer src="./js/bootstrap.min.js"></script>
+
+	<!-- Global Site Tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-61548012-2"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'UA-61548012-2');
+	</script>
+
+
+</head>
+<body class="container">
+
+	<h1>Linear Algebra: Geometric Intuition</h1>
+
+	<article class="al-project">
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">
+					Definitions (summarized from <a href="https://www.3blue1brown.com/essence-of-linear-algebra-page">3blue1brown</a>)
+				</h5>
+				<div class="card-text">
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item">
+							<b>span</b> - the set of all possible vectors you can reach with a given set of vectors
+						</li>
+						<li class="list-group-item">
+							<b>linearly dependent vector</b> - a vector that can be expressed as a linear combination of the others
+						</li>
+						<li class="list-group-item">
+							<b>basis vectors</b> - a set of linearly independent vectors that span the full vector space
+						</li>
+						<li class="list-group-item">
+							<b>determinant</b> - Think of the columns of the matrix as vectors at the origin forming the edges of a skewed [<a href="https://math.stackexchange.com/a/1032/450461">reference</a>]
+						</li>
+						<li class="list-group-item">
+							<b>inverse of a matrix</b> - if you multiply a matrix by this, you will undo its transformation and get the 
+						</li>
+						<li class="list-group-item">
+							<b>rank</b> - number of dimensions in the output of a transformation (if output of transformation is a line it's 
+						</li>
+						<li class="list-group-item">
+							<b>full rank</b> - when rank == number of columns (rank is as high as it can be)
+						</li>
+						<li class="list-group-item">
+							<b>column space</b> - the set of all possible outputs of the matrix
+						</li>
+						<li class="list-group-item">
+							<b>null space</b> - the space of all vectors that become the zero vector after you apply the matrix
+						</li>
+						<li class="list-group-item">
+							<b>eigenvector of a matrix</b> - this is a vector that stays within its own span when we apply the matrix
+						</li>
+						<li class="list-group-item">
+							<b>eigenvalue of a matrix</b> - the factor by which the eigenvector gets stretched after the transformation
+						</li>
+						<li class="list-group-item">
+							<b>diagonal matrix</b> - all elements of matrix are zero except diagonal. all the columns are eigenvectors for 
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</article>
+
+	<article class="al-project">
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">
+					Generally useful stuff
+				</h5>
+				<div class="card-text">
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item">
+							size of a matrix: [# rows x # columns]
+						</li>
+						<li class="list-group-item">
+							matrix = transformation = function
+						</li>
+						<li class="list-group-item">
+							dot(x,y) == dot(y,x)
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</article>
+
+
+	<article class="al-project">
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">
+					Matrix factorization
+				</h5>
+				<div class="card-text">
+					<p>
+						Express matrix as product of two things
+					</p>
+
+					<p>
+						Ex. matrix of people and movies
+					</p>
+
+					<p>
+						Idea: each movie has features
+							(action, comedy, etc)
+					</p>
+
+					<p>
+						[people, features] * [features, movies] = [people, movies]
+						(The two things we are multiplying are the factors)
+					</p>
+
+					<p>
+						Take the dot product of (the person row from [people, features]) and (the movie column from [features, movies])
+					</p>
+
+					<p>
+						To learn the matrix factorization, initialize randomly, then gradient descend to reasonable values
+					</p>
+				</div>
+			</div>
+		</div>
+	</article>
+
+</body>
+</html>
