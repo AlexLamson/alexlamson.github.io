@@ -38,26 +38,28 @@
 
 <script>
 
+var shuffling = true;
+
 var food_data = `
-breakfast	8	$	Make food at home
-breakfast	9	$$	Esselon
-breakfast	10	$$	Lone Wolf
-breakfast	6	$	Brueggers
-breakfast	10	$$$	Jake's at the Mill
-breakfast	8	$	Cushman
-lunch	9	$	Crazy Noodles
-lunch	10	$	Antonio's
-lunch	9	$	Bueno E Sano
-lunch	6	$$	The Works
-lunch	3	$	Subway
-lunch	5	$$	<i>Go somewhere new</i>
-dinner	10	$	Bueno E Sano
-dinner	10	$$$	Kaiju
 dinner	10	$	Antonio's
-dinner	7	$	AHOP
-dinner	5	$	Mac n cheese
-dinner	6	$	Frozen pizza
+dinner	10	$$$	Kaiju
+dinner	10	$	Bueno E Sano
+lunch	10	$	Antonio's
+breakfast	10	$$$	Jake's at the Mill
+breakfast	10	$$	Lone Wolf
+lunch	9	$	Bueno E Sano
+lunch	9	$	Crazy Noodles
+breakfast	9	$$	Esselon
 dinner	8	$$	<i>Go somewhere new</i>
+breakfast	8	$	Cushman
+breakfast	8	$	Make food at home
+dinner	7	$	AHOP
+dinner	6	$	Frozen pizza
+lunch	6	$$	The Works
+breakfast	6	$	Brueggers
+dinner	5	$	Mac n cheese
+lunch	5	$$	<i>Go somewhere new</i>
+lunch	3	$	Subway
 `;
 
 var places = food_data.split("\n");
@@ -66,7 +68,6 @@ places.pop(); // remove empty last item
 for(var i = 0; i < places.length; i++) {
 	places[i] = places[i].split("\t");
 }
-
 
 function updatePlaces() {
 
@@ -109,20 +110,33 @@ function updatePlaces() {
 		}
 	}
 
-	// var random = Math.random();
-	var shuffle_strength = 4;
-	temp_places.sort((a, b) => b[1] - a[1] + Math.random()*shuffle_strength);
+	if(shuffling) {
+		// var random = Math.random();
+		var shuffle_strength = 4;
+		temp_places.sort((a, b) => b[1] - a[1] + Math.random()*shuffle_strength);
+	}
 
 	for(var i = 0; i < temp_places.length; i++) {
-
 		// document.getElementById("results").innerHTML += temp_places[i];
 		document.getElementById("results").innerHTML += "<li>"+temp_places[i][3]+"</li>";
 		// document.getElementById("results").innerHTML += "<br/>";
 	}
 
 }
+
+function shuffleNow() {
+	var tempShuffling = shuffling;
+	shuffling = true;
+	updatePlaces();
+	shuffling = tempShuffling;
+}
+
 window.onload = function() {
 	updatePlaces();
+
+	$('#shuffleNow').on('click', function (e) {
+		shuffleNow();
+	})
 }
 
 
@@ -155,7 +169,26 @@ window.onload = function() {
 	</form>
 
 	<div class="card" style="padding: 10px;">
-		<ol id="results"></ol>
+		<div class="row">
+			<div class="col-md-6">
+				<ol id="results"></ol>
+			</div>
+			<div class="col-md-6">
+				
+				<div class="row">
+					<label for="doShuffle" style="margin:0px;">
+						<input type="checkbox" id="doShuffle" value="doShuffle" checked onchange="shuffling=false;" />
+						Shuffle results
+					</label>
+				</div>
+				<div class="row">
+					<button type="button" id="shuffleNow" class="btn btn-secondary">
+						Shuffle now
+					</button>
+				</div>
+
+			</div>
+		</div>
 	</div>
 
 	<footer>
