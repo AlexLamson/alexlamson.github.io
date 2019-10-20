@@ -38,8 +38,6 @@
 
 <script>
 
-var shuffling = true;
-
 var food_data = `
 dinner	10	$	Antonio's
 dinner	10	$$$	Kaiju
@@ -111,6 +109,7 @@ function updatePlaces() {
 		}
 	}
 
+	var shuffling = document.getElementById("doShuffle").checked;
 	if(shuffling) {
 		// var random = Math.random();
 		var shuffle_strength = 4;
@@ -126,10 +125,10 @@ function updatePlaces() {
 }
 
 function shuffleNow() {
-	var tempShuffling = shuffling;
-	shuffling = true;
+	var tempShuffling = document.getElementById("doShuffle").checked;
+	document.getElementById("doShuffle").checked = true;
 	updatePlaces();
-	shuffling = tempShuffling;
+	document.getElementById("doShuffle").checked = tempShuffling;
 }
 
 window.onload = function() {
@@ -180,7 +179,7 @@ window.onload = function() {
 			</div>
 			<div class="col-6" style="display:flex;align-items:center;">
 				<label for="doShuffle" style="margin:0px;">
-					<input type="checkbox" id="doShuffle" value="doShuffle" checked onchange="shuffling=false;" />
+					<input type="checkbox" id="doShuffle" value="doShuffle" checked />
 						Auto-shuffle
 				</label>
 			</div>
