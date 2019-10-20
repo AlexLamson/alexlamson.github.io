@@ -49,6 +49,7 @@ breakfast	10	$$$	Jake's at the Mill
 breakfast	10	$$	Lone Wolf
 lunch	9	$	Bueno E Sano
 lunch	9	$	Crazy Noodles
+dinner	9	$$$	Johnny's Tavern
 breakfast	9	$$	Esselon
 dinner	8	$$	<i>Go somewhere new</i>
 breakfast	8	$	Cushman
@@ -165,37 +166,36 @@ window.onload = function() {
 				<br/>
 				<label for="$$$" style="margin:0px;"><input type="checkbox" id="$$$" value="$$$" checked onchange="updatePlaces()" /> Pricy ($$$)</label>
 			</div>
+
 		</div>
+
 	</form>
 
 	<div class="card" style="padding: 10px;">
 		<div class="row">
-			<div class="col-md-6">
-				<ol id="results"></ol>
+			<div class="col-6">
+				<button type="button" id="shuffleNow" class="btn btn-secondary">
+					Shuffle now
+				</button>
 			</div>
-			<div class="col-md-6">
-				
-				<div class="row">
-					<label for="doShuffle" style="margin:0px;">
-						<input type="checkbox" id="doShuffle" value="doShuffle" checked onchange="shuffling=false;" />
-						Shuffle results
-					</label>
-				</div>
-				<div class="row">
-					<button type="button" id="shuffleNow" class="btn btn-secondary">
-						Shuffle now
-					</button>
-				</div>
-
+			<div class="col-6" style="display:flex;align-items:center;">
+				<label for="doShuffle" style="margin:0px;">
+					<input type="checkbox" id="doShuffle" value="doShuffle" checked onchange="shuffling=false;" />
+						Auto-shuffle
+				</label>
 			</div>
 		</div>
 	</div>
 
-	<footer>
-		<div class="footer-line row">
-			<p>The list is re-shuffled probabilistically according to my personal score for each place. Hopefully, that will keep things interesting.</p>
+	<div class="card" style="padding: 10px;">
+		<div class="row">
+				<ol id="results"></ol>
 		</div>
-	</footer>
+	</div>
+
+	<p>
+		The list is re-shuffled probabilistically according to my personal score for each place. Hopefully, that will keep things interesting.
+	</p>
 
 </body>
 </html>
