@@ -51,6 +51,52 @@
 
 <body>
 
+	<!-- Resume / email modal -->
+	<div class="modal fade" id="contactInfoModal" tabindex="-1" role="dialog" aria-labelledby="contactInfoModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="contactInfoModalLabel">Contact information</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item">
+							Email: 
+							<a href="mailto:alex.lamson+spam@gmail.com" id="myemail">alex.lamson+spam@gmail.com</a><noscript> (remove the "+spam" part)</noscript>
+						</li>
+						<li class="list-group-item">
+							Resume: 
+							<a class="social-button" href="assets/Alex-Lamson-Resume.pdf">
+								Human-friendly version
+							</a>
+						</li>
+						<li class="list-group-item">
+							Resume: 
+							<a class="social-button" href="assets/Alex-Lamson-Resume-Parseable.pdf">
+								Machine-friendly version
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Prevent my email from getting scraped -->
+	<script type="text/javascript">
+		var user = 'alex.lamson';
+		var domain = 'gmail.com';
+		var element = document.getElementById('myemail');
+		element.innerHTML = user + '@' + domain;
+		element.href = 'mailto:' + user + '@' + domain;
+	</script>
+
+
 	<!-- Navigation bar -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<a class="navbar-brand" href="#">
@@ -126,11 +172,9 @@
 				<!-- Resume icon taken from https://visualpharm.com/free-icons/resume-595b40b75ba036ed117d8427 -->
 				<!-- Other icons taken from https://www.flaticon.com/packs/font-awesome -->
 				<div class="row" style="margin-top:10px;">
-					<a class="social-button" href="assets/Alex-Lamson-Resume.pdf">
-						<img height="32" width="32" src="./img/icons/resume.svg" data-toggle="tooltip" data-placement="bottom" title="Resume" alt="Resume" />
-					</a>
+					<input type="image" src="./img/icons/resume.svg" height="32" width="32" data-toggle="modal" data-target="#contactInfoModal" />
 
-					<img class="social-button" height="32" width="32" src="./img/icons/email.svg" data-toggle="tooltip" data-placement="bottom" title="alex . lamson @ gmail . com" alt="alex dot lamson @ gmail dot com" />
+					<input type="image" src="./img/icons/email.svg" height="32" width="32" data-toggle="modal" data-target="#contactInfoModal" />
 
 					<a class="social-button" href="https://github.com/AlexLamson">
 						<img height="32" width="32" src="./img/icons/github-character.svg" data-toggle="tooltip" data-placement="bottom" title="GitHub" alt="GitHub" />
