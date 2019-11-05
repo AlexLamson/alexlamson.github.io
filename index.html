@@ -50,53 +50,6 @@
 </head>
 
 <body>
-
-	<!-- Resume / email modal -->
-	<div class="modal fade" id="contactInfoModal" tabindex="-1" role="dialog" aria-labelledby="contactInfoModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="contactInfoModalLabel">Contact information</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<ul class="list-group list-group-flush">
-						<li class="list-group-item">
-							Email: 
-							<a href="mailto:alex.lamson+spam@gmail.com" id="myemail">alex.lamson+spam@gmail.com</a><noscript> (remove the "+spam" part)</noscript>
-						</li>
-						<li class="list-group-item">
-							Resume: 
-							<a class="social-button" href="assets/Alex-Lamson-Resume.pdf">
-								Human-friendly version
-							</a>
-						</li>
-						<li class="list-group-item">
-							Resume: 
-							<a class="social-button" href="assets/Alex-Lamson-Resume-Parseable.pdf">
-								Machine-friendly version
-							</a>
-						</li>
-					</ul>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Prevent my email from getting scraped -->
-	<script type="text/javascript">
-		var user = 'alex.lamson';
-		var domain = 'gmail.com';
-		var element = document.getElementById('myemail');
-		element.innerHTML = user + '@' + domain;
-		element.href = 'mailto:' + user + '@' + domain;
-	</script>
-
-
 	<!-- Navigation bar -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<a class="navbar-brand" href="#">
@@ -151,51 +104,58 @@
 	</nav>
 
 	<div class="container">
+		
 		<!-- Information about me -->
 		<header class="row al-info-panel">
-			<!-- Picture of me -->
-	 		<div class="col-sm-4 col-md-3 col-lg-2 text-center" style="padding-left:0px; padding-right:0px;">
-				<img src="./img/profile_pic.jpg" class="img-fluid rounded-circle al-profile-picture" alt="Headshot of Alex smiling outside while wearing a dress shirt and tie." />
-	 		</div>
+			<div class="row">
+		 		<div class="col-sm-5 col-md-4 col-lg-3 text-center">
+					<img src="./img/profile_pic.jpg" class="img-fluid rounded-circle al-profile-picture" alt="Headshot of Alex smiling outside while wearing a dress shirt and tie." />
+		 		</div>
 
-			<!-- My name and quick summary -->
-			<div class="col-sm-8 col-md-9 col-lg-10 al-bio-area">
-				<div class="row">
-					<h1>Alex Lamson</h1>
+				<div class="col-sm-7 col-md-8 col-lg-9 al-bio-area">
+					<div class="row">
+						<h1>Alex Lamson</h1>
+					</div>
+
+					<div class="row">
+						Hi, I'm a second year Computer Science grad student at the University of Massachusetts Amherst.
+					</div>
+				</div>
+			</div>
+
+			<!-- Social media icons -->
+			<!-- Resume icon taken from https://visualpharm.com/free-icons/resume-595b40b75ba036ed117d8427 -->
+			<!-- Other icons taken from https://www.flaticon.com/packs/font-awesome -->
+			<div class="row text-center col-12" style="padding-top: 20px">
+				<div class="col-3">
+					<a href="mailto:alex.lamson+spam@gmail.com" id="myemail">
+						<img class="social-button" height="32" width="32" src="./img/icons/email.svg" data-toggle="tooltip" data-placement="bottom" title="alex . lamson @ gmail . com" alt="alex dot lamson @ gmail dot com" />
+					</a>
+					<!-- Prevent my email from getting scraped -->
+					<script type="text/javascript">
+						var user = 'alex.lamson';
+						var domain = 'gmail.com';
+						var element = document.getElementById('myemail');
+						// element.innerHTML = user + '@' + domain;
+						element.href = 'mailto:' + user + '@' + domain;
+					</script>
 				</div>
 
-				<div class="row">
-					Hi, I'm a second year Computer Science grad student at the University of Massachusetts Amherst.
+				<div class="col-3" style="padding-left: 0px">
+					<a class="social-button" href="assets/Alex-Lamson-Resume.pdf">
+						<img height="32" width="32" src="./img/icons/resume.svg" data-toggle="tooltip" data-placement="bottom" title="Resume" alt="Resume" />
+					</a>
 				</div>
 
-				<!-- Social media icons -->
-				<!-- Resume icon taken from https://visualpharm.com/free-icons/resume-595b40b75ba036ed117d8427 -->
-				<!-- Other icons taken from https://www.flaticon.com/packs/font-awesome -->
-				<div class="row" style="margin-top:10px;">
-					<input type="image" src="./img/icons/resume.svg" height="32" width="32" data-toggle="modal" data-target="#contactInfoModal" />
-
-					<input type="image" src="./img/icons/email.svg" height="32" width="32" data-toggle="modal" data-target="#contactInfoModal" />
-
+				<div class="col-3">
 					<a class="social-button" href="https://github.com/AlexLamson">
 						<img height="32" width="32" src="./img/icons/github-character.svg" data-toggle="tooltip" data-placement="bottom" title="GitHub" alt="GitHub" />
 					</a>
+				</div>
 
+				<div class="col-3">
 					<a class="social-button" href="https://www.linkedin.com/in/alexlamson/">
 						<img height="32" width="32" src="./img/icons/linkedin.svg" data-toggle="tooltip" data-placement="bottom" title="LinkedIn" alt="LinkedIn" />
-					</a>
-
-					<span aria-hidden="true" class="social-bar">|</span>
-
-					<a class="social-button" href="https://www.youtube.com/channel/UCX9f75HLHUPB4Bxwc3srTvg">
-						<img height="32" width="32" src="./img/icons/youtube.svg" data-toggle="tooltip" data-placement="bottom" title="YouTube" alt="YouTube" />
-					</a>
-
-					<a class="social-button" href="https://www.reddit.com/user/alexlamson/">
-						<img height="32" width="32" src="./img/icons/reddit.svg" data-toggle="tooltip" data-placement="bottom" title="Reddit" alt="Reddit" />
-					</a>
-
-					<a class="social-button" href="https://www.openprocessing.org/user/121562#sketches">
-						<img height="32" width="32" src="./img/icons/p5.svg" data-toggle="tooltip" data-placement="bottom" title="Processing Sketches" alt="Processing Sketches" />
 					</a>
 				</div>
 			</div>
