@@ -27,6 +27,7 @@
 	<script defer src="./js/popper.min.js"></script>
 	<script defer src="./js/jquery.min.js"></script>
 	<script defer src="./js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/3455677592.js"></script>
 	<!-- <script src="js/p5.min.js"></script> -->
 	<script type="text/javascript">
 		//wait for jquery to be loaded
@@ -46,15 +47,6 @@
 		function gtag(){dataLayer.push(arguments);}
 		gtag('js', new Date());
 		gtag('config', 'UA-61548012-2');
-	</script>
-
-	<!-- Prevent my email from getting scraped -->
-	<script type="text/javascript">
-		var user = 'alex.lamson';
-		var domain = 'gmail.com';
-		var element = document.getElementById('myemail');
-		// element.innerHTML = user + '@' + domain;
-		element.href = 'mailto:' + user + '@' + domain;
 	</script>
 </head>
 
@@ -145,26 +137,45 @@
 			<!-- Other icons taken from https://www.flaticon.com/packs/font-awesome -->
 			<div class="row text-center col-12" style="padding-top: 20px">
 				<div class="col-3" style="padding-left: 0px">
+					<!-- <i class="fa fa-camera-retro"></i> fa-camera-retro -->
+
 					<a href="mailto:alex.lamson+spam@gmail.com" id="myemail">
-						<img class="social-button" height="32" width="32" src="./img/icons/email.svg" data-toggle="tooltip" data-placement="bottom" title="alex . lamson @ gmail . com" alt="alex dot lamson @ gmail dot com" />
+						<i class="fa fa-envelope fa-3x" title="Email" alt="Email"></i>
+						<!-- <img class="social-button" height="32" width="32" src="./img/icons/email.svg" data-toggle="tooltip" data-placement="bottom" title="alex . lamson @ gmail . com" alt="alex dot lamson @ gmail dot com" /> -->
 					</a>
+					<!-- Prevent my email from getting scraped -->
+					<script type="text/javascript">
+						var user = 'alex.lamson';
+						var domain = 'gmail.com';
+						var element = document.getElementById('myemail');
+						// element.innerHTML = user + '@' + domain;
+						element.href = 'mailto:' + user + '@' + domain;
+					</script>
 				</div>
 
 				<div class="col-3">
 					<a class="social-button" href="assets/Alex-Lamson-Resume.pdf">
-						<img height="32" width="32" src="./img/icons/resume.svg" data-toggle="tooltip" data-placement="bottom" title="Resume" alt="Resume" />
+						<!-- <img height="32" width="32" src="./img/icons/resume.svg" data-toggle="tooltip" data-placement="bottom" title="Resume" alt="Resume" /> -->
+
+						<!-- <span class="fa-stack fa-lg" title="Resume" alt="Resume">
+							<i class="fa fa-file-o fa-stack-2x"></i>
+							<i class="fa fa-user fa-stack-1x"></i>
+						</span> -->
+						<i class="fa fa-file-text fa-3x" title="Resume" alt="Resume"></i>
 					</a>
 				</div>
 
 				<div class="col-3">
 					<a class="social-button" href="https://github.com/AlexLamson">
-						<img height="32" width="32" src="./img/icons/github-character.svg" data-toggle="tooltip" data-placement="bottom" title="GitHub" alt="GitHub" />
+						<i class="fa fa-github fa-3x" title="GitHub" alt="GitHub"></i>
+						<!-- <img height="32" width="32" src="./img/icons/github-character.svg" data-toggle="tooltip" data-placement="bottom" title="GitHub" alt="GitHub" /> -->
 					</a>
 				</div>
 
 				<div class="col-3">
 					<a class="social-button" href="https://www.linkedin.com/in/alexlamson/">
-						<img height="32" width="32" src="./img/icons/linkedin.svg" data-toggle="tooltip" data-placement="bottom" title="LinkedIn" alt="LinkedIn" />
+						<i class="fa fa-linkedin fa-3x" title="LinkedIn" alt="LinkedIn"></i>
+						<!-- <img height="32" width="32" src="./img/icons/linkedin.svg" data-toggle="tooltip" data-placement="bottom" title="LinkedIn" alt="LinkedIn" /> -->
 					</a>
 				</div>
 			</div>
