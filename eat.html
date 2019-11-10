@@ -61,6 +61,8 @@ lunch	5	$$	<i>Go somewhere new</i>
 lunch	3	$	Subway
 `;
 
+var shuffle_strength = 4;
+
 var places = food_data.split("\n");
 places.shift(); // remove empty first item
 places.pop(); // remove empty last item
@@ -112,7 +114,6 @@ function updatePlaces() {
 	var shuffling = document.getElementById("doShuffle").checked;
 	if(shuffling) {
 		// var random = Math.random();
-		var shuffle_strength = 4;
 		temp_places.sort((a, b) => b[1] - a[1] + Math.random()*shuffle_strength);
 	}
 
@@ -172,16 +173,21 @@ window.onload = function() {
 
 	<div class="card" style="padding: 10px;">
 		<div class="row">
-			<div class="col-6">
+			<div class="col">
 				<button type="button" id="shuffleNow" class="btn btn-secondary">
 					Shuffle now
 				</button>
 			</div>
-			<div class="col-6" style="display:flex;align-items:center;">
+			<div class="col" style="display:flex;align-items:center;">
 				<label for="doShuffle" style="margin:0px;">
 					<input type="checkbox" id="doShuffle" value="doShuffle" checked />
 						Auto-shuffle
 				</label>
+			</div>
+
+			<div class="col" style="display:flex;align-items:center;">
+				<input type="range" name="shuffle-strength" min="1" max="10" value="4" onchange="shuffle_strength=this.value;">
+				<label for="shuffle-strength">Shuffle strength</label>
 			</div>
 		</div>
 	</div>
