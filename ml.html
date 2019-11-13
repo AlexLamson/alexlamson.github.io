@@ -109,19 +109,23 @@
 	<article class="al-project">
 		<div class="card">
 			<div class="card-body">
-				<a href="https://quantdare.com/what-is-the-difference-between-bagging-and-boosting/">
+				<a href="https://stats.stackexchange.com/a/19053/181880">
 					<h5 class="card-title">
-						Bagging vs boosting
+						Ensemble methods
 					</h5>
 				</a>
 				<div class="card-text">
 					<ul class="list-group list-group-flush">
 						<li class="list-group-item">
-							bagging = parallel models (ex. random forest)
+								Bagging - Sample the data a bunch of times, and train a model on each same, then aggregate the model's outputs (ex. random forest)
 						</li>
 
 						<li class="list-group-item">
-							boosting = sequential models (ex. haar cascade)
+								Boosting - Feed the output of one model into the input of another model (ex. haar cascade)
+						</li>
+
+						<li class="list-group-item">
+								Stacking - Train <em>different</em> types of models on the data, then aggregate their outputs (ex. I wanna win the kaggle competition/Netflix prize)
 						</li>
 					</ul>
 				</div>
