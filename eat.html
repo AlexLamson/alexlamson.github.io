@@ -36,124 +36,127 @@
 		gtag('config', 'UA-61548012-2');
 	</script>
 
-<script>
+	<script>
 
-var food_data = `
-lunch	10	$	Antonio's
-dinner	10	$$$	Kaiju
-dinner	10	$	Bueno E Sano
-breakfast	10	$$$	Jake's at the Mill
-lunch	9	$	Crazy Noodles
-dinner	9	$	Antonio's
-breakfast	9	$$	Lone Wolf
-dinner	8	$$$	Johnny's Tavern
-dinner	8	$$	<i>Go somewhere new</i>
-dinner	8	$	Athena's
-breakfast	8	$$	Esselon
-breakfast	8	$	Make food at home
-lunch	7	$	Bueno E Sano
-dinner	7	$	Frozen pizza
-breakfast	7	$	Cushman
-breakfast	7	$	Brueggers
-lunch	6	$$	The Works
-lunch	6	$$	<i>Go somewhere new</i>
-dinner	6	$	AHOP
-lunch	3	$	Subway
-`;
+		var food_data = `
+		lunch	10	$	Antonio's
+		dinner	10	$$$	Kaiju
+		dinner	10	$	Bueno E Sano
+		breakfast	10	$$$	Jake's at the Mill
+		lunch	9	$	Crazy Noodles
+		dinner	9	$	Antonio's
+		breakfast	9	$$	Lone Wolf
+		dinner	8	$$$	Johnny's Tavern
+		dinner	8	$$	<i>Go somewhere new</i>
+		dinner	8	$	Athena's
+		breakfast	8	$$	Esselon
+		breakfast	8	$	Make food at home
+		lunch	7	$	Bueno E Sano
+		dinner	7	$	Frozen pizza
+		breakfast	7	$	Cushman
+		breakfast	7	$	Brueggers
+		lunch	6	$$	The Works
+		lunch	6	$$	<i>Go somewhere new</i>
+		dinner	6	$	AHOP
+		lunch	3	$	Subway
+		`;
 
-var shuffle_strength = 4;
+		var shuffle_strength = 4;
 
-var places = food_data.split("\n");
-places.shift(); // remove empty first item
-places.pop(); // remove empty last item
-for(var i = 0; i < places.length; i++) {
-	places[i] = places[i].split("\t");
-}
+		var places = food_data.split("\n");
+		places.shift(); // remove empty first item
+		places.pop(); // remove empty last item
+		for(var i = 0; i < places.length; i++) {
+			places[i] = places[i].split("\t");
+		}
 
-function updatePlaces() {
+		function updatePlaces() {
 
-	var breakfast = document.getElementById("breakfast").checked;
-	var lunch = document.getElementById("lunch").checked;
-	var dinner = document.getElementById("dinner").checked;
-	var money1 = document.getElementById("$").checked;
-	var money2 = document.getElementById("$$").checked;
-	var money3 = document.getElementById("$$$").checked;
+			var breakfast = document.getElementById("breakfast").checked;
+			var lunch = document.getElementById("lunch").checked;
+			var dinner = document.getElementById("dinner").checked;
+			var money1 = document.getElementById("$").checked;
+			var money2 = document.getElementById("$$").checked;
+			var money3 = document.getElementById("$$$").checked;
 
-	var temp_places = [];
+			var temp_places = [];
 
-	document.getElementById("results").innerHTML = "";
-	for(var i = 0; i < places.length; i++) {
-		var is_meal = (
-		(places[i][0] == "breakfast" && breakfast) ||
-		(places[i][0] == "lunch" && lunch) ||
-		(places[i][0] == "dinner" && dinner)
-		);
+			document.getElementById("results").innerHTML = "";
+			for(var i = 0; i < places.length; i++) {
+				var is_meal = (
+				(places[i][0] == "breakfast" && breakfast) ||
+				(places[i][0] == "lunch" && lunch) ||
+				(places[i][0] == "dinner" && dinner)
+				);
 
-		var is_money = (
-		(places[i][2] == "$" && money1) ||
-		(places[i][2] == "$$" && money2) ||
-		(places[i][2] == "$$$" && money3)
-		);
+				var is_money = (
+				(places[i][2] == "$" && money1) ||
+				(places[i][2] == "$$" && money2) ||
+				(places[i][2] == "$$$" && money3)
+				);
 
-		if(is_meal && is_money) {
+				if(is_meal && is_money) {
 
-			// don't list any restaurant twice
-			var already_added = false;
-			for(var j = 0; j < temp_places.length; j++) {
-				if (temp_places[j][3] == places[i][3]) {
-					already_added = true;
-					break;
+					// don't list any restaurant twice
+					var already_added = false;
+					for(var j = 0; j < temp_places.length; j++) {
+						if (temp_places[j][3] == places[i][3]) {
+							already_added = true;
+							break;
+						}
+					}
+					if(!already_added) {
+						temp_places.push( places[i] );
+					}
 				}
 			}
-			if(!already_added) {
-				temp_places.push( places[i] );
+
+			var shuffling = document.getElementById("doShuffle").checked;
+			if(shuffling) {
+				// var random = Math.random();
+				temp_places.sort((a, b) => b[1] - a[1] + Math.random()*shuffle_strength);
 			}
+
+			for(var i = 0; i < temp_places.length; i++) {
+				// document.getElementById("results").innerHTML += temp_places[i];
+				document.getElementById("results").innerHTML += "<li>"+temp_places[i][3]+"</li>";
+				// document.getElementById("results").innerHTML += "<br/>";
+			}
+
 		}
-	}
 
-	var shuffling = document.getElementById("doShuffle").checked;
-	if(shuffling) {
-		// var random = Math.random();
-		temp_places.sort((a, b) => b[1] - a[1] + Math.random()*shuffle_strength);
-	}
+		function shuffleNow() {
+			var tempShuffling = document.getElementById("doShuffle").checked;
+			document.getElementById("doShuffle").checked = true;
+			updatePlaces();
+			document.getElementById("doShuffle").checked = tempShuffling;
+		}
 
-	for(var i = 0; i < temp_places.length; i++) {
-		// document.getElementById("results").innerHTML += temp_places[i];
-		document.getElementById("results").innerHTML += "<li>"+temp_places[i][3]+"</li>";
-		// document.getElementById("results").innerHTML += "<br/>";
-	}
+		window.onload = function() {
+			updatePlaces();
 
-}
-
-function shuffleNow() {
-	var tempShuffling = document.getElementById("doShuffle").checked;
-	document.getElementById("doShuffle").checked = true;
-	updatePlaces();
-	document.getElementById("doShuffle").checked = tempShuffling;
-}
-
-window.onload = function() {
-	updatePlaces();
-
-	$('#shuffleNow').on('click', function (e) {
-		shuffleNow();
-	})
-}
+			$('#shuffleNow').on('click', function (e) {
+				shuffleNow();
+			})
+		}
 
 
-</script>
+	</script>
 
 </head>
 <body class="container" style="margin-top: 10px;">
 
 	<!--Navigation bar-->
 	<div id="nav-placeholder">
-		</div>
-		<script>
-		$(function(){
+	</div>
+	<script>
+		element.addEventListener("load", function () {
 			$("#nav-placeholder").load("nav.html");
-		});
-		</script>
+		}, false);
+		// $(function(){
+		// 	$("#nav-placeholder").load("nav.html");
+		// });
+	</script>
 
 	<h2 style="text-align: center;">
 		Where should we eat?
@@ -190,7 +193,7 @@ window.onload = function() {
 			<div class="col" style="display:flex;align-items:center;">
 				<label for="doShuffle" style="margin:0px;">
 					<input type="checkbox" id="doShuffle" value="doShuffle" checked />
-						Auto-shuffle
+					Auto-shuffle
 				</label>
 			</div>
 
@@ -203,7 +206,7 @@ window.onload = function() {
 
 	<div class="card" style="padding: 10px;">
 		<div class="row">
-				<ol id="results"></ol>
+			<ol id="results"></ol>
 		</div>
 	</div>
 
