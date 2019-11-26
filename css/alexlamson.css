@@ -1,6 +1,6 @@
 body {
 	/*padding-top: 20px;*/
-	background-color: #e9eaed;
+	/* background-color: #e9eaed; */
 }
 
 .al-profile-picture {
@@ -9,8 +9,8 @@ body {
 }
 
 .al-bio-area {
-	padding-left:  40px;
-	padding-right: 40px;
+	/* padding-left:  40px; */
+	/* padding-right: 40px; */
 	font-size: 1.125rem;
 }
 
@@ -30,7 +30,7 @@ body {
 	margin: 0px;
 	margin-top: 20px;
 	margin-bottom: 20px;
-	background-color: #ffffff;
+	background-color: white;
 }
 
 .al-project {
@@ -42,7 +42,7 @@ h2 {
 }
 
 tr:nth-child(even) {
-    background-color: #dddddd;
+    background-color: lightgray;
 }
 
 main li a {
