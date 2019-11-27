@@ -38,111 +38,108 @@
 
 
 </head>
-<body class="container">
+<body>
 
 	<!--Navigation bar-->
-	<div id="nav-placeholder">
-		</div>
-		<script>
-		$(function(){
-			$("#nav-placeholder").load("nav.html");
-		});
-	</script>
+	<div id="nav-placeholder"></div>
+	<script defer src="./js/load_navbar.js"></script>
 
-	<h1>Machine Learning: Notes and Advice</h1>
+	<div class="container">
 
-	<article class="al-project">
-		<div class="card">
-			<div class="card-body">
-				<h5 class="card-title">
-					Useful notes
-				</h5>
-				<div class="card-text">
-					<ul class="list-group list-group-flush">
-						<li class="list-group-item">
-							<a href="https://compsci682-fa18.github.io/notes/optimization-2/">Backpropagation intuition</a>
-						</li>
+		<h1>Machine Learning: Notes and Advice</h1>
 
-						<li class="list-group-item">
-							<a href="https://ezyang.github.io/convolution-visualizer/index.html">Convolution visualizer</a>
-						</li>
-
-						<li class="list-group-item">
-							<a href="https://stats.stackexchange.com/a/99191/181880">Why is Euclidean distance not a good metric in high dimensions?</a>
-						</li>
-
-						<li class="list-group-item">
-							<a href="https://medium.com/@montjoile/l0-norm-l1-norm-l2-norm-l-infinity-norm-7a7d18a4f40c">L0, L1, L2, L<sub>∞</sub></a>
-						</li>
-						<li class="list-group-item">
-							L0 - The total number of nonzero elements in a vector
-						</li>
-						<li class="list-group-item">
-							L1 - Manhattan Distance
-						</li>
-						<li class="list-group-item">
-							L2 - Euclidean distance
-						</li>
-						<li class="list-group-item">
-							L<sub>∞</sub> - Maximum of absolute values of all the elements of the vector
-						</li>
-						<!-- (TODO: Put the content from the link here, then delete the link) -->
-					</ul>
-				</div>
-			</div>
-		</div>
-	</article>
-
-	<article class="al-project">
-		<div class="card">
-			<div class="card-body">
-				<h5 class="card-title">
-					Am I overfitting/underfitting?
-				</h5>
-				<div class="card-text">
-					<ul class="list-group list-group-flush">
-						<li class="list-group-item">
-							Training loss much greater than validation loss. That is underfitting.
-						</li>
-
-						<li class="list-group-item">
-							Training loss much less than validation loss. That is overfitting.
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</article>
-
-	<article class="al-project">
-		<div class="card">
-			<div class="card-body">
-				<a href="https://stats.stackexchange.com/a/19053/181880">
+		<article class="al-project">
+			<div class="card">
+				<div class="card-body">
 					<h5 class="card-title">
-						Ensemble methods
+						Useful notes
 					</h5>
-				</a>
-				<div class="card-text">
-					<ul class="list-group list-group-flush">
-						<li class="list-group-item">
-								Bagging - Sample the data a bunch of times, and train a model on each same, then aggregate the model's outputs (ex. random forest)
-						</li>
+					<div class="card-text">
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item">
+								<a href="https://compsci682-fa18.github.io/notes/optimization-2/">Backpropagation intuition</a>
+							</li>
 
-						<li class="list-group-item">
-								Boosting - Feed the output of one model into the input of another model (ex. haar cascade)
-						</li>
+							<li class="list-group-item">
+								<a href="https://ezyang.github.io/convolution-visualizer/index.html">Convolution visualizer</a>
+							</li>
 
-						<li class="list-group-item">
-								Stacking - Train <em>different</em> types of models on the data, then aggregate their outputs (ex. I wanna win the kaggle competition/Netflix prize)
-						</li>
-					</ul>
+							<li class="list-group-item">
+								<a href="https://stats.stackexchange.com/a/99191/181880">Why is Euclidean distance not a good metric in high dimensions?</a>
+							</li>
+
+							<li class="list-group-item">
+								<a href="https://medium.com/@montjoile/l0-norm-l1-norm-l2-norm-l-infinity-norm-7a7d18a4f40c">L0, L1, L2, L<sub>∞</sub></a>
+							</li>
+							<li class="list-group-item">
+								L0 - The total number of nonzero elements in a vector
+							</li>
+							<li class="list-group-item">
+								L1 - Manhattan Distance
+							</li>
+							<li class="list-group-item">
+								L2 - Euclidean distance
+							</li>
+							<li class="list-group-item">
+								L<sub>∞</sub> - Maximum of absolute values of all the elements of the vector
+							</li>
+							<!-- (TODO: Put the content from the link here, then delete the link) -->
+						</ul>
+					</div>
 				</div>
 			</div>
-		</div>
-	</article>
+		</article>
+
+		<article class="al-project">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">
+						Am I overfitting/underfitting?
+					</h5>
+					<div class="card-text">
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item">
+								Training loss much greater than validation loss. That is underfitting.
+							</li>
+
+							<li class="list-group-item">
+								Training loss much less than validation loss. That is overfitting.
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</article>
+
+		<article class="al-project">
+			<div class="card">
+				<div class="card-body">
+					<a href="https://stats.stackexchange.com/a/19053/181880">
+						<h5 class="card-title">
+							Ensemble methods
+						</h5>
+					</a>
+					<div class="card-text">
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item">
+								Bagging - Sample the data a bunch of times, and train a model on each same, then aggregate the model's outputs (ex. random forest)
+							</li>
+
+							<li class="list-group-item">
+								Boosting - Feed the output of one model into the input of another model (ex. haar cascade)
+							</li>
+
+							<li class="list-group-item">
+								Stacking - Train <em>different</em> types of models on the data, then aggregate their outputs (ex. I wanna win the kaggle competition/Netflix prize)
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</article>
 
 
-	<article class="al-project">
+		<article class="al-project">
 			<div class="card">
 				<div class="card-body">
 					<a href="https://becominghuman.ai/machine-learning-bias-vs-variance-641f924e6c57">
@@ -168,47 +165,47 @@
 		</article>
 
 
-	<article class="al-project">
-		<div class="card">
-			<div class="card-body">
-				<h5 class="card-title">
-					Good ideas to improve a model
-				</h5>
-				<div class="card-text">
-					<ul class="list-group list-group-flush">
-						<li class="list-group-item">
-							Cluster the unlabeled training data, then add cluster features to get additional free features
-						</li>
-						<li class="list-group-item">
-							Let's say you have multiple labels per data point in your training data. If labelers disagree a lot on a single data point, then that sample is pretty crappy. If you sort your data in order of crappiness, then drop the most crappy ones first, then you'll get a small boost in model performance.
+		<article class="al-project">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">
+						Good ideas to improve a model
+					</h5>
+					<div class="card-text">
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item">
+								Cluster the unlabeled training data, then add cluster features to get additional free features
+							</li>
+							<li class="list-group-item">
+								Let's say you have multiple labels per data point in your training data. If labelers disagree a lot on a single data point, then that sample is pretty crappy. If you sort your data in order of crappiness, then drop the most crappy ones first, then you'll get a small boost in model performance.
 
-							Even smart is to penalize the model less if it misclassifies a crappier data point.
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</article>
-
-
-	<article class="al-project">
-		<div class="card">
-			<div class="card-body">
-				<h5 class="card-title">
-					Precision vs Recall (w/ statistics translation)
-				</h5>
-				<div class="card-text">
-					<div class="row col-12">
-						<img class="col-lg-6" src="img/precision_recall.svg">
-						<img class="col-lg-6" src="img/sensitivity_specificity.svg">
+								Even smart is to penalize the model less if it misclassifies a crappier data point.
+							</li>
+						</ul>
 					</div>
 				</div>
 			</div>
-		</div>
-	</article>
+		</article>
 
 
-	<article class="al-project">
+		<article class="al-project">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">
+						Precision vs Recall (w/ statistics translation)
+					</h5>
+					<div class="card-text">
+						<div class="row col-12">
+							<img class="col-lg-6" src="img/precision_recall.svg">
+							<img class="col-lg-6" src="img/sensitivity_specificity.svg">
+						</div>
+					</div>
+				</div>
+			</div>
+		</article>
+
+
+		<article class="al-project">
 			<div class="card">
 				<div class="card-body">
 					<h5 class="card-title">
@@ -232,21 +229,21 @@
 		</article>
 
 
-	<article class="al-project">
-		<div class="card">
-			<div class="card-body">
-				<h5 class="card-title">
-					Type I vs Type II errors
-				</h5>
-				<div class="card-text">
-					<div class="row col-12">
-						<img class="card-img-bottom" src="img/type_i_type_ii.jpg">
+		<article class="al-project">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">
+						Type I vs Type II errors
+					</h5>
+					<div class="card-text">
+						<div class="row col-12">
+							<img class="card-img-bottom" src="img/type_i_type_ii.jpg">
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</article>
+		</article>
 
-
+	</div>
 </body>
 </html>

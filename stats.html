@@ -38,105 +38,102 @@
 
 
 </head>
-<body class="container">
+<body>
 
 	<!--Navigation bar-->
-	<div id="nav-placeholder">
-		</div>
-		<script>
-		$(function(){
-			$("#nav-placeholder").load("nav.html");
-		});
-	</script>
+	<div id="nav-placeholder"></div>
+	<script defer src="./js/load_navbar.js"></script>
 
+	<div class="container">
 
-	<h1>Statistics</h1>
+		<h1>Statistics</h1>
 
-	<article class="al-project">
-		<div class="card">
-			<div class="card-body">
-				<h5 class="card-title">
-					These notes are a work in progress
-				</h5>
-				<div class="card-text">
-					<p>
-						Completion progress:
+		<article class="al-project">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">
+						These notes are a work in progress
+					</h5>
+					<div class="card-text">
+						<p>
+							Completion progress:
 
-						<div class="progress">
-							<div class="progress-bar progress-bar-striped" role="progressbar" style="width: 6%" aria-valuenow="6" aria-valuemin="0" aria-valuemax="100">
-								6%
+							<div class="progress">
+								<div class="progress-bar progress-bar-striped" role="progressbar" style="width: 6%" aria-valuenow="6" aria-valuemin="0" aria-valuemax="100">
+									6%
+								</div>
 							</div>
-						</div>
-					</p>
+						</p>
 
-					<p>
-						Things I want to add to this page:
-						<ul class="list-group">
+						<p>
+							Things I want to add to this page:
+							<ul class="list-group">
+								<li class="list-group-item">
+									All my notes from <b>CS 348 - Principles of Data Science</b>
+								</li>
+								<li class="list-group-item">
+									A list of distributions and their properties
+								</li>
+								<li class="list-group-item">
+									Bayes Theorem
+								</li>
+								<li class="list-group-item">
+									Probability Definitions & Conditional Probability
+								</li>
+								<li class="list-group-item">
+									Random Variable
+								</li>
+								<li class="list-group-item">
+									Markov And Chebyshev Bounds
+								</li>
+								<li class="list-group-item">
+									Law Of Large Numbers
+								</li>
+								<li class="list-group-item">
+									Central Limit Theorem
+								</li>
+								<li class="list-group-item">
+									Markov Chains
+								</li>
+								<li class="list-group-item">
+									Bayesian Network
+								</li>
+								<li class="list-group-item">
+									Markov Decision Processes
+								</li>
+								<li class="list-group-item">
+									Hidden Markov Models
+								</li>
+								<li class="list-group-item">
+									Causal Inference
+								</li>
+							</ul>
+						</p>
+					</div>
+				</div>
+			</div>
+		</article>
+
+		<article class="al-project">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">
+						Definitions
+					</h5>
+					<div class="card-text">
+						<ul class="list-group list-group-flush">
 							<li class="list-group-item">
-								All my notes from <b>CS 348 - Principles of Data Science</b>
+								<b>Permutations</b> - Different ordered sequences (ex. 012, 021, 102, 120, 201, 210)
 							</li>
 							<li class="list-group-item">
-								A list of distributions and their properties
-							</li>
-							<li class="list-group-item">
-								Bayes Theorem
-							</li>
-							<li class="list-group-item">
-								Probability Definitions & Conditional Probability
-							</li>
-							<li class="list-group-item">
-								Random Variable
-							</li>
-							<li class="list-group-item">
-								Markov And Chebyshev Bounds
-							</li>
-							<li class="list-group-item">
-								Law Of Large Numbers
-							</li>
-							<li class="list-group-item">
-								Central Limit Theorem
-							</li>
-							<li class="list-group-item">
-								Markov Chains
-							</li>
-							<li class="list-group-item">
-								Bayesian Network
-							</li>
-							<li class="list-group-item">
-								Markov Decision Processes
-							</li>
-							<li class="list-group-item">
-								Hidden Markov Models
-							</li>
-							<li class="list-group-item">
-								Causal Inference
+								<b>Combinations</b> - Different unordered sets (ex. 012)
 							</li>
 						</ul>
-					</p>
+					</div>
 				</div>
 			</div>
-		</div>
-	</article>
+		</article>
 
-	<article class="al-project">
-		<div class="card">
-			<div class="card-body">
-				<h5 class="card-title">
-					Definitions
-				</h5>
-				<div class="card-text">
-					<ul class="list-group list-group-flush">
-						<li class="list-group-item">
-							<b>Permutations</b> - Different ordered sequences (ex. 012, 021, 102, 120, 201, 210)
-						</li>
-						<li class="list-group-item">
-							<b>Combinations</b> - Different unordered sets (ex. 012)
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</article>
-
+	</div>
 </body>
 </html>

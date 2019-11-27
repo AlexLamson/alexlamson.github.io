@@ -144,70 +144,72 @@
 	</script>
 
 </head>
-<body class="container" style="margin-top: 10px;">
+<body>
 
 	<!--Navigation bar-->
-	<div id="nav-placeholder">
-	</div>
+	<div id="nav-placeholder"></div>
 	<script defer src="./js/load_navbar.js"></script>
 
-	<h2 style="text-align: center;">
-		Where should we eat?
-	</h2>
+	<div class="container" style="margin-top: 10px;">
 
-	<form id="myform" class="card">
-		<div class="row card-body" style="padding-bottom: 10px;">
-			<div class="col">
-				<label for="breakfast"><input type="checkbox" id="breakfast" value="breakfast" checked onchange="updatePlaces()" /> Breakfast</label>
-				<br/>
-				<label for="lunch"><input type="checkbox" id="lunch" value="lunch" checked onchange="updatePlaces()" /> Lunch</label>
-				<br/>
-				<label for="dinner"><input type="checkbox" id="dinner" value="dinner" checked onchange="updatePlaces()" /> Dinner</label>
-			</div>
-			<div class="col" style="padding-left: 0px;">
-				<label for="$"><input type="checkbox" id="$" value="$" checked onchange="updatePlaces()" /> Cheap ($)</label>
-				<br/>
-				<label for="$$"><input type="checkbox" id="$$" value="$$" checked onchange="updatePlaces()" /> Medium ($$)</label>
-				<br/>
-				<label for="$$$" style="margin:0px;"><input type="checkbox" id="$$$" value="$$$" checked onchange="updatePlaces()" /> Pricy ($$$)</label>
+		<h2 style="text-align: center;">
+			Where should we eat?
+		</h2>
+
+		<form id="myform" class="card">
+			<div class="row card-body" style="padding-bottom: 10px;">
+				<div class="col">
+					<label for="breakfast"><input type="checkbox" id="breakfast" value="breakfast" checked onchange="updatePlaces()" /> Breakfast</label>
+					<br/>
+					<label for="lunch"><input type="checkbox" id="lunch" value="lunch" checked onchange="updatePlaces()" /> Lunch</label>
+					<br/>
+					<label for="dinner"><input type="checkbox" id="dinner" value="dinner" checked onchange="updatePlaces()" /> Dinner</label>
+				</div>
+				<div class="col" style="padding-left: 0px;">
+					<label for="$"><input type="checkbox" id="$" value="$" checked onchange="updatePlaces()" /> Cheap ($)</label>
+					<br/>
+					<label for="$$"><input type="checkbox" id="$$" value="$$" checked onchange="updatePlaces()" /> Medium ($$)</label>
+					<br/>
+					<label for="$$$" style="margin:0px;"><input type="checkbox" id="$$$" value="$$$" checked onchange="updatePlaces()" /> Pricy ($$$)</label>
+				</div>
+
 			</div>
 
+		</form>
+
+		<div class="card" style="padding: 10px;">
+			<div class="row">
+				<div class="col">
+					<button type="button" id="shuffleNow" class="btn btn-secondary">
+						Shuffle now
+					</button>
+				</div>
+				<div class="col" style="display:flex;align-items:center;">
+					<label for="doShuffle" style="margin:0px;">
+						<input type="checkbox" id="doShuffle" value="doShuffle" checked />
+						Auto-shuffle
+					</label>
+				</div>
+
+				<div class="col" style="display:flex;align-items:center;">
+					<input type="range" name="shuffle-strength" min="1" max="20" value="4" onchange="shuffle_strength=this.value;">
+					<label for="shuffle-strength">Shuffle strength</label>
+				</div>
+			</div>
 		</div>
 
-	</form>
-
-	<div class="card" style="padding: 10px;">
-		<div class="row">
-			<div class="col">
-				<button type="button" id="shuffleNow" class="btn btn-secondary">
-					Shuffle now
-				</button>
-			</div>
-			<div class="col" style="display:flex;align-items:center;">
-				<label for="doShuffle" style="margin:0px;">
-					<input type="checkbox" id="doShuffle" value="doShuffle" checked />
-					Auto-shuffle
-				</label>
-			</div>
-
-			<div class="col" style="display:flex;align-items:center;">
-				<input type="range" name="shuffle-strength" min="1" max="20" value="4" onchange="shuffle_strength=this.value;">
-				<label for="shuffle-strength">Shuffle strength</label>
+		<div class="card" style="padding: 10px;">
+			<div class="row">
+				<ol id="results"></ol>
 			</div>
 		</div>
+
+		<p>
+			The list is re-shuffled when you change the settings.
+			Shuffling is weighted by my personal score for each place.
+			This will keep the top results diverse and interesting.
+		</p>
 	</div>
-
-	<div class="card" style="padding: 10px;">
-		<div class="row">
-			<ol id="results"></ol>
-		</div>
-	</div>
-
-	<p>
-		The list is re-shuffled when you change the settings.
-		Shuffling is weighted by my personal score for each place.
-		This will keep the top results diverse and interesting.
-	</p>
 
 </body>
 </html>

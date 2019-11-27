@@ -38,129 +38,126 @@
 
 
 </head>
-<body class="container">
+<body>
 
 	<!--Navigation bar-->
-	<div id="nav-placeholder">
+	<div id="nav-placeholder"></div>
+	<script defer src="./js/load_navbar.js"></script>
+
+	<div class="container">
+
+		<h1>Linear Algebra: Geometric Intuition</h1>
+
+		<article class="al-project">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">
+						Definitions (summarized from <a href="https://www.3blue1brown.com/essence-of-linear-algebra-page">3blue1brown</a>)
+					</h5>
+					<div class="card-text">
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item">
+								<b>span</b> - the set of all possible vectors you can reach with a given set of vectors
+							</li>
+							<li class="list-group-item">
+								<b>linearly dependent vector</b> - a vector that can be expressed as a linear combination of the others
+							</li>
+							<li class="list-group-item">
+								<b>basis vectors</b> - a set of linearly independent vectors that span the full vector space
+							</li>
+							<li class="list-group-item">
+								<b>determinant</b> - Think of the columns of the matrix as vectors at the origin forming the edges of a skewed box. The determinant gives the volume of that box. <a href="https://math.stackexchange.com/a/1032/450461">reference</a>]
+							</li>
+							<li class="list-group-item">
+								<b>inverse of a matrix</b> - if you multiply a matrix by this, you will undo its transformation and get the identity matrix (if the determinant is zero, then there is no inverse, because you can't unsquish a 2D line and get a 3D space)
+							</li>
+							<li class="list-group-item">
+								<b>rank</b> - number of dimensions in the output of a transformation (if output of transformation is a line it's rank 1, plane -> rank 2, etc)
+							</li>
+							<li class="list-group-item">
+								<b>full rank</b> - when rank == number of columns (rank is as high as it can be)
+							</li>
+							<li class="list-group-item">
+								<b>column space</b> - the set of all possible outputs of the matrix
+							</li>
+							<li class="list-group-item">
+								<b>null space</b> - the space of all vectors that become the zero vector after you apply the matrix
+							</li>
+							<li class="list-group-item">
+								<b>eigenvector of a matrix</b> - this is a vector that stays within its own span when we apply the matrix
+							</li>
+							<li class="list-group-item">
+								<b>eigenvalue of a matrix</b> - the factor by which the eigenvector gets stretched after the transformation
+							</li>
+							<li class="list-group-item">
+								<b>diagonal matrix</b> - all elements of matrix are zero except diagonal. all the columns are eigenvectors for such a matrix
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</article>
+
+		<article class="al-project">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">
+						Generally useful stuff
+					</h5>
+					<div class="card-text">
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item">
+								size of a matrix: [# rows x # columns]
+							</li>
+							<li class="list-group-item">
+								matrix = transformation = function
+							</li>
+							<li class="list-group-item">
+								x ⋅ y = y ⋅ x
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</article>
+
+
+		<article class="al-project">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">
+						Matrix factorization
+					</h5>
+					<div class="card-text">
+						<p>
+							Express matrix as product of two things
+						</p>
+
+						<p>
+							Ex. matrix of people and movies
+						</p>
+
+						<p>
+							Idea: each movie has features
+							(action, comedy, etc)
+						</p>
+
+						<p>
+							[people, features] * [features, movies] = [people, movies]
+							(The two things we are multiplying are the factors)
+						</p>
+
+						<p>
+							Take the dot product of (the person row from [people, features]) and (the movie column from [features, movies])
+						</p>
+
+						<p>
+							To learn the matrix factorization, initialize randomly, then gradient descend to reasonable values
+						</p>
+					</div>
+				</div>
+			</div>
+		</article>
 	</div>
-	<script>
-		$(function(){
-			$("#nav-placeholder").load("nav.html");
-		});
-	</script>
-
-	<h1>Linear Algebra: Geometric Intuition</h1>
-
-	<article class="al-project">
-		<div class="card">
-			<div class="card-body">
-				<h5 class="card-title">
-					Definitions (summarized from <a href="https://www.3blue1brown.com/essence-of-linear-algebra-page">3blue1brown</a>)
-				</h5>
-				<div class="card-text">
-					<ul class="list-group list-group-flush">
-						<li class="list-group-item">
-							<b>span</b> - the set of all possible vectors you can reach with a given set of vectors
-						</li>
-						<li class="list-group-item">
-							<b>linearly dependent vector</b> - a vector that can be expressed as a linear combination of the others
-						</li>
-						<li class="list-group-item">
-							<b>basis vectors</b> - a set of linearly independent vectors that span the full vector space
-						</li>
-						<li class="list-group-item">
-							<b>determinant</b> - Think of the columns of the matrix as vectors at the origin forming the edges of a skewed box. The determinant gives the volume of that box. <a href="https://math.stackexchange.com/a/1032/450461">reference</a>]
-						</li>
-						<li class="list-group-item">
-							<b>inverse of a matrix</b> - if you multiply a matrix by this, you will undo its transformation and get the identity matrix (if the determinant is zero, then there is no inverse, because you can't unsquish a 2D line and get a 3D space)
-						</li>
-						<li class="list-group-item">
-							<b>rank</b> - number of dimensions in the output of a transformation (if output of transformation is a line it's rank 1, plane -> rank 2, etc)
-						</li>
-						<li class="list-group-item">
-							<b>full rank</b> - when rank == number of columns (rank is as high as it can be)
-						</li>
-						<li class="list-group-item">
-							<b>column space</b> - the set of all possible outputs of the matrix
-						</li>
-						<li class="list-group-item">
-							<b>null space</b> - the space of all vectors that become the zero vector after you apply the matrix
-						</li>
-						<li class="list-group-item">
-							<b>eigenvector of a matrix</b> - this is a vector that stays within its own span when we apply the matrix
-						</li>
-						<li class="list-group-item">
-							<b>eigenvalue of a matrix</b> - the factor by which the eigenvector gets stretched after the transformation
-						</li>
-						<li class="list-group-item">
-							<b>diagonal matrix</b> - all elements of matrix are zero except diagonal. all the columns are eigenvectors for such a matrix
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</article>
-
-	<article class="al-project">
-		<div class="card">
-			<div class="card-body">
-				<h5 class="card-title">
-					Generally useful stuff
-				</h5>
-				<div class="card-text">
-					<ul class="list-group list-group-flush">
-						<li class="list-group-item">
-							size of a matrix: [# rows x # columns]
-						</li>
-						<li class="list-group-item">
-							matrix = transformation = function
-						</li>
-						<li class="list-group-item">
-							x ⋅ y = y ⋅ x
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</article>
-
-
-	<article class="al-project">
-		<div class="card">
-			<div class="card-body">
-				<h5 class="card-title">
-					Matrix factorization
-				</h5>
-				<div class="card-text">
-					<p>
-						Express matrix as product of two things
-					</p>
-
-					<p>
-						Ex. matrix of people and movies
-					</p>
-
-					<p>
-						Idea: each movie has features
-						(action, comedy, etc)
-					</p>
-
-					<p>
-						[people, features] * [features, movies] = [people, movies]
-						(The two things we are multiplying are the factors)
-					</p>
-
-					<p>
-						Take the dot product of (the person row from [people, features]) and (the movie column from [features, movies])
-					</p>
-
-					<p>
-						To learn the matrix factorization, initialize randomly, then gradient descend to reasonable values
-					</p>
-				</div>
-			</div>
-		</div>
-	</article>
-
 </body>
 </html>
