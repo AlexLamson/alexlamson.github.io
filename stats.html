@@ -54,16 +54,16 @@
 		<article class="al-project">
 			<div class="card">
 				<div class="card-body">
-					<h5 class="card-title">
+					<h2 class="card-title">
 						These notes are a work in progress
-					</h5>
+					</h2>
 					<div class="card-text">
 						<p>
 							Completion progress:
 
 							<div class="progress">
-								<div class="progress-bar progress-bar-striped" role="progressbar" style="width: 16%" aria-valuenow="16" aria-valuemin="0" aria-valuemax="100">
-									16%
+								<div class="progress-bar progress-bar-striped" role="progressbar" style="width: 37%" aria-valuenow="37" aria-valuemin="0" aria-valuemax="100">
+									37%
 								</div>
 							</div>
 						</p>
@@ -75,9 +75,6 @@
 									All my notes from <b>CS 348 - Principles of Data Science</b>
 								</li>
 								<li class="list-group-item">
-									A list of distributions and their properties
-								</li>
-								<li class="list-group-item">
 									Probability Definitions & Conditional Probability
 								</li>
 								<li class="list-group-item">
@@ -85,12 +82,6 @@
 								</li>
 								<li class="list-group-item">
 									Markov And Chebyshev Bounds
-								</li>
-								<li class="list-group-item">
-									Law Of Large Numbers
-								</li>
-								<li class="list-group-item">
-									Central Limit Theorem
 								</li>
 								<li class="list-group-item">
 									Markov Chains
@@ -120,11 +111,18 @@
 		<article class="al-project">
 			<div class="card">
 				<div class="card-body">
-					<h5 class="card-title">
+					<h2 class="card-title">
 						Definitions
-					</h5>
+					</h2>
 					<div class="card-text">
 						<ul class="list-group list-group-flush">
+							<li class="list-group-item">
+								<b>Central limit theorem</b> - As the sample size tends to infinity, the distribution of sample means approaches the normal distribution
+							</li>
+							<li class="list-group-item">
+								<b>Law of Large Numbers</b> - As the sample size tends to infinity, the sample mean equals the population mean
+							</li>
+
 							<li class="list-group-item">
 								<b>Permutations</b> - Different ordered sequences (ex. 012, 021, 102, 120, 201, 210)
 							</li>
@@ -140,16 +138,16 @@
 		<article class="al-project">
 			<div class="card">
 				<div class="card-body">
-					<h5 class="card-title">
+					<h2 class="card-title">
 						Bayes Rule
-					</h5>
-					<div class="card-text">
+					</h2>
+					<!-- <div class="card-text">
 
 						`P(A|B) = \frac{P(B|A)*P(A)}{P(B)}`<br/>
 
 						`\text{posterior} = \frac{\text{likelihood} * \text{prior}}{\text{marginal}}`<br/>
 
-					</div>
+					</div> -->
 				</div>
 				<div class="row col-12">
 					<img class="card-img-bottom" src="img/bayes-theorem.jpg">
@@ -160,13 +158,84 @@
 		<article class="al-project">
 			<div class="card">
 				<div class="card-body">
-					<a href="https://www.thelearningmachine.ai/lle">
-						<h5 class="card-title">
-							Linear regression
-						</h5>
+					<a href="https://medium.com/@srowen/common-probability-distributions-347e6b945ce4">
+						<h2 class="card-title">
+							Distributions
+						</h2>
 					</a>
 					<div class="card-text">
+						<h3>Discrete</h3>
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item">
+								<b>Bernoulli</b> - Probability between two outcomes (ex. (possibly unfair) coin toss)
+							</li>
+							<li class="list-group-item">
+								<b>Uniform</b> - Everything has equal probability (ex. rolling a fair die)
+							</li>
+							<li class="list-group-item">
+								<b>Binomial</b> - Sum of outcomes of something that follows a Bernoulli distribution (sampling with replacement) (ex. Toss a fair coin 20 times; how many times does it come up heads?)
+							</li>
+							<li class="list-group-item">
+								<b>Hypergeometric</b> - Binomial but sampling <i>without</i> replacement
+							</li>
+							<li class="list-group-item">
+								<a href="https://math.stackexchange.com/a/1050233/450461"><b>Poisson</b></a> - Probability of a given number of events happening in a fixed interval of time
+							</li>
+							<li class="list-group-item">
+								<b>Geometric</b> - If the binomial distribution is "How many successes?" then the geometric distribution is "How many failures until a success?"
+							</li>
+							<li class="list-group-item">
+								<b>Negative Binomial</b> - Number of failures until r successes have occurred
+							</li>
+						</ul>
 
+						<br/>
+						<h3>Continuous</h3>
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item">
+								<b>Exponential</b> - How long until event? (ex. How long until the next customer calls?)
+							</li>
+							<li class="list-group-item">
+								<b>Weibull</b> - Generalization of exponential. Models increasing/decreasing rates of failure over time.
+							</li>
+							<li class="list-group-item">
+								<b>Normal (AKA gaussian)</b> - The sum of trials (from one of several kinds of distributions)
+							</li>
+							<li class="list-group-item">
+								<b>Log-normal</b> - Like normal, but the product of trials
+							</li>
+							<li class="list-group-item">
+								<b>Student's t</b> - As its parameter `\nu` increases, approaches the normal distribution
+							</li>
+							<li class="list-group-item">
+								<b>Chi-squared (`\chi^2`)</b> - Distribution of the sum of squares of normally-distributed values
+							</li>
+							<li class="list-group-item">
+								<b>Gamma</b> - <u><b>TODO</b></u>
+							</li>
+							<li class="list-group-item">
+								<b>Beta</b> - <u><b>TODO</b></u>
+							</li>
+
+
+						</ul>
+					</div>
+				</div>
+				<div class="row col-12">
+					<img class="card-img-bottom" src="img/distributions.jpg">
+				</div>
+			</div>
+		</article>
+
+		<article class="al-project">
+			<div class="card">
+				<div class="card-body">
+					<a href="https://www.thelearningmachine.ai/lle">
+						<h2 class="card-title">
+							Linear regression
+						</h2>
+					</a>
+					<div class="card-text">
 
 						<table class="table">
 							<tbody>
