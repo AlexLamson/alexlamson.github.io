@@ -30,20 +30,22 @@ function days() {
 
 // one more pushup per week, starting with 5 with a max of 15
 var num_pushups = Math.floor(Math.min(5+days()/7, 15));
+var seconds_per_pushup = 2.0;
+
 
 var actions = [
 ["Stand up", 5],
 ["Reach down and touch toes", 15],
 ["Get In Next Pose", 11],
-["Downward facing dog", 15],
+["Downward facing dog", 20],
 ["Get In Next Pose", 7],
-["Cat and cow", 20],
+["Cat and cow", 30],
 ["Get In Next Pose", 8],
-["Upward Facing Dog", 25],
-["Get In Next Pose", 7],
+["Upward Facing Dog", 30],
+["Get In Next Pose", 9],
 ["Half Tortoise", 20],
 ["Get In Next Pose", 10],
-["Pushups ("+num_pushups+")", num_pushups*1.5], //1.5 sec/pushup
+["Pushups ("+num_pushups+")", num_pushups*seconds_per_pushup],
 ["Get In Next Pose", 15],
 ["Planking", 30],
 ["Get In Next Pose", 15],
