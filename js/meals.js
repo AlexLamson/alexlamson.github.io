@@ -1,0 +1,116 @@
+
+let meals = {
+    'Cereal':{'type':'breakfast_alex', 'number':7, 'ingredients':['cereal', 'almond milk']},
+    'Oatmeal':{'type':'breakfast_michelle', 'number':7, 'ingredients':[]},
+    'Smoothie':{'type':'breakfast_michelle', 'number':7, 'ingredients':[]},
+    'Banana Pancakes':{'type':'breakfast_michelle', 'number':7, 'ingredients':['eggs','bananas']},
+    'Veggie scramble':{'type':'breakfast_michelle', 'number':7, 'ingredients':[]},
+    'Omelettes':{'type':'weekend_breakfast', 'number':7, 'ingredients':[]},
+
+    'Sandwich':{'type':'lunch_alex', 'number':7, 'ingredients':['bread', 'deli meat', 'sliced cheese', 'lettuce', 'mustard', 'mayonnaise']},
+    'Kale and chickpea salad':{'type':'lunch_michelle', 'number':7, 'ingredients':[]},
+    'Kale mediterranean salad':{'type':'lunch_michelle', 'number':7, 'ingredients':[]},
+    'Spring rolls':{'type':'lunch_michelle', 'number':7, 'ingredients':[]},
+
+    'Stuffed peppers':{'type':'dinner', 'number':1, 'ingredients':[]},
+    'Jambalaya':{'type':'dinner', 'number':1, 'ingredients':["celery","1 yellow onion","1 green bell pepper","2 cloves garlic","sausage","dried oregano","dried thyme","smoked paprika","cayenne pepper","28 oz diced tomatoes","parsley","2 cups chicken broth","2 cups rice","3 green onions"]},
+    'Lentil soup':{'type':'dinner', 'number':1, 'ingredients':[]},
+    'Chili':{'type':'dinner', 'number':1, 'ingredients':[]},
+    'Enchiladas':{'type':'dinner', 'number':1, 'ingredients':[]},
+    'Fajitas':{'type':'dinner', 'number':1, 'ingredients':[]},
+
+    'Seltzer':{'type':'miscellaneous', 'number':0, 'ingredients':['seltzer']},
+};
+
+let meal_types = {
+    "breakfast_michelle": "Breakfast (Michelle)",
+    "breakfast_alex": "Breakfast (Alex)",
+    "lunch_michelle": "Lunch (Michelle)",
+    "lunch_alex": "Lunch (Alex)",
+    "weekend_breakfast": "Weekend breakfast",
+    "dinner": "Dinner",
+    "miscellaneous": "Miscellaneous",
+}
+
+// console.log(meals);
+
+function add_checks(meal_type_id, meals) {
+    let meal_type_node = document.getElementById(meal_type_id);
+
+    Object.keys(meals).forEach(function(meal) {
+        // console.log(meal);
+
+        // create checkbox with label
+        let option = document.createElement("input");
+        option.setAttribute("type", "checkbox");
+        option.setAttribute("id", meal_type_id+"|"+meal);
+        option.setAttribute("onchange", "updateTotals();groceryList();");
+        let label = document.createElement("label");
+        label.setAttribute("for", meal_type_id+"|"+meal);
+        label.innerHTML = meal + " ("+meals[meal]['number']+")";
+
+        let checkbox_div = document.createElement("div");
+        checkbox_div.appendChild(option);
+        checkbox_div.appendChild(label);
+
+        // add checkbox to meal node
+        meal_type_node.appendChild(checkbox_div);
+    });
+
+}
+// console.log(breakfasts);
+// console.log(Object.keys(breakfasts));
+
+// let breakfasts = Object.fromEntries(Object.entries(meals).filter(([k,v]) => v['type'] == 'breakfast' ));
+// let lunches = Object.fromEntries(Object.entries(meals).filter(([k,v]) => v['type'] == 'lunch' ));
+
+let breakfast_michelle = Object.fromEntries(Object.entries(meals).filter(([k,v]) => v['type'] == 'breakfast_michelle' ));
+let breakfast_alex = Object.fromEntries(Object.entries(meals).filter(([k,v]) => v['type'] == 'breakfast_alex' ));
+let lunch_michelle = Object.fromEntries(Object.entries(meals).filter(([k,v]) => v['type'] == 'lunch_michelle' ));
+let lunch_alex = Object.fromEntries(Object.entries(meals).filter(([k,v]) => v['type'] == 'lunch_alex' ));
+
+let dinners = Object.fromEntries(Object.entries(meals).filter(([k,v]) => v['type'] == 'dinner' ));
+let weekend_breakfast = Object.fromEntries(Object.entries(meals).filter(([k,v]) => v['type'] == 'weekend_breakfast' ));
+let miscellaneous = Object.fromEntries(Object.entries(meals).filter(([k,v]) => v['type'] == 'miscellaneous' ));
+
+add_checks("breakfast_michelle", breakfast_michelle);
+add_checks("breakfast_alex", breakfast_alex);
+add_checks("lunch_michelle", lunch_michelle);
+add_checks("lunch_alex", lunch_alex);
+add_checks("dinner", dinners);
+add_checks("weekend_breakfast", weekend_breakfast);
+add_checks("miscellaneous", miscellaneous);
+
+
+function updateTotals() {
+    for (const meal_type in meal_types) {
+        var this_meal_checked = document.querySelectorAll("#"+meal_type+" :checked");
+        // console.log(meal_type, x);
+        let total = 0;
+        for (let node of this_meal_checked) {
+            let meal_id = node.id.split("|")[1];
+            total += meals[meal_id]['number'];
+        }
+
+        let progress_bar = document.querySelector("#"+meal_type+" .progress-bar");
+        progress_bar.style.width = (total/7*100)+"%";
+        if(meal_type == "miscellaneous") {
+            progress_bar.style.width = "100%";
+        }
+        progress_bar.innerHTML = total+" / 7";
+    }
+}
+
+function groceryList() {
+    var selected_meals = document.querySelectorAll(":checked");
+    let all_foods = [];
+    for (let node of selected_meals) {
+        let meal_id = node.id.split("|")[1];
+        let meal = meals[meal_id];
+
+        // console.log(meal_id);
+        all_foods = all_foods.concat(meal['ingredients']);
+    }
+    let grocery_list = document.getElementById("grocery_list");
+    grocery_list.innerHTML = all_foods.join("<br/>");
+}
