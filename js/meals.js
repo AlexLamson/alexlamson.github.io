@@ -11,6 +11,7 @@ let meals = {
     'Kale and chickpea salad':{'type':'lunch_michelle', 'number':7, 'ingredients':['1 bag kale','3 cans chickpeas','tahini','3 lemons']},
     'Kale mediterranean salad':{'type':'lunch_michelle', 'number':7, 'ingredients':['1 bag kale','tomato','cucumber','red onion','1 bag carrots']},
     'Spring rolls':{'type':'lunch_michelle', 'number':7, 'ingredients':[]},
+    'Veggie sandwich':{'type':'lunch_michelle', 'number':7, 'ingredients':['bread', 'greens', '3 tomatoes', 'cucumber', 'avocado', 'sliced provolone', 'tofu', 'mayonaise', 'mustard']}
 
     'Stuffed peppers':{'type':'dinner', 'number':2, 'ingredients':['4 bell peppers','1 can black beans','1 can kidney beans','4 yellow onions','6 cloves garlic','28 oz can of whole tomatoes','shredded cheese']},
     'Jambalaya':{'type':'dinner', 'number':3, 'ingredients':["celery","1 yellow onion","1 green bell pepper","2 cloves garlic","sausage","dried oregano","dried thyme","smoked paprika","cayenne pepper","28 oz diced tomatoes","parsley","2 cups chicken broth","2 cups rice","3 green onions"]},
@@ -18,6 +19,7 @@ let meals = {
     'Chili':{'type':'dinner', 'number':2, 'ingredients':['1 red onion','1 red bell pepper','2 carrots','celery','6 cloves garlic','28 oz diced tomatoes','28 oz black beans','15 oz kidney beans','2 cups vegetable broth','1 bay leaf','cilantro'], 'link':'https://cookieandkate.com/vegetarian-chili-recipe/'},
     'Enchiladas':{'type':'dinner', 'number':2, 'ingredients':['dried chilis','2 cups vegetable broth','shredded cheese','tortillas','1 can black beans','1 bell pepper','1 yellow onion']},
     'Fajitas':{'type':'dinner', 'number':3, 'ingredients':['tortillas','chicken','shredded cheese','2 bell peppers','2 yellow onions','3 tomatoes','cilantro','salsa','sour cream']},
+    'Zucchini lasagna':{'type':'dinner', 'number':2, 'ingredients':['white onion', 'garlic', '28oz can crushed tomato', 'tomato paste', '16oz ricotta cheese', '1 egg', 'fresh parsley', 'parmesan cheese', 'basil', 'zucchini', 'yellow squash', 'mozzarella cheese']}
 
     'Seltzer':{'type':'miscellaneous', 'number':0, 'ingredients':['seltzer']},
 };
