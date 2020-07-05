@@ -6,6 +6,7 @@ let meals = {
     'Banana Pancakes':{'type':'breakfast_michelle', 'number':7, 'ingredients':['2 eggs','banana']},
     'Mug omelette':{'type':'breakfast_michelle', 'number':7, 'ingredients':['10 eggs','2 tomatoes','1 red onion','1 bag of spinach']},
     'Omelettes':{'type':'weekend_breakfast', 'number':7, 'ingredients':['12 eggs','shredded cheese','omelette ingredients']},
+    'Fritatta':{'type':'weekend_breakfast', 'number':7, 'ingredients':['3 red potatoes', '6 eggs', '1 yellow onion', '3 cloves garlic', '1 tomato', '1/2 bell pepper', 'shredded cheese', 'mixed greens']},
 
     'Sandwich':{'type':'lunch_alex', 'number':7, 'ingredients':['bread', 'deli meat', 'sliced cheese', 'lettuce', 'mustard', 'mayonnaise']},
     'Kale and chickpea salad':{'type':'lunch_michelle', 'number':7, 'ingredients':['1 bag kale','3 cans chickpeas','tahini','3 lemons']},
