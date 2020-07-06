@@ -1,28 +1,29 @@
 
 let meals = {
-    'Cereal':{'type':'breakfast_alex', 'number':7, 'ingredients':['cereal', 'almond milk']},
-    'Oatmeal':{'type':'breakfast_michelle', 'number':7, 'ingredients':['oatmeal','honey','banana','blueberries']},
-    'Smoothie':{'type':'breakfast_michelle', 'number':7, 'ingredients':['greek yogurt','frozen berries','banana']},
-    'Banana Pancakes':{'type':'breakfast_michelle', 'number':7, 'ingredients':['2 eggs','banana']},
-    'Mug omelette':{'type':'breakfast_michelle', 'number':7, 'ingredients':['10 eggs','2 tomatoes','1 red onion','1 bag of spinach']},
-    'Omelettes':{'type':'weekend_breakfast', 'number':7, 'ingredients':['12 eggs','shredded cheese','omelette ingredients']},
-    'Fritatta':{'type':'weekend_breakfast', 'number':7, 'ingredients':['3 red potatoes', '6 eggs', '1 yellow onion', '3 cloves garlic', '1 tomato', '1/2 bell pepper', 'shredded cheese', 'mixed greens']},
+    'Cereal':{'type':'breakfast_alex', 'servings':7, 'ingredients':[[1,'','cereal'],[1,'','almond milk']]},
+    'Oatmeal':{'type':'breakfast_michelle', 'servings':7, 'ingredients':[[1,'','oatmeal'],[1,'','honey'],[1,'','banana'],[1,'','blueberries']]},
+    'Smoothie':{'type':'breakfast_michelle', 'servings':7, 'ingredients':[[1,'','greek yogurt'],[1,'','frozen berries'],[1,'','banana']]},
+    'Banana Pancakes':{'type':'breakfast_michelle', 'servings':7, 'ingredients':[[2,'','eggs'],[1,'','banana']]},
+    'Mug omelette':{'type':'breakfast_michelle', 'servings':7, 'ingredients':[[10,'','eggs'],[2,'','tomato'],[1,'','red onion'],[1,'bag','spinach']]},
+    'Omelettes':{'type':'weekend_breakfast', 'servings':7, 'ingredients':[[12,'','eggs'],[1,'','shredded cheese'],[1,'','omelette ingredients']]},
+    'Frittata':{'type':'weekend_breakfast', 'servings':7, 'ingredients':[[3,'','red potato'],[6,'','eggs'],[1,'','yellow onion'],[3,'clove','garlic'],[1,'','tomato'],[0.5,'','bell pepper'],[1,'','shredded cheese'],[1,'','mixed greens']]},
 
-    'Sandwich':{'type':'lunch_alex', 'number':7, 'ingredients':['bread', 'deli meat', 'sliced cheese', 'lettuce', 'mustard', 'mayonnaise']},
-    'Kale and chickpea salad':{'type':'lunch_michelle', 'number':7, 'ingredients':['1 bag kale','3 cans chickpeas','tahini','3 lemons']},
-    'Kale mediterranean salad':{'type':'lunch_michelle', 'number':7, 'ingredients':['1 bag kale','tomato','cucumber','red onion','1 bag carrots']},
-    'Spring rolls':{'type':'lunch_michelle', 'number':7, 'ingredients':[]},
-    'Veggie sandwich':{'type':'lunch_michelle', 'number':7, 'ingredients':['bread', 'greens', '3 tomatoes', 'cucumber', 'avocado', 'sliced provolone', 'tofu', 'mayonaise', 'mustard']},
+    'Sandwich':{'type':'lunch_alex', 'servings':7, 'ingredients':[[1,'','bread'],[1,'','deli meat'],[1,'','sliced cheese'],[1,'','lettuce'],[1,'','mustard'],[1,'','mayonnaise']]},
+    'Kale and chickpea salad':{'type':'lunch_michelle', 'servings':7, 'ingredients':[[1,'bag','kale'],[3,'can','chickpeas'],[1,'','tahini'],[3,'','lemon']]},
+    'Kale mediterranean salad':{'type':'lunch_michelle', 'servings':7, 'ingredients':[[1,'bag','kale'],[1,'','tomato'],[1,'','cucumber'],[1,'','red onion'],[1,'bag','carrots']]},
+    'Spring rolls':{'type':'lunch_michelle', 'servings':7, 'ingredients':[[1,'','mixed greens'],[1,'','cucumber'],[1,'','bean sprouts'],[1,'','chicken']]},
+    'Veggie sandwich':{'type':'lunch_michelle', 'servings':7, 'ingredients':[[1,'','bread'],[1,'','mixed greens'],[3,'','tomato'],[1,'','cucumber'],[1,'','avocado'],[1,'','sliced provolone'],[1,'','tofu'],[1,'','mayonnaise'],[1,'','mustard']]},
 
-    'Stuffed peppers':{'type':'dinner', 'number':2, 'ingredients':['4 bell peppers','1 can black beans','1 can kidney beans','4 yellow onions','6 cloves garlic','28 oz can of whole tomatoes','shredded cheese']},
-    'Jambalaya':{'type':'dinner', 'number':3, 'ingredients':["celery","1 yellow onion","1 green bell pepper","2 cloves garlic","sausage","dried oregano","dried thyme","smoked paprika","cayenne pepper","28 oz diced tomatoes","parsley","2 cups chicken broth","2 cups rice","3 green onions"]},
-    'Lentil soup':{'type':'dinner', 'number':2, 'ingredients':['1 yellow onion','4 carrots','celery','4 cloves garlic','1 bag green lentils','15 oz can diced tomatoes','15 oz can crushed tomatoes','4 cups vegetable broth']},
-    'Chili':{'type':'dinner', 'number':2, 'ingredients':['1 red onion','1 red bell pepper','2 carrots','celery','6 cloves garlic','28 oz diced tomatoes','28 oz black beans','15 oz kidney beans','2 cups vegetable broth','1 bay leaf','cilantro'], 'link':'https://cookieandkate.com/vegetarian-chili-recipe/'},
-    'Enchiladas':{'type':'dinner', 'number':2, 'ingredients':['dried chilis','2 cups vegetable broth','shredded cheese','tortillas','1 can black beans','1 bell pepper','1 yellow onion']},
-    'Fajitas':{'type':'dinner', 'number':3, 'ingredients':['tortillas','chicken','shredded cheese','2 bell peppers','2 yellow onions','3 tomatoes','cilantro','salsa','sour cream']},
-    'Zucchini lasagna':{'type':'dinner', 'number':2, 'ingredients':['white onion', 'garlic', '28oz can crushed tomato', 'tomato paste', '16oz ricotta cheese', '1 egg', 'fresh parsley', 'parmesan cheese', 'basil', 'zucchini', 'yellow squash', 'mozzarella cheese']},
+    'Stuffed peppers':{'type':'dinner', 'servings':2, 'ingredients':[[4,'','bell pepper'],[1,'can','black beans'],[1,'can','kidney beans'],[4,'','yellow onion'],[6,'clove','garlic'],[28,'oz','canned whole tomatoes'],[1,'','shredded cheese']]},
+    'Jambalaya':{'type':'dinner', 'servings':3, 'ingredients':[[1,'','celery'],[1,'','yellow onion'],[1,'','green bell pepper'],[2,'clove','garlic'],[1,'','sausage'],[28,'oz','canned diced tomatoes'],[1,'','parsley'],[2,'cup','chicken broth'],[2,'cup','rice'],[3,'','green onion']]},
+    'Lentil soup':{'type':'dinner', 'servings':2, 'ingredients':[[1,'','yellow onion'],[4,'','carrot'],[1,'','celery'],[4,'clove','garlic'],[1,'bag','green lentils'],[15,'oz','canned diced tomatoes'],[15,'oz','canned crushed tomatoes'],[4,'cup','vegetable broth']]},
+    // https://cookieandkate.com/vegetarian-chili-recipe/
+    'Chili':{'type':'dinner', 'servings':2, 'ingredients':[[1,'','red onion'],[1,'','red bell pepper'],[2,'','carrots'],[1,'','celery'],[6,'clove','garlic'],[28,'oz','canned diced tomatoes'],[28,'oz','canned black beans'],[15,'oz','canned kidney beans'],[2,'cup','vegetable broth'],[1,'','bay leaf'],[1,'','cilantro']]},
+    'Enchiladas':{'type':'dinner', 'servings':2, 'ingredients':[[1,'','dried chilis'],[2,'cup','vegetable broth'],[1,'','shredded cheese'],[1,'','tortillas'],[15,'oz','canned black beans'],[1,'','bell pepper'],[1,'','yellow onion']]},
+    'Fajitas':{'type':'dinner', 'servings':3, 'ingredients':[[1,'','tortillas'],[1,'','chicken'],[1,'','shredded cheese'],[2,'','bell pepper'],[2,'','yellow onion'],[3,'','tomato'],[1,'','cilantro'],[1,'','salsa'],[1,'','sour cream']]},
+    'Zucchini lasagna':{'type':'dinner', 'servings':2, 'ingredients':[[1,'','white onion'],[1,'','garlic'],[28,'oz','canned crushed tomato'],[1,'','tomato paste'],[16,'oz','ricotta cheese'],[1,'','eggs'],[1,'','parsley'],[1,'','parmesan cheese'],[1,'','basil'],[1,'','zucchini'],[1,'','yellow squash'],[1,'','mozzarella cheese']]},
 
-    'Seltzer':{'type':'miscellaneous', 'number':0, 'ingredients':['seltzer']},
+    'Seltzer':{'type':'miscellaneous', 'servings':7, 'ingredients':[[1,'','seltzer']]},
 };
 
 let meal_types = {
@@ -50,7 +51,7 @@ function add_checks(meal_type_id, meals) {
         option.setAttribute("onchange", "updateTotals();groceryList();");
         let label = document.createElement("label");
         label.setAttribute("for", meal_type_id+"|"+meal);
-        label.innerHTML = meal + " ("+meals[meal]['number']+")";
+        label.innerHTML = meal + " ("+meals[meal]['servings']+")";
 
         let checkbox_div = document.createElement("div");
         checkbox_div.appendChild(option);
@@ -92,28 +93,57 @@ function updateTotals() {
         let total = 0;
         for (let node of this_meal_checked) {
             let meal_id = node.id.split("|")[1];
-            total += meals[meal_id]['number'];
+            total += meals[meal_id]['servings'];
         }
 
         let progress_bar = document.querySelector("#"+meal_type+" .progress-bar");
         progress_bar.style.width = (total/7*100)+"%";
-        if(meal_type == "miscellaneous") {
-            progress_bar.style.width = "100%";
-        }
+        // if(meal_type == "miscellaneous") {
+        //     progress_bar.style.width = "100%";
+        // }
         progress_bar.innerHTML = total+" / 7";
     }
 }
 
 function groceryList() {
     var selected_meals = document.querySelectorAll(":checked");
-    let all_foods = [];
+    // let food_dict = [];
+    // for (let node of selected_meals) {
+    //     let meal_id = node.id.split("|")[1];
+    //     let meal = meals[meal_id];
+
+    //     // console.log(meal_id);
+    //     food_dict = food_dict.concat(meal['ingredients']);
+    // }
+    // let grocery_list = document.getElementById("grocery_list");
+    // grocery_list.innerHTML = food_dict.join("<br/>");
+    let food_dict = {};
     for (let node of selected_meals) {
         let meal_id = node.id.split("|")[1];
         let meal = meals[meal_id];
 
+        meal['ingredients'].forEach(function(ingredient) {
+            let count = ingredient[0];
+            let units = ingredient[1];
+            let ingredient_name = ingredient[2];
+            let name = units+" "+ingredient_name;
+
+            if(name in food_dict) {
+                food_dict[name] += count;
+            }
+            else {
+                food_dict[name] = count;
+            }
+            // console.log(ingredient);
+        });
+
         // console.log(meal_id);
-        all_foods = all_foods.concat(meal['ingredients']);
+        // food_dict = food_dict.concat(meal['ingredients']);
     }
-    let grocery_list = document.getElementById("grocery_list");
-    grocery_list.innerHTML = all_foods.join("<br/>");
+    let food_list = [];
+    Object.keys(food_dict).map(function(name, index) {
+        food_list.push(food_dict[name]+" "+name);
+    });
+    let grocery_list_element = document.getElementById("grocery_list");
+    grocery_list_element.innerHTML = food_list.join("<br/>");
 }
