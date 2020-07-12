@@ -8,6 +8,7 @@ let meals = {
     'Omelettes':{'type':'weekend_breakfast', 'servings':7, 'ingredients':[[12,'','eggs'],[1,'','shredded cheese'],[1,'','omelette ingredients']]},
     'Frittata':{'type':'weekend_breakfast', 'servings':7, 'ingredients':[[3,'','red potato'],[6,'','eggs'],[1,'','yellow onion'],[3,'clove','garlic'],[1,'','tomato'],[0.5,'','bell pepper'],[1,'','shredded cheese'],[1,'','mixed greens']]},
     'Granola bars':{'type':'breakfast_michelle', 'servings':7, 'ingredients':[[1,'','peanut butter'], [1,'','maple syrup'], [1,'','puffed brown rice'], [1,'','oats'], [1,'','chia seeds'], [1,'','hemp seeds'], [1,'','pumpkin seeds'], [1,'','fruit']]},
+    'Vegan pancakes':{'type':'weekend_breakfast', 'servings':7, 'ingredients':[[1,'cup','flour'], [2,'tablespoons','sugar'],[1,'tbsp','baking powder'], [1,'cup','non dairy milk'],[1,'tbsp','apple cider vinegar'], [1,'tsp','vanilla'], [1,'','maple syrup'], [1, '','blueberries']]},
 
     'Sandwich':{'type':'lunch_alex', 'servings':7, 'ingredients':[[1,'','bread'],[1,'','deli meat'],[1,'','sliced cheese'],[1,'','lettuce'],[1,'','mustard'],[1,'','mayonnaise']]},
     'Kale and chickpea salad':{'type':'lunch_michelle', 'servings':7, 'ingredients':[[1,'bag','kale'],[3,'can','chickpeas'],[1,'','tahini'],[3,'','lemon']]},
