@@ -7,7 +7,7 @@ let meals = {
     'Mug omelette':{'type':'breakfast_michelle', 'servings':7, 'ingredients':[[10,'','eggs'],[2,'','tomato'],[1,'','red onion'],[1,'bag','spinach']]},
     'Omelettes':{'type':'weekend_breakfast', 'servings':7, 'ingredients':[[12,'','eggs'],[1,'','shredded cheese'],[1,'','omelette ingredients']]},
     'Frittata':{'type':'weekend_breakfast', 'servings':7, 'ingredients':[[3,'','red potato'],[6,'','eggs'],[1,'','yellow onion'],[3,'clove','garlic'],[1,'','tomato'],[0.5,'','bell pepper'],[1,'','shredded cheese'],[1,'','mixed greens']]},
-    'Granola bars':{'type':'breakfast_michelle', 'servings':7, 'ingredients':['peanut butter', 'maple syrup', 'puffed brown rice', 'oats', 'chia seeds', 'hemp seeds', 'pumpkin seeds', 'fruit']},
+    'Granola bars':{'type':'breakfast_michelle', 'servings':7, 'ingredients':[[1,'','peanut butter'], [1,'','maple syrup'], [1,'','puffed brown rice'], [1,'','oats'], [1,'','chia seeds'], [1,'','hemp seeds'], [1,'','pumpkin seeds'], [1,'','fruit']]},
 
     'Sandwich':{'type':'lunch_alex', 'servings':7, 'ingredients':[[1,'','bread'],[1,'','deli meat'],[1,'','sliced cheese'],[1,'','lettuce'],[1,'','mustard'],[1,'','mayonnaise']]},
     'Kale and chickpea salad':{'type':'lunch_michelle', 'servings':7, 'ingredients':[[1,'bag','kale'],[3,'can','chickpeas'],[1,'','tahini'],[3,'','lemon']]},
@@ -23,7 +23,7 @@ let meals = {
     'Enchiladas':{'type':'dinner', 'servings':2, 'ingredients':[[1,'','dried chilis'],[2,'cup','vegetable broth'],[1,'','shredded cheese'],[1,'','tortillas'],[15,'oz','canned black beans'],[1,'','bell pepper'],[1,'','yellow onion']]},
     'Fajitas':{'type':'dinner', 'servings':3, 'ingredients':[[1,'','tortillas'],[1,'','chicken'],[1,'','shredded cheese'],[2,'','bell pepper'],[2,'','yellow onion'],[3,'','tomato'],[1,'','cilantro'],[1,'','salsa'],[1,'','sour cream']]},
     'Zucchini lasagna':{'type':'dinner', 'servings':2, 'ingredients':[[1,'','white onion'],[1,'','garlic'],[28,'oz','canned crushed tomato'],[1,'','tomato paste'],[16,'oz','ricotta cheese'],[1,'','eggs'],[1,'','parsley'],[1,'','parmesan cheese'],[1,'','basil'],[1,'','zucchini'],[1,'','yellow squash'],[1,'','mozzarella cheese']]},
-    'Vegan ramen':{'type': 'dinner', 'servings':2, 'ingredients':['ramen noodles', 'zucchini', 'sesame oil', 'ginger', '6 cloves garlic', '2 shallots', '6 cups vegetable stock', 'shitake mushrooms', 'miso paste', 'bok choy', 'bean sprouts', 'green onion', 'chili oil', 'black garlic oil']},
+    'Vegan ramen':{'type': 'dinner', 'servings':2, 'ingredients':[[1,'','ramen noodles'], [1,'','zucchini'], [1,'','sesame oil'], [2, 'tbsp','ginger'], [6,'cloves','garlic'], [2,'','shallots'], [6,'cups','vegetable stock'], [1,'','shitake mushrooms'], [1,'','miso paste'], [1,'','bok choy'], [1,'','bean sprouts'], [1,'','green onion'], [1,'','chili oil'], [1,'','black garlic oil']]},
 
     'Seltzer':{'type':'miscellaneous', 'servings':7, 'ingredients':[[1,'','seltzer']]},
 };
