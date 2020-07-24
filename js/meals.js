@@ -1,3 +1,4 @@
+let aisles = ['Produce','Meat','Seafood','Meal Kits','Deli','Dairy','Beverages','Bread & Bakery','Frozen','Rice, Grains, Pasta & Beans','Baking & Cooking Needs','Condiments & Sauces','Soups & Canned Goods','Snacks & Candy','Breakfast & Cereal','Alcoholic Beverages','Laundry, Paper & Cleaning','Office, Home & Garden','Health & Beauty','Baby & Childcare','Pet Store']
 
 let meals = {
     'Cereal':{'type':'breakfast_alex', 'servings':7, 'ingredients':[[1,'','cereal'],[1,'','almond milk']]},
