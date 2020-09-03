@@ -2,6 +2,7 @@
 
 ## To Add
  - Projects
+  - Temperature logger
   - ESP8266 GA display
   - Temperature sensor video
    - Edit a video
