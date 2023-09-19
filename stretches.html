@@ -1,262 +1,136 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Morning Exercises</title>
-  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <title>Bootstrap Timer with Progress Bar and Beep</title>
   <style>
-    * {
-      font-size: 48px;
+    .timer {
+      font-size: 24px;
+      margin-bottom: 20px;
     }
   </style>
-
-  <!-- Global Site Tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-61548012-2"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-61548012-2');
-  </script>
-
-<script>
-// returns number of days since I started doing stretches
-function days() {
-  var startTime = new Date('April 6 2020 06:00 EST').getTime()/1000;
-  var currTime = new Date().getTime()/1000;
-  var daysSinceStart = (currTime - startTime)/60/60/24;
-  return daysSinceStart
-}
-
-// one more pushup per week, starting with 5 with a max of 15
-var num_pushups = Math.floor(Math.min(5+days()/7, 15));
-var seconds_per_pushup = 2.5;
-
-
-var actions = [
-["Stand up", 5],
-["Grab left ankle", 10],
-["Get In Next Pose", 8],
-["Grab right ankle", 10],
-["Get In Next Pose", 8],
-["Skydivers", 15],
-["Get In Next Pose", 8],
-["Reach down and touch toes", 15],
-["Get In Next Pose", 11],
-["Downward facing dog", 20],
-["Get In Next Pose", 7],
-["Cat and cow", 30],
-["Get In Next Pose", 8],
-["Upward Facing Dog", 30],
-["Get In Next Pose", 9],
-["Half Tortoise", 20],
-// ["Get In Next Pose", 10],
-// ["Pushups ("+num_pushups+")", num_pushups*seconds_per_pushup],
-["Get In Next Pose", 15],
-["Planking", 30],
-["Get In Next Pose", 15],
-["Superman", 30],
-["Routine Complete", 0]
-];
-for(var i = 0; i < actions.length; i++) {
-  actions[i][1] *= 1000;
-}
-
-
-var total_time = 0;
-for(var i = 0; i < actions.length; i++) {
-  total_time += actions[i][1];
-}
-var total_min = Math.floor(total_time/1000/60);
-var total_sec = Math.floor(total_time/1000-total_min*60);
-var time_string = "Duration: "+total_min+"m"+total_sec+"s";
-// console.log(total_min);
-// console.log(total_sec);
-// time_string = "BAD HORSE";
-$( document ).ready(function() {
-  $( "#total-time" ).html( time_string );
-  console.log(time_string);
-});
-
-
-
-// actions = [
-// ["Get Ready", 1000*1],
-// ["Upward Facing Dog", 1000*1],
-// ["Get In Next Pose", 1000*1],
-// ["Half Tortoise", 1000*1],
-// ["Get In Next Pose", 1000*1],
-// ["Half Tortoise", 1000*1],
-// ["Routine Complete", 1000*0]
-// ];
-
-
-
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-
-async function iterateExercise() {
-  if(is_running) {
-    displayExercise(i);
-    await sleep(actions[i][1]);
-    if(i < actions.length-1) {
-      i += 1;
-      iterateExercise();
-    }
-  }
-}
-
-
-var is_running = false;
-var i = 0;
-
-function startRestart() {
-  if(is_running) {
-    restart();
-  }
-  else {
-    start();
-  }
-}
-
-function restart() {
-  console.log("Restarting");
-
-  // KISS - I was overthinking it
-  location.reload();
-
-  // is_running = false;
-  // i = 0;
-  // $( "#start-restart" ).prop("value", "Start")
-  // $( "#curr-exercise" ).html( "" );
-  // $( "#next-exercise" ).html( "" );
-  // $( "#next-next-exercise" ).html( "" );
-
-  // not sure if I want to keep this behavior
-  // start();
-}
-
-function start() {
-  console.log("Starting");
-  is_running = true;
-  i = 0;
-  $( "#start-restart" ).prop("value", "Restart")
-  iterateExercise();
-}
-
-
-function displayExercise(i) {
-
-  // not sure how to make this work.... it should beep twice for the "stop" signal
-  if(actions[i][0] == "Get In Next Pose" || actions[i][0] == "Get Ready" || actions[i][0] == "Routine Complete"){
-    // alert("cray");
-    // beep(200, 261.63, 0, function () {});
-    beep(200, 523.25, 0, function () {});
-    // await sleep(1);
-  }
-  beep(200, 1046.5, 0, function () {});
-
-
-  $( "#curr-exercise" ).html( actions[i][0] );
-
-  if(i+1 < actions.length) {
-    $( "#next-exercise" ).html( actions[i+1][0] );
-  } else {
-    $( "#next-exercise" ).html( "" );
-  }
-
-  if(i+2 < actions.length) {
-    $( "#next-next-exercise" ).html( actions[i+2][0] );
-  } else {
-    $( "#next-next-exercise" ).html( "" );
-  }
-}
-
-
-window.addEventListener("keydown", function (event) {
-  if (event.defaultPrevented) {
-    return; // Do nothing if the event was already processed
-  }
-
-  switch (event.key) {
-    case "ArrowLeft":
-      // Do something for "left arrow" key press.
-      console.log("left arrow pressed");
-      i -= 1;
-      break;
-    case "ArrowRight":
-      // Do something for "right arrow" key press.
-      console.log("right arrow pressed");
-      i += 1;
-      break;
-    default:
-      return; // Quit when this doesn't handle the key event.
-  }
-
-  // Cancel the default action to avoid it being handled twice
-  event.preventDefault();
-}, true);
-
-
-function beep(duration, frequency, type, finishedCallback) {
-    var snd = new Audio("data:audio/wav;base64,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qJrx4KOQjahZxWbcZgztj2c49nKmkId44S71j0c8eV9yDK6uPRzx5X18eDvjvQ6yKo9ZSS6l//8elePK/Lf//IInrOF/FvDoADYAGBMGb7FtErm5MXMlmPAJQVgWta7Zx2go+8xJ0UiCb8LHHdftWyLJE0QIAIsI+UbXu67dZMjmgDGCGl1H+vpF4NSDckSIkk7Vd+sxEhBQMRU8j/12UIRhzSaUdQ+rQU5kGeFxm+hb1oh6pWWmv3uvmReDl0UnvtapVaIzo1jZbf/pD6ElLqSX+rUmOQNpJFa/r+sa4e/pBlAABoAAAAA3CUgShLdGIxsY7AUABPRrgCABdDuQ5GC7DqPQCgbbJUAoRSUj+NIEig0YfyWUho1VBBBA//uQZB4ABZx5zfMakeAAAAmwAAAAF5F3P0w9GtAAACfAAAAAwLhMDmAYWMgVEG1U0FIGCBgXBXAtfMH10000EEEEEECUBYln03TTTdNBDZopopYvrTTdNa325mImNg3TTPV9q3pmY0xoO6bv3r00y+IDGid/9aaaZTGMuj9mpu9Mpio1dXrr5HERTZSmqU36A3CumzN/9Robv/Xx4v9ijkSRSNLQhAWumap82WRSBUqXStV/YcS+XVLnSS+WLDroqArFkMEsAS+eWmrUzrO0oEmE40RlMZ5+ODIkAyKAGUwZ3mVKmcamcJnMW26MRPgUw6j+LkhyHGVGYjSUUKNpuJUQoOIAyDvEyG8S5yfK6dhZc0Tx1KI/gviKL6qvvFs1+bWtaz58uUNnryq6kt5RzOCkPWlVqVX2a/EEBUdU1KrXLf40GoiiFXK///qpoiDXrOgqDR38JB0bw7SoL+ZB9o1RCkQjQ2CBYZKd/+VJxZRRZlqSkKiws0WFxUyCwsKiMy7hUVFhIaCrNQsKkTIsLivwKKigsj8XYlwt/WKi2N4d//uQRCSAAjURNIHpMZBGYiaQPSYyAAABLAAAAAAAACWAAAAApUF/Mg+0aohSIRobBAsMlO//Kk4soosy1JSFRYWaLC4qZBYWFRGZdwqKiwkNBVmoWFSJkWFxX4FFRQWR+LsS4W/rFRb/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////VEFHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAU291bmRib3kuZGUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMjAwNGh0dHA6Ly93d3cuc291bmRib3kuZGUAAAAAAAAAACU=");
-    snd.play();
-}
-
-// var beep = (function () {
-//     var ctxClass = window.audioContext ||window.AudioContext || window.AudioContext || window.webkitAudioContext
-//     var ctx = new ctxClass();
-//     return function (duration, frequency, type, finishedCallback) {
-
-//         duration = +duration;
-
-//         if (typeof finishedCallback != "function") {
-//             finishedCallback = function () {};
-//         }
-
-//         var osc = ctx.createOscillator();
-
-//         // https://developer.mozilla.org/en-US/docs/Web/API/OscillatorNode/type
-//         osc.type = "sine";
-
-//         osc.frequency.value = frequency; // value in hertz
-
-//         osc.connect(ctx.destination);
-//         if (osc.noteOn) osc.noteOn(0); // old browsers
-//         if (osc.start) osc.start(); // new browsers
-
-//         setTimeout(function () {
-//             if (osc.noteOff) osc.noteOff(0); // old browsers
-//             if (osc.stop) osc.stop(); // new browsers
-//             finishedCallback();
-//         }, duration);
-
-//     };
-// })();
-
-
-
-/*
-ideal page:
-
-button
-  initially "start"
-  when pressed, "restart"
-  never is "pause"
-clicking word jumps to that / arrow keys move things
- */
-</script>
 </head>
 <body>
-<center>
-  <div id="total-time" style="font-size: 24px;"></div>
-  <br/>
-  <input id="start-restart" type="button" value="Start" onclick="startRestart();" style="font-size:48px;" autofocus />
-  <p id="curr-exercise" style="font-size: 96px;"></p>
-  <p id="next-exercise" style="font-size: 48px;"></p>
-  <p id="next-next-exercise" style="font-size: 24px;"></p>
-</center>
+  <div class="container text-center">
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <p class="timer"></p>
+    <button id="start-reset-btn" class="btn btn-primary btn-lg">Start</button>
+    <h1 id="text-heading" class="mt-3"></h1>
+    <h2 id="text-heading2"></h2>
+    <h3 id="text-heading3"></h3>
+  </div>
+
+  <script>
+    const timerDiv = document.querySelector(".timer");
+    const startResetBtn = document.querySelector("#start-reset-btn");
+    const textHeading = document.querySelector("#text-heading");
+    const textHeading2 = document.querySelector("#text-heading2");
+    const textHeading3 = document.querySelector("#text-heading3");
+    const progressBar = document.querySelector(".progress-bar");
+
+    const stringsWithDurationInSeconds = [
+      ["Stand up", 5],
+      ["Grab left ankle", 10],
+      ["Get In Next Pose", 6],
+      ["Grab right ankle", 10],
+      ["Get In Next Pose", 6],
+      ["Bicep Stretch", 15],
+      ["Get In Next Pose", 6],
+      ["Tricep Stretch", 15],
+      ["Get In Next Pose", 6],
+      ["Reach down and touch toes", 15],
+      ["Get In Next Pose", 9],
+      ["Hip rotation left", 15],
+      ["Get In Next Pose", 3],
+      ["Hip rotation right", 15],
+      ["Get In Next Pose", 5],
+      ["Downward facing dog", 20],
+      ["Get In Next Pose", 5],
+      ["Cat and cow", 30],
+      ["Get In Next Pose", 6],
+      ["Upward Facing Dog", 30],
+      ["Get In Next Pose", 7],
+      ["Half Tortoise", 20],
+      ["Routine Complete", 0]
+    ];
+
+    let isStarted = false;
+    let totalTime = 0;
+    let passedTime = 0;
+    let currentTimeout;
+    let timerInterval;
+
+    stringsWithDurationInSeconds.forEach(pair => {
+      totalTime += pair[1] * 1000;
+    });
+
+    timerDiv.textContent = `${formatTime(passedTime)} / ${formatTime(totalTime)}`;
+
+    startResetBtn.addEventListener("click", () => {
+      if (!isStarted) {
+        isStarted = true;
+        startResetBtn.textContent = "Reset";
+        displayStrings();
+        timerInterval = setInterval(updateTimer, 1000);
+      } else {
+        isStarted = false;
+        startResetBtn.textContent = "Start";
+        textHeading.textContent = "";
+        textHeading2.textContent = "";
+        textHeading3.textContent = "";
+        clearTimeout(currentTimeout);
+        clearInterval(timerInterval);
+        passedTime = 0;
+        timerDiv.textContent = `${formatTime(passedTime)} / ${formatTime(totalTime)}`;
+        progressBar.style.width = "0%";
+      }
+    });
+
+    function displayStrings(index = 0) {
+      if (index === stringsWithDurationInSeconds.length) return;
+
+      // Beep for 200ms at the start of each new string display
+      beep(200);
+
+      textHeading.textContent = stringsWithDurationInSeconds[index][0];
+      textHeading2.textContent = stringsWithDurationInSeconds[index + 1] ? stringsWithDurationInSeconds[index + 1][0] : '';
+      textHeading3.textContent = stringsWithDurationInSeconds[index + 2] ? stringsWithDurationInSeconds[index + 2][0] : '';
+      currentTimeout = setTimeout(() => {
+        displayStrings(index + 1);
+      }, stringsWithDurationInSeconds[index][1] * 1000); // Convert seconds to milliseconds
+    }
+
+    function updateTimer() {
+      passedTime += 1000;
+      timerDiv.textContent = `${formatTime(passedTime)} / ${formatTime(totalTime)}`;
+      const progressPercentage = (passedTime / totalTime) * 100;
+      progressBar.style.width = `${progressPercentage}%`;
+      if (passedTime === totalTime) {
+        clearInterval(timerInterval);
+      }
+    }
+
+    function formatTime(ms) {
+      const minutes = Math.floor(ms / 60000);
+      const seconds = Math.floor((ms % 60000) / 1000);
+      return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+    }
+
+    function beep(duration) {
+      const audioCtx = new AudioContext();
+      const oscillator = audioCtx.createOscillator();
+      oscillator.type = "sine";
+      oscillator.frequency.setValueAtTime(440, audioCtx.currentTime); // Frequency of 440 Hz
+      oscillator.connect(audioCtx.destination);
+      oscillator.start();
+      setTimeout(() => { oscillator.stop(); }, duration);
+    }
+  </script>
 </body>
 </html>
