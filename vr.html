@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spaceship Simulator VR</title>
+    <style>
+        body { margin: 0; overflow: hidden; }
+        canvas { display: block; }
+        #info {
+            position: absolute;
+            color: white;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            background-color: rgba(0,0,0,0.5);
+            padding: 10px;
+            top: 10px;
+            left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="info">
+        Controls:<br>
+        WASD: Translate<br>
+        Space: Up, Ctrl: Down<br>
+        Arrows + QE: Rotate<br>
+        R: Stop movement<br>
+        V: Toggle view (1st/3rd person)<br>
+        VR: Use thumbsticks to move and rotate
+    </div>
+    <script type="module">
+        import * as THREE from 'https://cdn.skypack.dev/three@0.128.0/build/three.module.js';
+        import { VRButton } from 'https://cdn.skypack.dev/three@0.128.0/examples/jsm/webxr/VRButton.js';
+        import { XRControllerModelFactory } from 'https://cdn.skypack.dev/three@0.128.0/examples/jsm/webxr/XRControllerModelFactory.js';
+
+        // Set up the scene, camera, and renderer
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.xr.enabled = true;
+        document.body.appendChild(renderer.domElement);
+
+        // Add VR button
+        document.body.appendChild(VRButton.createButton(renderer));
+
+        // Create a spaceship (represented as a cone)
+        const shipGeometry = new THREE.ConeGeometry(0.5, 2, 32);
+        shipGeometry.rotateX(-Math.PI / 2);
+        const shipMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+        const ship = new THREE.Mesh(shipGeometry, shipMaterial);
+        scene.add(ship);
+
+		// stars?
+		const geometry = new THREE.BufferGeometry();
+		const vertices = [];
+		for ( let i = 0; i < 10000; i ++ ) {
+			vertices.push( THREE.MathUtils.randFloatSpread( 2000 ) ); // x
+			vertices.push( THREE.MathUtils.randFloatSpread( 2000 ) ); // y
+			vertices.push( THREE.MathUtils.randFloatSpread( 2000 ) ); // z
+		}
+		geometry.setAttribute( 'position', new THREE.Float32BufferAttribute( vertices, 3 ) );
+		const particles = new THREE.Points( geometry, new THREE.PointsMaterial( { color: 0x888888 } ) );
+		scene.add( particles );
+
+        // Create asteroids
+        const asteroids = [];
+        for (let i = 0; i < 100; i++) {
+            const size = Math.random() * 0.5 + 0.1;
+            const geometry = new THREE.SphereGeometry(size, 8, 8);
+            const material = new THREE.MeshBasicMaterial({ color: Math.random() * 0xffffff });
+            const asteroid = new THREE.Mesh(geometry, material);
+            asteroid.position.set(
+                Math.random() * 100 - 50,
+                Math.random() * 100 - 50,
+                Math.random() * 100 - 50
+            );
+            scene.add(asteroid);
+            asteroids.push(asteroid);
+        }
+
+        // Set up camera
+        let firstPerson = true;
+        function updateCameraPosition() {
+            if (firstPerson) {
+                camera.position.set(0, 0, 0);
+                ship.visible = false;
+            } else {
+                camera.position.set(0, 2, 5);
+                ship.visible = true;
+            }
+            ship.add(camera);
+        }
+        updateCameraPosition();
+
+        // Physics variables
+        const velocity = new THREE.Vector3();
+        const angularVelocity = new THREE.Vector3();
+        const rotationAcceleration = 0.0005;
+        const maxRotationSpeed = 0.05;
+        const rotationalFriction = 0.98;
+        const maxSpeed = 0.5;
+        const drag = 0.99;
+
+        // Input handling
+        const keys = {};
+        document.addEventListener('keydown', (event) => {
+            keys[event.code] = true;
+            if (event.code === 'KeyV') {
+                firstPerson = !firstPerson;
+                updateCameraPosition();
+            }
+        });
+        document.addEventListener('keyup', (event) => { keys[event.code] = false; });
+
+        // VR Controller setup
+        const controllerModelFactory = new XRControllerModelFactory();
+
+        function getController(index) {
+            const controller = renderer.xr.getController(index);
+            controller.userData.index = index;
+            ship.add(controller);
+
+            const grip = renderer.xr.getControllerGrip(index);
+            grip.add(controllerModelFactory.createControllerModel(grip));
+            ship.add(grip);
+
+            return controller;
+        }
+
+        renderer.xr.addEventListener('sessionstart', function (event) {
+            ship.visible = true;
+        });
+
+        // Animation loop
+        function animate() {
+            renderer.setAnimationLoop(render);
+        }
+
+        function handleVRInput() {
+            if (renderer.xr.isPresenting) {
+                const session = renderer.xr.getSession();
+                if (session) {
+                    const inputSources = Array.from(session.inputSources);
+
+                    inputSources.forEach((inputSource, index) => {
+                        const gamepad = inputSource.gamepad;
+                        if (gamepad) {
+                            // Translate up/down
+                            const thrustVector = new THREE.Vector3();
+                            if (index === 0) {
+                                let movementY = 0.0;
+                                if (gamepad.buttons[4].pressed) {
+                                    movementY = -0.01;
+                                }
+                                if (gamepad.buttons[5].pressed) {
+                                    movementY = 0.01;
+                                }
+                                thrustVector.setY(movementY);
+                            }
+
+                            // Translate horizontally based on left thumbstick
+                            if (index === 0 && gamepad.axes.length >= 4) {
+                                const movementX = gamepad.axes[2];
+                                const movementZ = gamepad.axes[3];
+                                thrustVector.setX(movementX * 0.01);
+                                thrustVector.setZ(movementZ * 0.01);
+                            }
+                            thrustVector.applyQuaternion(ship.quaternion);
+                            velocity.add(thrustVector);
+
+                            // Apply rotation based on right thumbstick
+                            if (index === 1 && gamepad.axes.length >= 4) {
+                                const rotationY = gamepad.axes[2];
+                                const rotationX = gamepad.axes[3];
+                                angularVelocity.y -= rotationY * rotationAcceleration;
+                                angularVelocity.x -= rotationX * rotationAcceleration;
+                            }
+
+                            // Roll left/right
+                            if (index === 0 && (gamepad.buttons[1].pressed || gamepad.buttons[1].touched)) {
+                                angularVelocity.z += gamepad.buttons[1].value * rotationAcceleration; // Roll left
+                            }
+                            if (index === 1 && (gamepad.buttons[1].pressed || gamepad.buttons[1].touched)) {
+                                angularVelocity.z -= gamepad.buttons[1].value * rotationAcceleration; // Roll right
+                            }
+                        }
+                    });
+                }
+            }
+        }
+
+        function render() {
+            handleVRInput();
+
+            // Apply thrust based on key presses (in local space)
+            const thrustVector = new THREE.Vector3();
+            if (keys['KeyW']) thrustVector.z -= 0.01;
+            if (keys['KeyS']) thrustVector.z += 0.01;
+            if (keys['KeyA']) thrustVector.x -= 0.01;
+            if (keys['KeyD']) thrustVector.x += 0.01;
+            if (keys['Space']) thrustVector.y += 0.01;
+            if (keys['ControlLeft']) thrustVector.y -= 0.01;
+
+            // Transform thrust vector to world space
+            thrustVector.applyQuaternion(ship.quaternion);
+            velocity.add(thrustVector);
+
+            // Apply rotational acceleration (flipped up and down arrows)
+            if (keys['ArrowUp']) angularVelocity.x += rotationAcceleration;
+            if (keys['ArrowDown']) angularVelocity.x -= rotationAcceleration;
+            if (keys['ArrowLeft']) angularVelocity.y += rotationAcceleration;
+            if (keys['ArrowRight']) angularVelocity.y -= rotationAcceleration;
+            if (keys['KeyQ']) angularVelocity.z += rotationAcceleration;
+            if (keys['KeyE']) angularVelocity.z -= rotationAcceleration;
+
+            // Apply rotational friction
+            angularVelocity.multiplyScalar(rotationalFriction);
+
+            // Limit rotation speed
+            angularVelocity.clampLength(0, maxRotationSpeed);
+
+            // Apply rotation
+            const rotationQuaternion = new THREE.Quaternion();
+            rotationQuaternion.setFromEuler(new THREE.Euler(
+                angularVelocity.x,
+                angularVelocity.y,
+                angularVelocity.z,
+                'XYZ'
+            ));
+            ship.quaternion.multiply(rotationQuaternion);
+
+            // Stop all movement
+            if (keys['KeyR']) {
+                velocity.set(0, 0, 0);
+                angularVelocity.set(0, 0, 0);
+            }
+
+            // Apply drag and limit speed
+            velocity.multiplyScalar(drag);
+            velocity.clampLength(0, maxSpeed);
+
+            // Update ship position
+            ship.position.add(velocity);
+
+            renderer.render(scene, camera);
+        }
+
+        // Handle window resizing
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        animate();
+    </script>
+</body>
+</html>
