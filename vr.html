@@ -180,10 +180,10 @@
                             const thrustVector = new THREE.Vector3();
                             if (index === 0) {
                                 let movementY = 0.0;
-                                if (gamepad.buttons[4].pressed) {
+                                if (gamepad.buttons.length >= 5 && gamepad.buttons[4].pressed) {
                                     movementY = -0.01;
                                 }
-                                if (gamepad.buttons[5].pressed) {
+                                if (gamepad.buttons.length >= 6 && gamepad.buttons[5].pressed) {
                                     movementY = 0.01;
                                 }
                                 thrustVector.setY(movementY);
@@ -197,7 +197,7 @@
                                 maxSpeed = 0.5;
                                 drag = 0.99;
                                 // warp drive when thumbstick pressed
-                                if (gamepad.buttons[3].pressed) {
+                                if (gamepad.buttons.length >= 4 && gamepad.buttons[3].pressed) {
                                     speedBoost = 100;
                                     maxSpeed = 2;
                                     drag = 0.999;
@@ -217,10 +217,10 @@
                             }
 
                             // Roll left/right
-                            if (index === 0 && (gamepad.buttons[1].pressed || gamepad.buttons[1].touched)) {
+                            if (index === 0 && (gamepad.buttons.length >= 2 && (gamepad.buttons[1].pressed || gamepad.buttons[1].touched))) {
                                 angularVelocity.z += gamepad.buttons[1].value * rotationAcceleration; // Roll left
                             }
-                            if (index === 1 && (gamepad.buttons[1].pressed || gamepad.buttons[1].touched)) {
+                            if (index === 1 && (gamepad.buttons.length >= 2 && (gamepad.buttons[1].pressed || gamepad.buttons[1].touched))) {
                                 angularVelocity.z -= gamepad.buttons[1].value * rotationAcceleration; // Roll right
                             }
                         }
