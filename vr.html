@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spaceship Simulator VR</title>
+    <title>Spaceship Simulator</title>
     <style>
         body { margin: 0; overflow: hidden; }
         canvas { display: block; }
         #info {
             position: absolute;
+            top: 10px;
+            left: 10px;
             color: white;
             font-family: Arial, sans-serif;
             font-size: 14px;
@@ -29,10 +31,25 @@
         V: Toggle view (1st/3rd person)<br>
         VR: Use thumbsticks to move and rotate
     </div>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.138.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.138.0/examples/jsm/"
+            }
+        }
+    </script>
     <script type="module">
-        import * as THREE from 'https://cdn.skypack.dev/three@0.128.0/build/three.module.js';
-        import { VRButton } from 'https://cdn.skypack.dev/three@0.128.0/examples/jsm/webxr/VRButton.js';
-        import { XRControllerModelFactory } from 'https://cdn.skypack.dev/three@0.128.0/examples/jsm/webxr/XRControllerModelFactory.js';
+        import * as THREE from 'three';
+        import { VRButton } from 'three/addons/webxr/VRButton.js';
+        import { XRControllerModelFactory } from 'three/addons/webxr/XRControllerModelFactory.js';
+        // import { PointerLockControls } from 'three/addons/controls/PointerLockControls.js';
+        import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+        function in_to_m(inches) {
+            const meters = inches/39.37;
+            return meters;
+        }
 
         // Set up the scene, camera, and renderer
         const scene = new THREE.Scene();
@@ -42,42 +59,49 @@
         renderer.xr.enabled = true;
         document.body.appendChild(renderer.domElement);
 
+        renderer.xr.setReferenceSpaceType('local'); //make the VR camera spawn in the same spot as the original camera
+
         // Add VR button
         document.body.appendChild(VRButton.createButton(renderer));
 
-        // Create a spaceship (represented as a cone)
-        const shipGeometry = new THREE.ConeGeometry(0.5, 2, 32);
-        shipGeometry.rotateX(-Math.PI / 2);
-        const shipMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-        const ship = new THREE.Mesh(shipGeometry, shipMaterial);
+        // Add lighting
+        const ambientLight = new THREE.AmbientLight(0x404040); // Soft white light
+        scene.add(ambientLight);
+
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+        directionalLight.position.set(1, 1, 1);
+        scene.add(directionalLight);
+
+        // Create a group to hold the spaceship model
+        const ship = new THREE.Group();
         scene.add(ship);
 
-		// stars?
-		const geometry = new THREE.BufferGeometry();
-		const vertices = [];
-		for ( let i = 0; i < 10000; i ++ ) {
-			vertices.push( THREE.MathUtils.randFloatSpread( 2000 ) ); // x
-			vertices.push( THREE.MathUtils.randFloatSpread( 2000 ) ); // y
-			vertices.push( THREE.MathUtils.randFloatSpread( 2000 ) ); // z
-		}
-		geometry.setAttribute( 'position', new THREE.Float32BufferAttribute( vertices, 3 ) );
-		const particles = new THREE.Points( geometry, new THREE.PointsMaterial( { color: 0x888888 } ) );
-		scene.add( particles );
+        // Load the GLB model
+        const loader = new GLTFLoader();
+        loader.load(
+            'spaceship.glb',
+            (gltf) => {
+                ship.add(gltf.scene);
+                updateCameraPosition();
+            },
+            (progress) => {
+                console.log('Loading model...', (progress.loaded / progress.total * 100) + '%');
+            },
+            (error) => {
+                console.error('Error loading model', error);
+            }
+        );
 
         // Create asteroids
         const asteroids = [];
+        let radarAsteroids = [];
+        let radarLines = [];
+        const radarScale = 2e-4;//1/1000;
+        const radarSphereRadius = in_to_m(3);//0.18;//0.5;
+        let radarSphere, circle;
+        setupRadar();
         for (let i = 0; i < 100; i++) {
-            const size = Math.random() * 0.5 + 0.1;
-            const geometry = new THREE.SphereGeometry(size, 8, 8);
-            const material = new THREE.MeshBasicMaterial({ color: Math.random() * 0xffffff });
-            const asteroid = new THREE.Mesh(geometry, material);
-            asteroid.position.set(
-                Math.random() * 100 - 50,
-                Math.random() * 100 - 50,
-                Math.random() * 100 - 50
-            );
-            scene.add(asteroid);
-            asteroids.push(asteroid);
+            addAsteroid();
         }
 
         // Set up camera
@@ -85,10 +109,8 @@
         function updateCameraPosition() {
             if (firstPerson) {
                 camera.position.set(0, 0, 0);
-                ship.visible = false;
             } else {
                 camera.position.set(0, 2, 5);
-                ship.visible = true;
             }
             ship.add(camera);
         }
@@ -100,8 +122,8 @@
         const rotationAcceleration = 0.0005;
         const maxRotationSpeed = 0.05;
         const rotationalFriction = 0.98;
-        const maxSpeed = 0.5;
-        const drag = 0.99;
+        let maxSpeed = 0.5;
+        let drag = 0.99;
 
         // Input handling
         const keys = {};
@@ -129,8 +151,15 @@
             return controller;
         }
 
+		// Visualize the ship in VR mode
         renderer.xr.addEventListener('sessionstart', function (event) {
             ship.visible = true;
+
+            // radarSphere.position.z = -0.47;
+            // radarSphere.position.y = -0.55;
+            radarSphere.position.x = in_to_m(7.13);
+            radarSphere.position.z = in_to_m(-16.5);
+            radarSphere.position.y = in_to_m(-16.43);
         });
 
         // Animation loop
@@ -163,9 +192,18 @@
                             // Translate horizontally based on left thumbstick
                             if (index === 0 && gamepad.axes.length >= 4) {
                                 const movementX = gamepad.axes[2];
-                                const movementZ = gamepad.axes[3];
-                                thrustVector.setX(movementX * 0.01);
-                                thrustVector.setZ(movementZ * 0.01);
+                                let movementZ = gamepad.axes[3];
+                                var speedBoost = 1;
+                                maxSpeed = 0.5;
+                                drag = 0.99;
+                                // warp drive when thumbstick pressed
+                                if (gamepad.buttons[3].pressed) {
+                                    speedBoost = 100;
+                                    maxSpeed = 2;
+                                    drag = 0.999;
+                                }
+                                thrustVector.setX(movementX * 0.01 * speedBoost);
+                                thrustVector.setZ(movementZ * 0.01 * speedBoost);
                             }
                             thrustVector.applyQuaternion(ship.quaternion);
                             velocity.add(thrustVector);
@@ -191,7 +229,12 @@
             }
         }
 
-        function render() {
+        let lastTime = 0;
+        function render(now) {
+            let deltaT = now-lastTime;
+            if (lastTime == 0) { deltaT = 0.01; }
+            lastTime = now;
+            // console.log(now);
             handleVRInput();
 
             // Apply thrust based on key presses (in local space)
@@ -224,8 +267,8 @@
             // Apply rotation
             const rotationQuaternion = new THREE.Quaternion();
             rotationQuaternion.setFromEuler(new THREE.Euler(
-                angularVelocity.x,
-                angularVelocity.y,
+            angularVelocity.x,
+            angularVelocity.y,
                 angularVelocity.z,
                 'XYZ'
             ));
@@ -244,6 +287,9 @@
             // Update ship position
             ship.position.add(velocity);
 
+            // update radar
+            updateRadar();
+
             renderer.render(scene, camera);
         }
 
@@ -253,6 +299,123 @@
             camera.updateProjectionMatrix();
             renderer.setSize(window.innerWidth, window.innerHeight);
         });
+
+        function addAsteroid() {
+            // const size = Math.random() * 0.5 + 0.1;
+            const sizeX = Math.pow(4, (9*Math.random()-6)) + 1 + 0.25;
+            const sizeY = Math.pow(4, (9*Math.random()-6)) + 1 + 0.25;
+            const sizeZ = Math.pow(4, (9*Math.random()-6)) + 1 + 0.25;
+            const size = (sizeX+sizeY+sizeZ)/3;
+            const geometry = new THREE.BoxGeometry(sizeX, sizeY, sizeZ);
+            const material = new THREE.MeshPhongMaterial({ color: Math.random() * 0xffffff });
+            const cube = new THREE.Mesh(geometry, material);
+            cube.position.set(
+                Math.random() * 500 - 250,
+                Math.random() * 500 - 250,
+                Math.random() * 500 - 250
+            );
+            cube.castShadow = true;
+            cube.receiveShadow = true;
+            scene.add(cube);
+            asteroids.push(cube);
+
+            // Add corresponding radar asteroid
+            // const radarGeometry = new THREE.SphereGeometry(size * radarScale, 8, 8);
+            const radarGeometry = new THREE.BoxGeometry(sizeX * radarScale, sizeY * radarScale, sizeZ * radarScale);
+            const radarMaterial = new THREE.MeshBasicMaterial({ color: cube.material.color });
+            const radarAsteroid = new THREE.Mesh(radarGeometry, radarMaterial);
+            radarSphere.add(radarAsteroid);
+            radarAsteroids.push(radarAsteroid);
+
+            // Add vertical line for radar asteroid
+            const lineMaterial = new THREE.LineBasicMaterial({ color: cube.material.color });
+            const lineGeometry = new THREE.BufferGeometry().setFromPoints([
+                new THREE.Vector3(0, 0, 0),
+                new THREE.Vector3(0, 0, 0)
+            ]);
+            const line = new THREE.Line(lineGeometry, lineMaterial);
+            radarSphere.add(line);
+            radarLines.push(line);
+        }
+
+        function setupRadar() {
+            // Radar sphere
+            const radarSphereGeometry = new THREE.SphereGeometry(radarSphereRadius, 32, 32);
+            const radarSphereMaterial = new THREE.MeshBasicMaterial({
+                color: 0x00ff00,
+                transparent: true,
+                opacity: 0.2,
+                wireframe: false,
+                depthWrite: false,
+            });
+            radarSphere = new THREE.Mesh(radarSphereGeometry, radarSphereMaterial);
+            radarSphere.position.z = -1;
+            radarSphere.position.y = -0.55;
+            ship.add(radarSphere);
+
+            // Horizontal plane (circle)
+            const circleGeometry = new THREE.CircleGeometry(radarSphereRadius, 32);
+            const circleMaterial = new THREE.MeshBasicMaterial({
+                color: 0x00ffff,
+                transparent: true,
+                opacity: 0.3,
+                side: THREE.DoubleSide,
+                wireframe: false,
+                depthWrite: true
+            });
+            circle = new THREE.Mesh(circleGeometry, circleMaterial);
+            circle.rotation.x = Math.PI / 2;
+            radarSphere.add(circle);
+
+            // Camera dot
+            const cameraDotGeometry = new THREE.SphereGeometry(0.005, 8, 8);
+            const cameraDotMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+            const cameraDot = new THREE.Mesh(cameraDotGeometry, cameraDotMaterial);
+            radarSphere.add(cameraDot);
+
+            // radarSphere.material.visible = false;
+            // circle.material.visible = false;
+            // cameraDot.material.visible = true;
+        }
+
+        function updateRadar() {
+            const cameraPosition = ship.position;
+            const cameraQuaternion = ship.quaternion;
+
+            for (let i = 0; i < asteroids.length; i++) {
+                const asteroid = asteroids[i];
+                const radarAsteroid = radarAsteroids[i];
+                const radarLine = radarLines[i];
+
+                // Calculate relative position
+                const relativePosition = asteroid.position.clone().sub(cameraPosition);
+                relativePosition.applyQuaternion(cameraQuaternion.clone().invert());
+
+                // Scale down the position for the radar
+                const scaledPosition = relativePosition.multiplyScalar(radarScale);
+
+                const radarTranslatedPosition = scaledPosition.clone();//.add(radarSphere.position);
+
+                // Update radar asteroid position
+                radarAsteroid.position.copy(radarTranslatedPosition);
+                radarAsteroid.rotation.copy(asteroid.rotation.clone());
+                radarAsteroid.applyQuaternion(ship.quaternion.clone().invert());
+                radarAsteroid.needsUpdate = true;
+
+                // // Update vertical line
+                // const linePositions = radarLine.geometry.attributes.position;
+                // linePositions.setXYZ(0, radarTranslatedPosition.x, radarTranslatedPosition.y, radarTranslatedPosition.z);
+                // linePositions.setXYZ(1, radarTranslatedPosition.x, 0, radarTranslatedPosition.z);
+                // linePositions.needsUpdate = true;
+
+                // Hide radar asteroid and line if outside the radar sphere
+                const meshBounds = new THREE.Box3().setFromObject(radarAsteroid);
+                const sphere = new THREE.Sphere(radarSphere.getWorldPosition(new THREE.Vector3()), radarSphereRadius);
+                const isVisible = meshBounds.intersectsSphere(sphere);
+                radarAsteroid.visible = isVisible;
+                radarLine.visible = isVisible;
+            }
+        }
 
         animate();
     </script>
