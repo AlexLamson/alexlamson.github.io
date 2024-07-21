@@ -40,36 +40,62 @@
     const progressBar = document.querySelector(".progress-bar");
 
     const stringsWithDurationInSeconds = [
-    ["Stand up", 5],
-    ["Bicep stretch left", 15],
-    ["Get In Next Pose", 5],
-    ["Bicep stretch right", 15],
-    ["Get In Next Pose", 5],
-    ["Tricep stretch left", 15],
-    ["Get In Next Pose", 4],
-    ["Tricep stretch right", 15],
-    ["Get In Next Pose", 5],
-    ["Grab left ankle", 10],
-    ["Get In Next Pose", 5],
-    ["Grab right ankle", 10],
-    ["Get In Next Pose", 5],
-    ["Reach down and touch toes", 15],
-    ["Get In Next Pose", 9],
-    ["Downward facing dog", 20],
-    ["Get In Next Pose", 5],
-    ["Cat and cow", 30],
-    ["Get In Next Pose", 5],
-    ["Upward Facing Dog", 30],
-    ["Get In Next Pose", 7],
-    ["Half Tortoise", 20],
-    ["Get In Next Pose", 7],
-    ["Hip rotation left", 15],
-    ["Get In Next Pose", 7],
-    ["Hip rotation right", 15],
-    ["Get In Next Pose", 7],
-    ["Butterfly", 15],
-    ["Routine Complete", 0]
+      ["Stand up", 5],
+      ["Bicep stretch left", 15],
+      ["Get In Next Pose", 5],
+      ["Bicep stretch right", 15],
+      ["Get In Next Pose", 5],
+      ["Tricep stretch left", 15],
+      ["Get In Next Pose", 4],
+      ["Tricep stretch right", 15],
+      ["Get In Next Pose", 5],
+      ["Grab left ankle", 10],
+      ["Get In Next Pose", 5],
+      ["Grab right ankle", 10],
+      ["Get In Next Pose", 5],
+      ["Reach down and touch toes", 15],
+      ["Get In Next Pose", 9],
+      ["Downward facing dog", 20],
+      ["Get In Next Pose", 5],
+      ["Cat and cow", 30],
+      ["Get In Next Pose", 5],
+      ["Upward Facing Dog", 30],
+      ["Get In Next Pose", 7],
+      ["Half Tortoise", 20],
+      ["Get In Next Pose", 7],
+      ["Hip rotation left", 15],
+      ["Get In Next Pose", 7],
+      ["Hip rotation right", 15],
+      ["Get In Next Pose", 7],
+      ["Butterfly", 15],
+      ["Routine Complete", 0]
     ];
+
+    let wakeLock = null;
+
+    async function requestWakeLock() {
+      try {
+        wakeLock = await navigator.wakeLock.request('screen');
+        console.log('Wake Lock is active!');
+        wakeLock.addEventListener('release', () => {
+          console.log('Wake Lock was released');
+        });
+      } catch (err) {
+        console.error(`${err.name}, ${err.message}`);
+      }
+    }
+
+    async function releaseWakeLock() {
+      if (wakeLock !== null) {
+        try {
+          await wakeLock.release();
+          wakeLock = null;
+          console.log('Wake Lock released');
+        } catch (err) {
+          console.error(`${err.name}, ${err.message}`);
+        }
+      }
+    }
 
     let isStarted = false;
     let totalTime = 0;
@@ -83,95 +109,117 @@
 
     timerDiv.textContent = `${formatTime(passedTime)} / ${formatTime(totalTime)}`;
 
+    function startRoutine() {
+      // Request a wake lock when starting the routine
+      requestWakeLock();
+
+      isStarted = true;
+      startResetBtn.textContent = "Reset";
+      displayStrings();
+      timerInterval = setInterval(updateTimer, 1000);
+    }
+
+    function finishedRoutine() {
+      // Release the wake lock when the routine finishes
+      releaseWakeLock();
+    }
+
+    function resetRoutine() {
+      isStarted = false;
+      startResetBtn.textContent = "Start";
+      textHeading.textContent = "";
+      textHeading2.textContent = "";
+      textHeading3.textContent = "";
+      clearTimeout(currentTimeout);
+      clearInterval(timerInterval);
+      passedTime = 0;
+      timerDiv.textContent = `${formatTime(passedTime)} / ${formatTime(totalTime)}`;
+      progressBar.style.width = "0%";
+
+      // Release the wake lock when resetting the routine
+      releaseWakeLock();
+    }
+
     startResetBtn.addEventListener("click", () => {
       if (!isStarted) {
-        isStarted = true;
-        startResetBtn.textContent = "Reset";
-        displayStrings();
-        timerInterval = setInterval(updateTimer, 1000);
+        startRoutine();
       } else {
-        isStarted = false;
-        startResetBtn.textContent = "Start";
-        textHeading.textContent = "";
-        textHeading2.textContent = "";
-        textHeading3.textContent = "";
-        clearTimeout(currentTimeout);
-        clearInterval(timerInterval);
-        passedTime = 0;
-        timerDiv.textContent = `${formatTime(passedTime)} / ${formatTime(totalTime)}`;
-        progressBar.style.width = "0%";
+        resetRoutine();
       }
     });
 
     function displayStrings(index = 0) {
-      if (index === stringsWithDurationInSeconds.length) return;
-
-        let s = stringsWithDurationInSeconds[index][0];
-        if (s == "Get In Next Pose" || s == "Routine Complete") {
-          beepDown();
-        } else {
-          beepUp();
-        }
-
-        textHeading.textContent = stringsWithDurationInSeconds[index][0];
-        textHeading2.textContent = stringsWithDurationInSeconds[index + 1] ? stringsWithDurationInSeconds[index + 1][0] : '';
-        textHeading3.textContent = stringsWithDurationInSeconds[index + 2] ? stringsWithDurationInSeconds[index + 2][0] : '';
-        currentTimeout = setTimeout(() => {
-          displayStrings(index + 1);
-        }, stringsWithDurationInSeconds[index][1] * 1000); // Convert seconds to milliseconds
+      if (index === stringsWithDurationInSeconds.length) {
+        finishedRoutine();
+        return;
       }
 
-      function updateTimer() {
-        passedTime += 1000;
-        timerDiv.textContent = `${formatTime(passedTime)} / ${formatTime(totalTime)}`;
-        const progressPercentage = (passedTime / totalTime) * 100;
-        progressBar.style.width = `${progressPercentage}%`;
-        if (passedTime === totalTime) {
-          clearInterval(timerInterval);
-        }
+      let s = stringsWithDurationInSeconds[index][0];
+      if (s == "Get In Next Pose" || s == "Routine Complete") {
+        beepDown();
+      } else {
+        beepUp();
       }
 
-      function formatTime(ms) {
-        const minutes = Math.floor(ms / 60000);
-        const seconds = Math.floor((ms % 60000) / 1000);
-        return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+      textHeading.textContent = stringsWithDurationInSeconds[index][0];
+      textHeading2.textContent = stringsWithDurationInSeconds[index + 1] ? stringsWithDurationInSeconds[index + 1][0] : '';
+      textHeading3.textContent = stringsWithDurationInSeconds[index + 2] ? stringsWithDurationInSeconds[index + 2][0] : '';
+      currentTimeout = setTimeout(() => {
+        displayStrings(index + 1);
+      }, stringsWithDurationInSeconds[index][1] * 1000); // Convert seconds to milliseconds
+    }
+
+    function updateTimer() {
+      passedTime += 1000;
+      timerDiv.textContent = `${formatTime(passedTime)} / ${formatTime(totalTime)}`;
+      const progressPercentage = (passedTime / totalTime) * 100;
+      progressBar.style.width = `${progressPercentage}%`;
+      if (passedTime === totalTime) {
+        clearInterval(timerInterval);
       }
+    }
 
-      function createBeep(frequencies) {
-        var audioCtx = new(window.AudioContext || window.webkitAudioContext)();
-        const oscillator = audioCtx.createOscillator();
-        oscillator.type = "sine";
+    function formatTime(ms) {
+      const minutes = Math.floor(ms / 60000);
+      const seconds = Math.floor((ms % 60000) / 1000);
+      return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+    }
 
-        var volume = audioCtx.createGain();
-        oscillator.connect(volume);
-        volume.connect(audioCtx.destination);
-        volume.gain.value = 1;
+    function createBeep(frequencies) {
+      var audioCtx = new(window.AudioContext || window.webkitAudioContext)();
+      const oscillator = audioCtx.createOscillator();
+      oscillator.type = "sine";
 
-        const duration = 0.15;
+      var volume = audioCtx.createGain();
+      oscillator.connect(volume);
+      volume.connect(audioCtx.destination);
+      volume.gain.value = 1;
 
-        var now = audioCtx.currentTime;
-        var noteTime = now;
+      const duration = 0.15;
 
-        frequencies.forEach(freq => {
-          oscillator.frequency.setValueAtTime(freq, noteTime);
-          noteTime += duration;
-        });
+      var now = audioCtx.currentTime;
+      var noteTime = now;
 
-        volume.gain.setValueAtTime(1, noteTime);
+      frequencies.forEach(freq => {
+        oscillator.frequency.setValueAtTime(freq, noteTime);
         noteTime += duration;
-        volume.gain.linearRampToValueAtTime(0.0, noteTime);
+      });
 
-        oscillator.start(now);
-        oscillator.stop(noteTime);
-      }
+      volume.gain.setValueAtTime(1, noteTime);
+      noteTime += duration;
+      volume.gain.linearRampToValueAtTime(0.0, noteTime);
 
-      function beepUp() {
-        createBeep([440.00, 659.25, 554.37, 880.00]);
-      }
+      oscillator.start(now);
+      oscillator.stop(noteTime);
+    }
 
-      function beepDown() {
-        createBeep([880.00, 554.37, 659.25, 440.00]);
-      }
-    </script>
+    function beepUp() {
+      createBeep([440.00, 659.25, 554.37, 880.00]);
+    }
+
+    function beepDown() {
+      createBeep([880.00, 554.37, 659.25, 440.00]);
+    }
+  </script>
   </body>
   </html>
