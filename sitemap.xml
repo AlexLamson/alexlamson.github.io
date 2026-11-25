@@ -7,40 +7,46 @@
 
 
 <url>
-  <loc>https://www.alexlamson.com/</loc>
+  <loc>https://alexlamson.com/</loc>
   <lastmod>2019-06-21</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://www.alexlamson.com/tilt-pong</loc>
+  <loc>https://alexlamson.com/tilt-pong</loc>
   <lastmod>2019-06-21</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.alexlamson.com/eat</loc>
+  <loc>https://alexlamson.com/eat</loc>
   <lastmod>2019-06-21</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.alexlamson.com/comment</loc>
+  <loc>https://alexlamson.com/comment</loc>
   <lastmod>2019-06-21</lastmod>
   <priority>0.70</priority>
 </url>
 <url>
-  <loc>https://www.alexlamson.com/stretches</loc>
+  <loc>https://alexlamson.com/stretches</loc>
   <lastmod>2019-06-21</lastmod>
   <priority>0.70</priority>
 </url>
 <url>
-  <loc>https://www.alexlamson.com/ml</loc>
+  <loc>https://alexlamson.com/ml</loc>
   <lastmod>2019-06-21</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.alexlamson.com/bus</loc>
+  <loc>https://alexlamson.com/bus</loc>
   <lastmod>2019-06-21</lastmod>
   <priority>0.70</priority>
 </url>
 
+<url>
+  <loc>https://alexlamson.com/linear</loc>
+</url>
+<url>
+  <loc>https://alexlamson.com/stats</loc>
+</url>
 
 </urlset>
