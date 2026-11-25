@@ -1,9 +1,10 @@
-$(function(){
-    $("#nav-placeholder").load("nav.html", function() {
-        // get current URL path and assign 'active' class
-        var pathname = window.location.pathname;
-        var activeLink = $('nav a[href="'+pathname+'"]');
-        activeLink.addClass('active');
-        activeLink.append(' <span class="sr-only">(current)</span>');
+$(function () {
+    $('#nav-placeholder').load('/nav.html nav', function () {
+        for (const link of this.querySelectorAll('nav a[href]')) {
+            if (link.href === `${window.location.origin}${window.location.pathname}`) {
+                link.classList.add('active');
+                link.setAttribute('aria-current', 'page');
+            }
+        }
     });
 });

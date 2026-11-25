@@ -22,41 +22,12 @@
 		<link rel="stylesheet" href="./css/bootstrap.min.css">
 		<link rel="stylesheet" href="./css/alexlamson.css">
 
-		<!-- Global Site Tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-61548012-2"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-		gtag('config', 'UA-61548012-2');
-	</script>
-
-	<!-- Scripts -->
-	<script src="./js/popper.min.js"></script>
-	<script src="./js/jquery.min.js"></script>
-	<script src="./js/bootstrap.min.js"></script>
-
-	<script src="https://cdn.jsdelivr.net/npm/moment@2.30.1/min/moment.min.js"></script>
-	<script src="js/bus.js"></script>
-	<script src="./js/national_days.js"></script>
-	<script>
-		$(document).ready(function() {
-			var d = new Date();
-			var month = d.getMonth(); //(0-11)
-			var day = d.getDate(); //(1-31)
-			var weekday = d.getDay(); //(0-6)
-
-			if(((month+1)+'-'+day) in national_days) {
-				var national_day = national_days[(month+1)+'-'+day];
-				$('#specialDay').text(national_day);
-			}
-		});
-
-	</script>
-
-	<!-- CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/alexlamson.css">
+	<script defer src="./js/jquery.min.js"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/moment@2.31.0/min/moment.min.js"
+		integrity="sha384-BNUDfwW0tJtM81jZSBjQbvwu8Q9HIkAkYK8a/s2cAwKv0A4ys7sbOlFY+zQda78e"
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script defer src="./js/national_days.js"></script>
+	<script defer src="./js/bus.js"></script>
 
 </head>
 <body class="container-fluid">
@@ -67,18 +38,11 @@
 
 		<p id="specialDay"></p>
 
-		<p><a href="stretches.html" target="_blank">Stretches</a></p>
+		<p><a href="stretches.html" target="_blank" rel="noopener">Stretches</a></p>
 
 		<p><a href="https://www.umass.edu/closing/">Closing information</a></p>
 
-		<h2 class="h3">Home Departure Times</h2>
-		<!-- <table>
-			<tr>
-				<th>Company</th>
-				<th>Contact</th>
-			</tr>
-			<div id="times-display"></div>
-		</table> -->
+		<h2 class="h3">Departure Times</h2>
 		<div id="times-display"></div>
 
 	</div>
