@@ -20,7 +20,7 @@
 <body>
   <div class="container text-center">
     <div class="progress">
-      <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+      <div class="progress-bar" role="progressbar" aria-label="Stretch progress" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
     </div>
     <p class="timer"></p>
     <button id="start-reset-btn" class="btn btn-primary btn-xl">Start</button>
@@ -133,6 +133,7 @@
       passedTime = 0;
       timerDiv.textContent = `${formatTime(passedTime)} / ${formatTime(totalTime)}`;
       progressBar.style.width = "0%";
+      progressBar.setAttribute("aria-valuenow", 0);
 
       // Release the wake lock when resetting the routine
       releaseWakeLock();
@@ -172,6 +173,7 @@
       timerDiv.textContent = `${formatTime(passedTime)} / ${formatTime(totalTime)}`;
       const progressPercentage = (passedTime / totalTime) * 100;
       progressBar.style.width = `${progressPercentage}%`;
+      progressBar.setAttribute("aria-valuenow", Math.round(progressPercentage));
       if (passedTime === totalTime) {
         clearInterval(timerInterval);
       }

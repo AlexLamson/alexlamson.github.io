@@ -111,6 +111,8 @@ function updateTotals() {
         // if(meal_type == "miscellaneous") {
         //     progress_bar.style.width = "100%";
         // }
+        progress_bar.setAttribute("aria-valuenow", Math.min(total, 7));
+        progress_bar.setAttribute("aria-valuetext", total + " of 7 servings");
         progress_bar.innerHTML = total+" / 7";
     }
 }
