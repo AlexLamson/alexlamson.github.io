@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -53,7 +54,7 @@
 
 			if(((month+1)+'-'+day) in national_days) {
 				var national_day = national_days[(month+1)+'-'+day];
-				$('#specialDay').prepend('<p>'+national_day+'</p>');
+				$('#specialDay').text(national_day);
 			}
 		});
 
@@ -70,7 +71,7 @@
 			Bus Tracker
 		</h1>
 
-		<p id="specialDay" target="_blank"></p>
+		<p id="specialDay"></p>
 
 		<p><a href="stretches.html" target="_blank">Stretches</a></p>
 
@@ -78,7 +79,7 @@
 
 		<p><a href="https://www.umass.edu/closing/">Closing information</a></p>
 
-		<h3>Home Departure Times</h3>
+		<h2 class="h3">Home Departure Times</h2>
 		<!-- <table>
 			<tr>
 				<th>Company</th>
