@@ -27,19 +27,7 @@
 	<script defer src="./js/jquery.min.js"></script>
 	<script defer src="./js/bootstrap.min.js"></script>
 
-	<!-- Global Site Tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-61548012-2"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-		gtag('config', 'UA-61548012-2');
-	</script>
 
-	<!-- mathjax -->
-	<!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
 </head>
 <body>
 
@@ -211,10 +199,10 @@
 								<b>Log-normal</b> - Like normal, but the product of trials
 							</li>
 							<li class="list-group-item">
-								<b>Student's t</b> - As its parameter `\nu` increases, approaches the normal distribution
+								<b>Student's t</b> - As its parameter <math><mi>&#x03BD;</mi></math> increases, approaches the normal distribution
 							</li>
 							<li class="list-group-item">
-								<b>Chi-squared (`\chi^2`)</b> - Distribution of the sum of squares of normally-distributed values
+								<b>Chi-squared (<math><msup><mi>&#x03C7;</mi><mn>2</mn></msup></math>)</b> - Distribution of the sum of squares of normally-distributed values
 							</li>
 							<li class="list-group-item">
 								<b>Gamma</b> - <u><b>TODO</b></u>
@@ -247,19 +235,38 @@
 							<tbody>
 								<tr>
 									<td><b>Residual sum of squares</b></td>
-									<td>`sum_(i=1)^N (y-\hat{y})^2`</td>
+									<td><math>
+										<msubsup><mo>&#x2211;</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>N</mi></msubsup>
+										<msup><mrow><mo>(</mo><mi>y</mi><mo>&#x2212;</mo><mover accent="true"><mi>y</mi><mo>^</mo></mover><mo>)</mo></mrow><mn>2</mn></msup>
+									</math></td>
 								</tr>
 								<tr>
 									<td><b>Ordinary least squares regression (OLS)</b></td>
-									<td>`argmin_w sum_(i=1)^N (y_i-wX_i)^2`</td>
+									<td><math>
+										<msub><mi>argmin</mi><mi>w</mi></msub>
+										<msubsup><mo>&#x2211;</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>N</mi></msubsup>
+										<msup><mrow><mo>(</mo><msub><mi>y</mi><mi>i</mi></msub><mo>&#x2212;</mo><mi>w</mi><msub><mi>X</mi><mi>i</mi></msub><mo>)</mo></mrow><mn>2</mn></msup>
+									</math></td>
 								</tr>
 								<tr>
 									<td><b>Ridge regression (OLS with L2 regularization)</b></td>
-									<td>`argmin_w sum_(i=1)^N (y_i-wX_i)^2 + \lambda sum_(j=1)^M w_j^2` <!-- OLS with L2 regularization term --></td>
+									<td><math>
+										<msub><mi>argmin</mi><mi>w</mi></msub>
+										<msubsup><mo>&#x2211;</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>N</mi></msubsup>
+										<msup><mrow><mo>(</mo><msub><mi>y</mi><mi>i</mi></msub><mo>&#x2212;</mo><mi>w</mi><msub><mi>X</mi><mi>i</mi></msub><mo>)</mo></mrow><mn>2</mn></msup>
+										<mo>+</mo><mi>&#x03BB;</mi><msubsup><mo>&#x2211;</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>M</mi></msubsup>
+										<msubsup><mi>w</mi><mi>j</mi><mn>2</mn></msubsup>
+									</math></td>
 								</tr>
 								<tr>
 									<td><b>LASSO regression (OLS with L1 regularization)</b></td>
-									<td>`argmin_w sum_(i=1)^N (y_i-wX_i)^2 + \lambda sum_(j=1)^M w_j` <!-- OLS with L1 regularization term --></td>
+									<td><math>
+										<msub><mi>argmin</mi><mi>w</mi></msub>
+										<msubsup><mo>&#x2211;</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>N</mi></msubsup>
+										<msup><mrow><mo>(</mo><msub><mi>y</mi><mi>i</mi></msub><mo>&#x2212;</mo><mi>w</mi><msub><mi>X</mi><mi>i</mi></msub><mo>)</mo></mrow><mn>2</mn></msup>
+										<mo>+</mo><mi>&#x03BB;</mi><msubsup><mo>&#x2211;</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>M</mi></msubsup>
+										<msub><mi>w</mi><mi>j</mi></msub>
+									</math></td>
 								</tr>
 							</tbody>
 						</table>

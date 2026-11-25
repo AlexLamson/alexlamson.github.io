@@ -2,7 +2,8 @@
   "name": "alexlamson",
   "version": "0.0.1",
   "scripts": {
-    "serve": "http-server -c-1"
+    "serve": "http-server -a 127.0.0.1 -d false -c-1",
+    "test": "node --test"
   },
   "author": "Alex Lamson <alex.lamson@gmail.com>",
   "devDependencies": {
