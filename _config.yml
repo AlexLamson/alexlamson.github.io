@@ -1,0 +1,10 @@
+exclude:
+  - assets/*-Private.pdf
+  - node_modules/
+  - notes/
+  - package.json
+  - package-lock.json
+  - profiles.html
+  - README.md
+  - test/
+  - TODO.md
